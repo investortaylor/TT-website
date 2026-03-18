@@ -12,28 +12,28 @@ function ComparisonIllustration() {
     <div className="grid grid-cols-2 gap-6 max-w-lg mx-auto">
       {/* Before - Old way */}
       <div className="relative">
-        <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
-          <p className="font-mono text-xs font-bold text-red-400 tracking-wider uppercase mb-3">
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
+          <p className="font-mono text-xs font-bold text-blue-500 tracking-wider uppercase mb-3">
             The Old Way
           </p>
           <svg viewBox="0 0 160 140" fill="none" className="w-full">
             {/* Sad person */}
-            <circle cx="80" cy="40" r="20" fill="#fecaca" />
-            <circle cx="72" cy="36" r="2" fill="#991b1b" />
-            <circle cx="88" cy="36" r="2" fill="#991b1b" />
-            <path d="M70 48c4-3 16-3 20 0" stroke="#991b1b" strokeWidth="2" strokeLinecap="round" transform="scale(1,-1) translate(0,-96)" />
+            <circle cx="80" cy="40" r="20" fill="#bfdbfe" />
+            <circle cx="72" cy="36" r="2" fill="#1877F2" />
+            <circle cx="88" cy="36" r="2" fill="#1877F2" />
+            <path d="M70 48c4-3 16-3 20 0" stroke="#1877F2" strokeWidth="2" strokeLinecap="round" transform="scale(1,-1) translate(0,-96)" />
             {/* Phone with messages */}
-            <rect x="55" y="70" width="50" height="50" rx="8" fill="#fee2e2" />
-            <rect x="62" y="78" width="36" height="5" rx="2" fill="#fecaca" />
-            <rect x="62" y="87" width="28" height="5" rx="2" fill="#fecaca" />
-            <rect x="62" y="96" width="32" height="5" rx="2" fill="#fecaca" />
-            <rect x="62" y="105" width="20" height="5" rx="2" fill="#fecaca" />
+            <rect x="55" y="70" width="50" height="50" rx="8" fill="#dbeafe" />
+            <rect x="62" y="78" width="36" height="5" rx="2" fill="#bfdbfe" />
+            <rect x="62" y="87" width="28" height="5" rx="2" fill="#bfdbfe" />
+            <rect x="62" y="96" width="32" height="5" rx="2" fill="#bfdbfe" />
+            <rect x="62" y="105" width="20" height="5" rx="2" fill="#bfdbfe" />
             {/* Question marks */}
-            <text x="120" y="50" fill="#dc2626" fontSize="20" fontWeight="bold" opacity="0.4">?</text>
-            <text x="30" y="90" fill="#dc2626" fontSize="16" fontWeight="bold" opacity="0.3">?</text>
-            <text x="130" y="100" fill="#dc2626" fontSize="14" fontWeight="bold" opacity="0.2">?</text>
+            <text x="120" y="50" fill="#1877F2" fontSize="20" fontWeight="bold" opacity="0.4">?</text>
+            <text x="30" y="90" fill="#1877F2" fontSize="16" fontWeight="bold" opacity="0.3">?</text>
+            <text x="130" y="100" fill="#1877F2" fontSize="14" fontWeight="bold" opacity="0.2">?</text>
           </svg>
-          <p className="font-body text-xs text-red-400 text-center mt-2">
+          <p className="font-body text-xs text-blue-500 text-center mt-2">
             "Is this still available?"
           </p>
         </div>
