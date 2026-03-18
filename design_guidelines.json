@@ -1,0 +1,150 @@
+{
+  "project_name": "TruTown Marketplace",
+  "design_philosophy": {
+    "persona": "E1 - The Anti-AI Designer",
+    "core_principles": [
+      "Fusion over Imitation: Mix 'Old World Trust' (Bank/Newspaper) with 'New World Tech' (Clean Mobile App).",
+      "Emotion First: Every element must scream 'Safety' and 'Community'.",
+      "Content is King: Copy leads the design. Typography is the interface.",
+      "Negative Space: generous padding to create a sense of calm and clarity."
+    ],
+    "anti_patterns": [
+      "No generic 'Startup Purple' or 'SaaS Blue'.",
+      "No strictly centered layouts for everything.",
+      "No 'Inter' for headings.",
+      "No generic stock photos of 'business handshakes'."
+    ]
+  },
+  "typography": {
+    "font_family": {
+      "heading": "\"DM Serif Display\", serif",
+      "body": "\"Manrope\", sans-serif",
+      "accent": "\"Space Mono\", monospace"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');"
+    ],
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-normal tracking-tight leading-[0.95]",
+      "h2": "text-4xl md:text-5xl font-normal tracking-tight leading-tight",
+      "h3": "text-2xl md:text-3xl font-normal leading-snug",
+      "body": "text-base md:text-lg text-stone-600 leading-relaxed",
+      "caption": "text-sm text-stone-500 font-medium tracking-wide uppercase"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#15803d",
+        "foreground": "#ffffff",
+        "hover": "#166534",
+        "description": "Deep Emerald Green - Represents money, growth, and safety."
+      },
+      "secondary": {
+        "DEFAULT": "#ca8a04",
+        "foreground": "#ffffff",
+        "description": "Antique Gold - Adds value, premium feel, and warmth."
+      },
+      "background": {
+        "DEFAULT": "#fafaf9",
+        "paper": "#f5f5f4",
+        "description": "Warm Stone/Paper - Feels physical and grounded, not digital."
+      },
+      "foreground": {
+        "DEFAULT": "#1c1917",
+        "muted": "#57534e"
+      },
+      "accent": {
+        "DEFAULT": "#fcd34d",
+        "soft": "#fefce8"
+      },
+      "destructive": {
+        "DEFAULT": "#b91c1c"
+      }
+    },
+    "theme_mode": "light"
+  },
+  "components": {
+    "buttons": {
+      "primary": "rounded-full bg-primary text-primary-foreground px-8 py-4 font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300",
+      "secondary": "rounded-full border-2 border-stone-200 bg-transparent text-stone-800 px-8 py-4 font-semibold hover:bg-stone-100 transition-all duration-300"
+    },
+    "cards": {
+      "feature": "bg-white rounded-2xl p-8 border border-stone-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300",
+      "testimonial": "bg-stone-50 rounded-xl p-6 border border-stone-200"
+    },
+    "inputs": {
+      "base": "rounded-lg border-stone-200 bg-white px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+    }
+  },
+  "layout_strategies": {
+    "grid_system": "The Bento Grid (Tetris Mode)",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "spacing": "Generous. Use p-24 or p-32 for section padding.",
+    "border_radius": "rounded-2xl for containers, rounded-full for buttons."
+  },
+  "visual_enhancers": {
+    "textures": "Use subtle noise overlays (opacity 0.03) on backgrounds to give a paper feel.",
+    "shadows": "Soft, diffused ambient shadows. No harsh drop shadows.",
+    "gradients": "Avoid full gradients. Use subtle mesh gradients in pale gold/green for hero backgrounds.",
+    "icons": "Lucide React icons. Stroke width 1.5px. Color: Primary Green or Gold."
+  },
+  "sections_guidelines": {
+    "hero": {
+      "structure": "Split layout. Left: Typography + CTAs. Right: Abstract/mockup composition.",
+      "vibe": "Welcoming, Safe, Clear.",
+      "elements": [
+        "Tagline in H1",
+        "Subtext explaining 'Deposit-based accountability'",
+        "Two buttons: Apple Store & Google Play",
+        "Trust badges (e.g., 'Secure Payments', 'Verified Users')"
+      ]
+    },
+    "how_it_works": {
+      "structure": "Vertical Step-by-Step with 'Tracing Beam' effect.",
+      "steps": [
+        "1. List Item",
+        "2. Buyer Commits Deposit",
+        "3. Meet & Exchange",
+        "4. Deposit Returned"
+      ]
+    },
+    "features": {
+      "structure": "Bento Grid.",
+      "items": [
+        "No More Flakes (Hero Cell)",
+        "Secure Deposits (Square Cell)",
+        "Verified Community (Tall Cell)",
+        "Dispute Resolution (Filler Cell)"
+      ]
+    },
+    "testimonials": {
+      "structure": "Horizontal scrolling marquee or grid of cards.",
+      "content": "Focus on stories of 'finally selling that couch' or 'buying a bike without worry'."
+    }
+  },
+  "image_guidelines": {
+    "style": "Candid, warm, natural light. No studio backgrounds. Focus on the *exchange* and the *relationship*.",
+    "search_queries": [
+      "happy neighbors talking street sunny",
+      "person holding smartphone smiling outdoors cafe",
+      "two people shaking hands park",
+      "young woman carrying box moving house smiling"
+    ],
+    "fallback_strategy": "Use high-quality placeholders from Unsplash source URL if search tool fails: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80', 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80'"
+  },
+  "universal_guidelines": {
+    "accessibility": "Ensure text contrast ratio > 4.5:1. Use Aria labels for all interactive elements.",
+    "responsive": "Mobile-first. Stack grids on mobile. Reduce font sizes by 20% on small screens.",
+    "testing": "All interactive elements MUST have data-testid attributes."
+  },
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' and 'framer-motion' immediately.",
+    "Add the font imports to index.css.",
+    "Update tailwind.config.js with the custom colors and font families.",
+    "Create a 'components/landing' folder for section-specific components.",
+    "Use 'framer-motion' for entrance animations (fade-up, stagger).",
+    "Ensure the 'Admin Portal' link is in the footer, discreet but accessible.",
+    "Use the provided Logo URL: https://customer-assets.emergentagent.com/job_429863dc-af33-4be7-adee-a48c693f90dc/artifacts/8iekwl2c_dva6lxum_ta-log.png"
+  ]
+}
