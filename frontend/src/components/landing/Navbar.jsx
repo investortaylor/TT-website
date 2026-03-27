@@ -31,16 +31,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" data-testid="navbar-logo" className="flex items-center gap-3">
+          <a href="#" data-testid="navbar-logo" className="flex items-center">
             <img
               src="/logo.png"
               alt="TruTown Marketplace"
-              className="h-[75px] md:h-[90px] w-auto"
+              className="h-[75px] md:h-[90px] w-auto my-2"
               style={{ mixBlendMode: "multiply" }}
             />
-            <span className="font-heading text-base md:text-lg text-stone-900 hidden sm:block">
-              TruTown
-            </span>
           </a>
 
           {/* Desktop Links */}
