@@ -38,7 +38,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="TruTown Marketplace"
-                className="h-10 w-auto brightness-110"
+                className="h-[60px] w-auto brightness-110"
                 style={{ mixBlendMode: "screen" }}
               />
               <span className="font-heading text-xl text-white">

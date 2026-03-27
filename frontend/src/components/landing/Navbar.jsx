@@ -35,7 +35,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="TruTown Marketplace"
-              className="h-10 md:h-12 w-auto"
+              className="h-[60px] md:h-[72px] w-auto"
               style={{ mixBlendMode: "multiply" }}
             />
             <span className="font-heading text-xl md:text-2xl text-stone-900 hidden sm:block">
