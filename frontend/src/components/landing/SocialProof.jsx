@@ -119,7 +119,7 @@ export default function SocialProof() {
               key={stat.label}
               className="text-center p-6 rounded-2xl bg-stone-50 border border-stone-100"
             >
-              <p className="font-heading text-3xl md:text-4xl text-primary">
+              <p className="font-fun text-3xl md:text-4xl font-semibold text-primary">
                 {stat.value}
               </p>
               <p className="font-body text-sm text-stone-500 mt-1">

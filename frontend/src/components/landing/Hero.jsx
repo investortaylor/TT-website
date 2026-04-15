@@ -117,7 +117,7 @@ export default function Hero() {
 
             <h1
               data-testid="hero-tagline"
-              className="font-heading text-5xl sm:text-6xl lg:text-7xl text-stone-900 tracking-tight leading-[0.95] mb-6"
+              className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
             >
               Where serious buyers meet{" "}
               <span className="text-primary">trusted</span> sellers.

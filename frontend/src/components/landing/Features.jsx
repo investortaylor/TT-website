@@ -161,7 +161,7 @@ export default function Features() {
                   <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/80 ${feature.iconColor} mb-4`}>
                     <feature.icon size={20} strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-heading text-xl text-stone-900 mb-2">
+                  <h3 className="font-fun text-xl font-semibold text-stone-900 mb-2">
                     {feature.title}
                   </h3>
                   <p className="font-body text-sm text-stone-600 leading-relaxed">

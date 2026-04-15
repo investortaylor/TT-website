@@ -150,7 +150,7 @@ export default function HowItWorks() {
                       Step {step.num}
                     </span>
                   </div>
-                  <h3 className="font-heading text-2xl md:text-3xl text-stone-900 mb-3">
+                  <h3 className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 mb-3">
                     {step.title}
                   </h3>
                   <p className="font-body text-base text-stone-600 leading-relaxed max-w-md lg:max-w-none">

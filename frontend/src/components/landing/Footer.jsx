@@ -41,7 +41,7 @@ export default function Footer() {
                 className="h-[60px] w-auto brightness-110"
                 style={{ mixBlendMode: "screen" }}
               />
-              <span className="font-heading text-xl text-white">
+              <span className="font-fun text-xl font-semibold text-white">
                 TruTown Marketplace
               </span>
             </div>
