@@ -48,15 +48,7 @@ export default function Footer() {
             <p className="font-body text-sm text-stone-400 leading-relaxed max-w-sm mb-6">
               The first marketplace designed for how local transactions actually
               work — in person, with trust, and without the games.
-            </p>
-            <a
-              href="#"
-              data-testid="admin-portal-link"
-              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-secondary hover:text-gold-300 transition-colors"
-            >
-              <ExternalLink size={14} />
-              Admin Portal
-            </a>
+            </p>            
           </div>
 
           {/* Link Columns */}
