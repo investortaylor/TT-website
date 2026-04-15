@@ -24,7 +24,7 @@ const features = [
     icon: CreditCard,
     title: "Secure Deposits",
     description:
-      "Buyers put down 1-20% as a fully refundable deposit. It's accountability built right into the transaction.",
+      "Buyers put down 5-25% as a fully refundable deposit. It's accountability built right into the transaction.",
     size: "sm",
     color: "bg-gold-50 border-gold-100",
     iconColor: "text-secondary",
@@ -33,7 +33,7 @@ const features = [
     icon: UserCheck,
     title: "Verified Sellers",
     description:
-      "Government ID verification means you know who you're dealing with. No more anonymous strangers.",
+      "Government ID verification means that you know that we know who you're dealing with. If something negative should happen, we've got you covered.",
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
@@ -60,7 +60,7 @@ const features = [
     icon: Clock,
     title: "Inspection Time",
     description:
-      "45 minutes for electronics. 3 hours for vehicles. Up to 10 days for real estate. Inspect before you commit.",
+      "Up to 45 minutes for electronics. 3 hours for vehicles. Up to 10 days for real estate. Inspect before you commit.",
     size: "lg",
     color: "bg-stone-50 border-stone-200",
     iconColor: "text-stone-700",
@@ -73,16 +73,16 @@ const features = [
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Buyer Protection",
-    description:
-      "Free claim process for 'item not as described' disputes. Escrowed deposits only release when both parties confirm a successful exchange.",
-    size: "sm",
-    color: "bg-gold-50 border-gold-100",
-    iconColor: "text-secondary",
-  },
+  //},
+ //{
+   // icon: ShieldCheck,
+    //title: "Buyer Protection",
+    //description:
+    //  "Free claim process for 'item not as described' disputes. Escrowed deposits only release when both parties confirm a successful exchange.",
+   // size: "sm",
+   // color: "bg-gold-50 border-gold-100",
+   // iconColor: "text-secondary",
+ // },
 ];
 
 function FeatureArt({ feature, index }) {
