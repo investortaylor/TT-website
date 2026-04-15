@@ -16,7 +16,7 @@ const steps = [
     icon: DollarSign,
     title: "Buyer Places Deposit",
     description:
-      "Interested buyers put down 1-20% as a refundable deposit. This filters out tire-kickers and proves they're serious.",
+      "Interested buyers put down 5-25% as a refundable deposit, placed in an escrow account. This filters out tire-kickers and proves they're serious.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },
@@ -25,7 +25,7 @@ const steps = [
     icon: Handshake,
     title: "Meet & Inspect",
     description:
-      "Meet at a verified safe spot. Buyers get inspection time — 45 minutes for electronics, 3 hours for vehicles, up to 10 days for real estate.",
+      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 45 minutes for electronics, 3 hours for vehicles, up to 10 days for real estate.",
     color: "bg-emerald-50 text-primary",
     accent: "#15803d",
   },
@@ -34,7 +34,7 @@ const steps = [
     icon: ThumbsUp,
     title: "Complete the Deal",
     description:
-      "Both parties confirm the exchange. The deposit is returned to the buyer, and you walk away with cash in hand. Everyone wins.",
+      "Both parties confirm the exchange. With 2 button presses, the deposit + remaining balance is moved to seller's account. Transaction records are emailed.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },
