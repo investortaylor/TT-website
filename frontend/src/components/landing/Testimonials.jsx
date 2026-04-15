@@ -3,7 +3,7 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Marcus T.",
+    name: "Lamont T.",
     role: "Seller",
     text: "I sold a PS5 on Facebook Marketplace three times before TruTown. Every single buyer either ghosted me or tried to lowball at the door. First sale on TruTown? The buyer showed up on time, cash ready. The deposit changes everything.",
     rating: 5,
@@ -11,19 +11,19 @@ const testimonials = [
   {
     name: "Sarah K.",
     role: "Buyer",
-    text: "I was nervous about buying a used car from a stranger. But knowing the seller was ID-verified, and that we met at a police station the app suggested? I felt completely safe. The 3-hour inspection window sealed the deal.",
+    text: "I was nervous about buying a used car from a stranger. But knowing the seller was ID-verified, and that we met at a police station the app suggested I felt completely safe. The 3-hour inspection window sealed the deal.",
     rating: 5,
   },
   {
     name: "David R.",
     role: "Seller",
-    text: "The 'Is this still available?' messages that go nowhere — that's what killed me on Craigslist. On TruTown, when someone messages you, they've already put money down. Every conversation is with a real, committed buyer.",
+    text: "The 'Is this still available?' messages that go nowhere — that's what killed me on Craigslist. On TruTown, when someone messages you, they've already thought about putting money down. Every conversation is with a real, committed buyer.",
     rating: 5,
   },
   {
     name: "Lisa M.",
     role: "Buyer",
-    text: "Bought furniture for my new apartment. The seller tried to pass off a damaged couch as 'like new.' Filed a dispute, the transaction snapshot had all the original photos, and I got my deposit back in 48 hours. This app has your back.",
+    text: "Bought furniture for my new apartment. The seller tried to pass off a damaged couch as 'like new.' I cancelled the transaction and reported the seller. I got my deposit back in 48 hours. I think the seller got banned. This app has your back.",
     rating: 5,
   },
   {
