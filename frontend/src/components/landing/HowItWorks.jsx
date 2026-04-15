@@ -16,7 +16,7 @@ const steps = [
     icon: DollarSign,
     title: "Buyer Places Deposit",
     description:
-      "Interested buyers put down 5-25% as a refundable deposit, placed in an escrow account. This filters out tire-kickers and proves they're serious.",
+      "Interested buyers put down 1-20% as a refundable deposit. This filters out tire-kickers and proves they're serious.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },
@@ -25,7 +25,7 @@ const steps = [
     icon: Handshake,
     title: "Meet & Inspect",
     description:
-      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 45 minutes for electronics, 3 hours for vehicles, up to 10 days for real estate.",
+      "Meet at a verified safe spot. Buyers get inspection time — 45 minutes for electronics, 3 hours for vehicles, up to 10 days for real estate.",
     color: "bg-emerald-50 text-primary",
     accent: "#15803d",
   },
@@ -34,7 +34,7 @@ const steps = [
     icon: ThumbsUp,
     title: "Complete the Deal",
     description:
-      "Both parties confirm the exchange. With 2 button presses, the deposit + remaining balance is moved to seller's account. Transaction records are emailed.",
+      "Both parties confirm the exchange. The deposit is returned to the buyer, and you walk away with cash in hand. Everyone wins.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },
@@ -102,12 +102,12 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
+          <span className="font-mono text-sm font-bold text-secondary tracking-wider uppercase">
             How It Works
           </span>
           <h2
             data-testid="how-it-works-title"
-            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
+            className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight mt-3"
           >
             Four steps to a deal you can trust
           </h2>
@@ -150,7 +150,7 @@ export default function HowItWorks() {
                       Step {step.num}
                     </span>
                   </div>
-                  <h3 className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 mb-3">
+                  <h3 className="font-heading text-2xl md:text-3xl text-stone-900 mb-3">
                     {step.title}
                   </h3>
                   <p className="font-body text-base text-stone-600 leading-relaxed max-w-md lg:max-w-none">

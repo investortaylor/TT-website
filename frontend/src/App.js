@@ -9,6 +9,7 @@ import Testimonials from "@/components/landing/Testimonials";
 import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
 import Footer from "@/components/landing/Footer";
+import ItemDetailPage from "@/pages/ItemDetailPage";
 
 const LandingPage = () => {
   return (
@@ -34,6 +35,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/item/:id" element={<ItemDetailPage />} />
         </Routes>
       </BrowserRouter>
     </div>

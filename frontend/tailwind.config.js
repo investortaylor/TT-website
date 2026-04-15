@@ -78,7 +78,6 @@ module.exports = {
       },
       fontFamily: {
         heading: ['"DM Serif Display"', 'serif'],
-        fun: ['"Fredoka"', 'sans-serif'],
         body: ['"Manrope"', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
       },

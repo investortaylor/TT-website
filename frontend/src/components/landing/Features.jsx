@@ -24,7 +24,7 @@ const features = [
     icon: CreditCard,
     title: "Secure Deposits",
     description:
-      "Buyers put down 5-25% as a fully refundable deposit. It's accountability built right into the transaction.",
+      "Buyers put down 1-20% as a fully refundable deposit. It's accountability built right into the transaction.",
     size: "sm",
     color: "bg-gold-50 border-gold-100",
     iconColor: "text-secondary",
@@ -33,7 +33,7 @@ const features = [
     icon: UserCheck,
     title: "Verified Sellers",
     description:
-      "Government ID verification means that you know that we know who you're dealing with. If something negative should happen, we've got you covered.",
+      "Government ID verification means you know who you're dealing with. No more anonymous strangers.",
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
@@ -60,7 +60,7 @@ const features = [
     icon: Clock,
     title: "Inspection Time",
     description:
-      "Up to 45 minutes for electronics. 3 hours for vehicles. Up to 10 days for real estate. Inspect before you commit.",
+      "45 minutes for electronics. 3 hours for vehicles. Up to 10 days for real estate. Inspect before you commit.",
     size: "lg",
     color: "bg-stone-50 border-stone-200",
     iconColor: "text-stone-700",
@@ -74,15 +74,15 @@ const features = [
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
   },
- //{
-   // icon: ShieldCheck,
-    //title: "Buyer Protection",
-    //description:
-    //  "Free claim process for 'item not as described' disputes. Escrowed deposits only release when both parties confirm a successful exchange.",
-   // size: "sm",
-   // color: "bg-gold-50 border-gold-100",
-   // iconColor: "text-secondary",
- // },
+  {
+    icon: ShieldCheck,
+    title: "Buyer Protection",
+    description:
+      "Free claim process for 'item not as described' disputes. Escrowed deposits only release when both parties confirm a successful exchange.",
+    size: "sm",
+    color: "bg-gold-50 border-gold-100",
+    iconColor: "text-secondary",
+  },
 ];
 
 function FeatureArt({ feature, index }) {
@@ -127,12 +127,12 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="mb-16 md:mb-20"
         >
-          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
+          <span className="font-mono text-sm font-bold text-secondary tracking-wider uppercase">
             Features
           </span>
           <h2
             data-testid="features-title"
-            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3 max-w-xl"
+            className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight mt-3 max-w-xl"
           >
             Trust isn't optional. It's built in.
           </h2>
@@ -161,7 +161,7 @@ export default function Features() {
                   <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/80 ${feature.iconColor} mb-4`}>
                     <feature.icon size={20} strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-fun text-xl font-semibold text-stone-900 mb-2">
+                  <h3 className="font-heading text-xl text-stone-900 mb-2">
                     {feature.title}
                   </h3>
                   <p className="font-body text-sm text-stone-600 leading-relaxed">
