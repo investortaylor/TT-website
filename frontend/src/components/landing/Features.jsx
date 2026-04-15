@@ -73,7 +73,7 @@ const features = [
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
-  //},
+  },
  //{
    // icon: ShieldCheck,
     //title: "Buyer Protection",
