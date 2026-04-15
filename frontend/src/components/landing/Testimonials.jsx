@@ -69,12 +69,12 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="font-mono text-sm font-bold text-secondary tracking-wider uppercase">
+          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
             Testimonials
           </span>
           <h2
             data-testid="testimonials-title"
-            className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight mt-3"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
           >
             Real people. Real transactions.
           </h2>

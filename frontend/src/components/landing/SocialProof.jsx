@@ -13,25 +13,38 @@ function ComparisonIllustration() {
       {/* Before - Old way */}
       <div className="relative">
         <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
-          <p className="font-mono text-xs font-bold text-blue-500 tracking-wider uppercase mb-3">
+          <p className="font-fun text-sm md:text-base font-semibold text-blue-500 tracking-wider uppercase mb-3">
             The Old Way
           </p>
           <svg viewBox="0 0 160 140" fill="none" className="w-full">
-            {/* Sad person */}
-            <circle cx="80" cy="40" r="20" fill="#bfdbfe" />
-            <circle cx="72" cy="36" r="2" fill="#1877F2" />
-            <circle cx="88" cy="36" r="2" fill="#1877F2" />
-            <path d="M70 48c4-3 16-3 20 0" stroke="#1877F2" strokeWidth="2" strokeLinecap="round" transform="scale(1,-1) translate(0,-96)" />
-            {/* Phone with messages */}
-            <rect x="55" y="70" width="50" height="50" rx="8" fill="#dbeafe" />
-            <rect x="62" y="78" width="36" height="5" rx="2" fill="#bfdbfe" />
-            <rect x="62" y="87" width="28" height="5" rx="2" fill="#bfdbfe" />
-            <rect x="62" y="96" width="32" height="5" rx="2" fill="#bfdbfe" />
-            <rect x="62" y="105" width="20" height="5" rx="2" fill="#bfdbfe" />
-            {/* Question marks */}
-            <text x="120" y="50" fill="#1877F2" fontSize="20" fontWeight="bold" opacity="0.4">?</text>
-            <text x="30" y="90" fill="#1877F2" fontSize="16" fontWeight="bold" opacity="0.3">?</text>
-            <text x="130" y="100" fill="#1877F2" fontSize="14" fontWeight="bold" opacity="0.2">?</text>
+            {/* Sad person with full body */}
+            {/* Head */}
+            <circle cx="80" cy="24" r="16" fill="#bfdbfe" />
+            <circle cx="74" cy="21" r="2" fill="#1877F2" />
+            <circle cx="86" cy="21" r="2" fill="#1877F2" />
+            <path d="M72 30c4-3 12-3 16 0" stroke="#1877F2" strokeWidth="2" strokeLinecap="round" transform="scale(1,-1) translate(0,-60)" />
+            {/* Neck */}
+            <rect x="76" y="40" width="8" height="5" fill="#bfdbfe" rx="2" />
+            {/* Torso */}
+            <path d="M62 50c0-3 8-6 18-6s18 3 18 6v22c0 3-8 5-18 5s-18-2-18-5V50z" fill="#93c5fd" />
+            {/* Arms */}
+            <path d="M62 54c-4 2-10 8-14 16" stroke="#bfdbfe" strokeWidth="5" strokeLinecap="round" />
+            <path d="M98 54c4 2 10 8 14 16" stroke="#bfdbfe" strokeWidth="5" strokeLinecap="round" />
+            {/* Hands */}
+            <circle cx="47" cy="71" r="4" fill="#bfdbfe" />
+            <circle cx="113" cy="71" r="4" fill="#bfdbfe" />
+            {/* Legs */}
+            <rect x="68" y="75" width="8" height="24" rx="4" fill="#60a5fa" />
+            <rect x="84" y="75" width="8" height="24" rx="4" fill="#60a5fa" />
+            {/* Shoes */}
+            <ellipse cx="72" cy="100" rx="7" ry="4" fill="#3b82f6" />
+            <ellipse cx="88" cy="100" rx="7" ry="4" fill="#3b82f6" />
+            {/* Question marks floating around */}
+            <text x="22" y="40" fill="#1877F2" fontSize="18" fontWeight="bold" opacity="0.4">?</text>
+            <text x="125" y="35" fill="#1877F2" fontSize="14" fontWeight="bold" opacity="0.3">?</text>
+            <text x="130" y="90" fill="#1877F2" fontSize="12" fontWeight="bold" opacity="0.2">?</text>
+            {/* Slumped shoulders indicator - sweat drop */}
+            <path d="M40 48c-1 3-2 6 0 7s3-1 3-4-2-5-3-3z" fill="#93c5fd" opacity="0.6" />
           </svg>
           <p className="font-body text-xs text-blue-500 text-center mt-2">
             "Is this still available?"
@@ -42,30 +55,42 @@ function ComparisonIllustration() {
       {/* After - TruTown way */}
       <div className="relative">
         <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-5">
-          <p className="font-mono text-xs font-bold text-primary tracking-wider uppercase mb-3">
+          <p className="font-fun text-sm md:text-base font-semibold text-primary tracking-wider uppercase mb-3">
             The TruTown Way
           </p>
           <svg viewBox="0 0 160 140" fill="none" className="w-full">
-            {/* Happy person */}
-            <circle cx="80" cy="40" r="20" fill="#d1fae5" />
-            <circle cx="72" cy="36" r="2" fill="#15803d" />
-            <circle cx="88" cy="36" r="2" fill="#15803d" />
-            <path d="M70 46c4 4 16 4 20 0" stroke="#15803d" strokeWidth="2" strokeLinecap="round" />
-            {/* Phone with checkmarks */}
-            <rect x="55" y="70" width="50" height="50" rx="8" fill="#ecfdf5" />
-            <circle cx="70" cy="82" r="4" fill="#15803d" />
-            <path d="M68 82l1.5 1.5 3-3" stroke="white" strokeWidth="1" strokeLinecap="round" />
-            <rect x="80" y="80" width="18" height="4" rx="2" fill="#a7f3d0" />
-            <circle cx="70" cy="95" r="4" fill="#15803d" />
-            <path d="M68 95l1.5 1.5 3-3" stroke="white" strokeWidth="1" strokeLinecap="round" />
-            <rect x="80" y="93" width="18" height="4" rx="2" fill="#a7f3d0" />
-            <circle cx="70" cy="108" r="4" fill="#facc15" />
-            <text x="67" y="112" fill="#713f12" fontSize="8" fontWeight="bold">$</text>
-            <rect x="80" y="106" width="18" height="4" rx="2" fill="#fef9c3" />
-            {/* Sparkles */}
-            <circle cx="125" cy="50" r="3" fill="#facc15" />
-            <circle cx="30" cy="80" r="2" fill="#15803d" />
-            <circle cx="135" cy="100" r="2" fill="#facc15" />
+            {/* Happy person with full body */}
+            {/* Head */}
+            <circle cx="80" cy="24" r="16" fill="#d1fae5" />
+            <circle cx="74" cy="21" r="2" fill="#15803d" />
+            <circle cx="86" cy="21" r="2" fill="#15803d" />
+            <path d="M72 30c4 3 12 3 16 0" stroke="#15803d" strokeWidth="2" strokeLinecap="round" />
+            {/* Neck */}
+            <rect x="76" y="40" width="8" height="5" fill="#d1fae5" rx="2" />
+            {/* Torso */}
+            <path d="M62 50c0-3 8-6 18-6s18 3 18 6v22c0 3-8 5-18 5s-18-2-18-5V50z" fill="#6ee7b7" />
+            {/* Arms raised in celebration */}
+            <path d="M62 54c-6-2-12-10-14-20" stroke="#d1fae5" strokeWidth="5" strokeLinecap="round" />
+            <path d="M98 54c6-2 12-10 14-20" stroke="#d1fae5" strokeWidth="5" strokeLinecap="round" />
+            {/* Hands */}
+            <circle cx="47" cy="33" r="4" fill="#d1fae5" />
+            <circle cx="113" cy="33" r="4" fill="#d1fae5" />
+            {/* Legs */}
+            <rect x="68" y="75" width="8" height="24" rx="4" fill="#34d399" />
+            <rect x="84" y="75" width="8" height="24" rx="4" fill="#34d399" />
+            {/* Shoes */}
+            <ellipse cx="72" cy="100" rx="7" ry="4" fill="#15803d" />
+            <ellipse cx="88" cy="100" rx="7" ry="4" fill="#15803d" />
+            {/* Sparkles / celebration */}
+            <circle cx="38" cy="22" r="3" fill="#facc15" />
+            <circle cx="122" cy="22" r="3" fill="#facc15" />
+            <path d="M42 16l2-6" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
+            <path d="M36 18l-4-4" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
+            <path d="M118 16l-2-6" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
+            <path d="M124 18l4-4" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
+            {/* Checkmark badge on torso */}
+            <circle cx="80" cy="58" r="7" fill="#15803d" />
+            <path d="M76 58l3 3 5-5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <p className="font-body text-xs text-primary text-center mt-2">
             Deposit placed. Meeting confirmed.
@@ -114,7 +139,7 @@ export default function SocialProof() {
         >
           <h2
             data-testid="comparison-title"
-            className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight"
           >
             Selling shouldn't feel like a gamble.
           </h2>

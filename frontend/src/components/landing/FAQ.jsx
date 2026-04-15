@@ -57,12 +57,12 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <span className="font-mono text-sm font-bold text-secondary tracking-wider uppercase">
+          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
             FAQ
           </span>
           <h2
             data-testid="faq-title"
-            className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight mt-3"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
           >
             Questions? We've got answers.
           </h2>

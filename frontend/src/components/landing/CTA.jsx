@@ -67,7 +67,7 @@ export default function CTA() {
               >
                 <h2
                   data-testid="cta-title"
-                  className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight leading-tight"
+                  className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight leading-tight"
                 >
                   Done with the games?
                 </h2>

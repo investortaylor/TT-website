@@ -127,12 +127,12 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="mb-16 md:mb-20"
         >
-          <span className="font-mono text-sm font-bold text-secondary tracking-wider uppercase">
+          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
             Features
           </span>
           <h2
             data-testid="features-title"
-            className="font-heading text-4xl md:text-5xl text-stone-900 tracking-tight mt-3 max-w-xl"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3 max-w-xl"
           >
             Trust isn't optional. It's built in.
           </h2>
