@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "FAQ", href: "#faq" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Features", href: "/#features" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {
@@ -31,34 +32,34 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
-          <a href="#" data-testid="navbar-logo" className="flex items-center">
+          <Link to="/" data-testid="navbar-logo" className="flex items-center">
             <img
               src="/logo.png"
               alt="TruTown Marketplace"
               className="h-[75px] md:h-[90px] w-auto my-2"
               style={{ mixBlendMode: "multiply" }}
             />
-          </a>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                 className="font-body text-sm font-semibold text-stone-600 hover:text-primary transition-colors duration-200 tracking-wide uppercase"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#download"
+            <Link
+              to="/#download"
               data-testid="nav-download-btn"
               className="rounded-full bg-primary text-white px-6 py-2.5 font-body font-semibold text-sm hover:bg-primary-hover transition-all duration-300 hover:shadow-lg hover:scale-105"
             >
               Get the App
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,22 +85,22 @@ export default function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="block font-body font-semibold text-stone-700 hover:text-primary transition-colors py-2"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#download"
+              <Link
+                to="/#download"
                 onClick={() => setMobileOpen(false)}
                 className="block rounded-full bg-primary text-white px-6 py-3 font-body font-semibold text-center hover:bg-primary-hover transition-all"
               >
                 Get the App
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
