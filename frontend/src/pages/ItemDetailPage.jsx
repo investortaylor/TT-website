@@ -5,6 +5,7 @@ import { AlertCircle, ChevronLeft, Loader2, MapPin, Package, Star } from "lucide
 
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import ItemLocationMap from "@/components/item/ItemLocationMap";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,6 +33,16 @@ function formatUsd(price) {
     style: "currency",
     currency: "USD",
   }).format(Number(price));
+}
+
+function getExactCoords(item) {
+  const lat = item?.location?.exact_location?.lat;
+  const lng = item?.location?.exact_location?.lng;
+  if (lat == null || lng == null) return null;
+  const la = Number(lat);
+  const ln = Number(lng);
+  if (!Number.isFinite(la) || !Number.isFinite(ln)) return null;
+  return { lat: la, lng: ln };
 }
 
 export default function ItemDetailPage() {
@@ -104,15 +115,16 @@ export default function ItemDetailPage() {
 
   const photos = Array.isArray(item?.photos) ? item.photos : [];
   const mainPhoto = photos[photoIndex] || photos[0];
+  const coords = item ? getExactCoords(item) : null;
 
   return (
-    <div className="min-h-screen bg-background" data-testid="item-detail-page">
+    <div className="min-h-screen bg-white" data-testid="item-detail-page">
       <Navbar />
       <main className="pt-24 md:pt-28 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             variant="ghost"
-            className="mb-6 -ml-2 text-stone-600 hover:text-primary font-body"
+            className="mb-4 -ml-2 font-body text-[#7F8C8D] hover:text-primary"
             asChild
           >
             <Link to="/">
@@ -123,7 +135,7 @@ export default function ItemDetailPage() {
 
           {loading && (
             <div
-              className="flex flex-col items-center justify-center gap-4 rounded-xl border border-stone-200 bg-card py-24 text-stone-500"
+              className="flex flex-col items-center justify-center gap-4 rounded-xl border border-[#ECF0F1] bg-[#F5F5F5] py-24 text-[#7F8C8D]"
               data-testid="item-detail-loading"
             >
               <Loader2 className="h-10 w-10 animate-spin text-primary" aria-hidden />
@@ -132,14 +144,14 @@ export default function ItemDetailPage() {
           )}
 
           {!loading && error && (
-            <Card className="border-destructive/30 bg-destructive/5">
+            <Card className="border-[#E74C3C]/30 bg-[#E74C3C]/5">
               <CardHeader className="flex flex-row items-center gap-3 space-y-0">
-                <AlertCircle className="h-8 w-8 text-destructive shrink-0" aria-hidden />
+                <AlertCircle className="h-8 w-8 shrink-0 text-[#E74C3C]" aria-hidden />
                 <div>
-                  <CardTitle className="font-body text-lg text-stone-900">
+                  <CardTitle className="font-body text-lg text-[#2C3E50]">
                     Unable to load listing
                   </CardTitle>
-                  <CardDescription className="font-body text-stone-600">
+                  <CardDescription className="font-body text-[#7F8C8D]">
                     {error}
                   </CardDescription>
                 </div>
@@ -151,158 +163,173 @@ export default function ItemDetailPage() {
               </CardContent>
             </Card>
           )}
+        </div>
 
-          {!loading && !error && item && (
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
-              <div className="space-y-4">
-                <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
-                  <div className="aspect-[4/3] w-full bg-stone-100">
-                    {mainPhoto ? (
-                      <img
-                        src={mainPhoto}
-                        alt={item.title || "Listing photo"}
-                        className="h-full w-full object-contain"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center text-stone-400">
-                        <Package className="h-16 w-16 opacity-40" aria-hidden />
-                      </div>
-                    )}
+        {!loading && !error && item && (
+          <>
+            {/* Full-width gallery (matches in-app edge-to-edge hero image) */}
+            <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
+              {/* Full width, natural height — no crop (portrait / document photos stay fully visible) */}
+              {/* <div className="flex w-full justify-center bg-[#F5F5F5] py-2 sm:py-3"> */}
+              <div className="flex w-full justify-center bg-[#F5F5F5] py-4">
+                {mainPhoto ? (
+                    <img
+                    src={mainPhoto}
+                    alt={item.title || "Listing photo"}
+                    className="max-h-[70vh] w-auto max-w-full object-contain rounded-lg"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="flex min-h-[240px] w-full items-center justify-center text-[#BDC3C7]">
+                    <Package className="h-16 w-16 opacity-50" aria-hidden />
                   </div>
-                </div>
-                {photos.length > 1 && (
-                  <div className="flex flex-wrap gap-2">
+                )}
+              </div>
+              {photos.length > 1 && (
+                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                  <div className="flex gap-2 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                     {photos.map((src, i) => (
                       <button
                         key={i}
                         type="button"
                         onClick={() => setPhotoIndex(i)}
                         className={cn(
-                          "h-16 w-16 overflow-hidden rounded-lg border-2 bg-stone-50 transition-all",
+                          "h-16 w-16 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all",
                           i === photoIndex
-                            ? "border-primary ring-2 ring-primary/20"
-                            : "border-transparent opacity-80 hover:opacity-100",
+                            ? "border-primary ring-2 ring-primary/25"
+                            : "border-[#ECF0F1] opacity-90 hover:opacity-100",
                         )}
                       >
-                        <img src={src} alt="" className="h-full w-full object-cover" />
+                        <img src={src} alt="" className="h-full w-full object-contain" />
                       </button>
                     ))}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
+            </div>
 
-              <div className="space-y-6">
-                <div>
-                  <div className="mb-3 flex flex-wrap items-center gap-2">
-                    {item.category && (
-                      <Badge variant="secondary" className="font-body text-xs uppercase tracking-wide">
-                        {item.category}
-                      </Badge>
-                    )}
-                    {item.condition && (
-                      <Badge variant="outline" className="font-body text-xs">
-                        {item.condition}
-                      </Badge>
-                    )}
-                    {item.status && (
-                      <Badge variant={statusBadgeVariant(item.status)} className="font-body text-xs capitalize">
-                        {item.status}
-                      </Badge>
-                    )}
-                  </div>
-                  <h1 className="font-fun text-3xl sm:text-4xl font-semibold text-stone-900 tracking-tight leading-tight">
-                    {item.title}
-                  </h1>
-                  <p className="mt-4 font-body text-3xl font-bold text-primary">
-                    {formatUsd(item.price)}
-                  </p>
-                  {item.quantity != null && (
-                    <p className="mt-1 font-body text-sm text-muted-foreground">
-                      Quantity: <span className="font-semibold text-stone-700">{item.quantity}</span>
-                    </p>
+            <div className="mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-8 text-[#2C3E50] sm:px-6 lg:px-8">
+              <div>
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  {item.category && (
+                    <Badge
+                      variant="secondary"
+                      className="font-body text-xs font-semibold uppercase tracking-wide"
+                    >
+                      {item.category}
+                    </Badge>
+                  )}
+                  {item.condition && (
+                    <Badge variant="outline" className="border-[#ECF0F1] font-body text-xs text-[#2C3E50]">
+                      {item.condition}
+                    </Badge>
+                  )}
+                  {item.status && (
+                    <Badge
+                      variant={statusBadgeVariant(item.status)}
+                      className="font-body text-xs capitalize"
+                    >
+                      {item.status}
+                    </Badge>
                   )}
                 </div>
-
-                <Separator />
-
-                <section>
-                  <h2 className="font-body text-sm font-bold uppercase tracking-wide text-stone-500 mb-2">
-                    Description
-                  </h2>
-                  <p className="font-body text-stone-700 leading-relaxed whitespace-pre-wrap">
-                    {item.description || "No description provided."}
+                <h1 className="font-fun text-3xl font-semibold leading-tight tracking-tight text-[#2C3E50] sm:text-4xl">
+                  {item.title}
+                </h1>
+                <p className="mt-4 font-body text-3xl font-bold text-primary">
+                  {formatUsd(item.price)}
+                </p>
+                {item.quantity != null && (
+                  <p className="mt-1 font-body text-sm text-[#7F8C8D]">
+                    Quantity:{" "}
+                    <span className="font-semibold text-[#2C3E50]">{item.quantity}</span>
                   </p>
-                </section>
-
-                {(item.location_label || item.created_at) && (
-                  <>
-                    <Separator />
-                    <div className="flex flex-col gap-2 font-body text-sm text-stone-600">
-                      {item.location_label && (
-                        <p className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4 text-primary shrink-0" aria-hidden />
-                          {item.location_label}
-                        </p>
-                      )}
-                      {item.created_at && (
-                        <p>
-                          Listed{" "}
-                          <time dateTime={item.created_at}>
-                            {format(new Date(item.created_at), "MMM d, yyyy")}
-                          </time>
-                        </p>
-                      )}
-                      {item.depositor_count != null && (
-                        <p className="text-muted-foreground">
-                          Deposits: <span className="font-medium text-stone-700">{item.depositor_count}</span>
-                        </p>
-                      )}
-                    </div>
-                  </>
                 )}
+              </div>
 
-                {item.seller && (
-                  <>
-                    <Separator />
-                    <Card className="border-stone-200 shadow-sm">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="font-body text-base text-stone-900">Seller</CardTitle>
-                        <CardDescription className="font-body">Verified TruTown member</CardDescription>
-                      </CardHeader>
-                      <CardContent className="space-y-2 font-body text-sm">
-                        <p className="text-lg font-semibold text-stone-900">{item.seller.name}</p>
-                        <div className="flex flex-wrap items-center gap-3 text-stone-600">
-                          <span className="inline-flex items-center gap-1">
-                            <Star className="h-4 w-4 fill-gold-400 text-gold-500" aria-hidden />
-                            <span className="font-semibold text-stone-800">{item.seller.rating ?? "—"}</span>
-                            <span className="text-muted-foreground">
-                              ({item.seller.review_count ?? 0} reviews)
-                            </span>
-                          </span>
-                          <span className="text-muted-foreground">
-                            {item.seller.total_sales ?? 0} sales
-                          </span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </>
-                )}
+              <Separator className="bg-[#E0E0E0]" />
 
-                <div className="rounded-2xl bg-emerald-50 border border-emerald-100 px-5 py-4">
-                  <p className="font-body text-sm text-stone-700 leading-relaxed">
-                    Open the TruTown app to message the seller, reserve with a deposit, and complete your pickup safely.
-                  </p>
-                  <Button
-                    className="mt-4 font-body font-semibold rounded-full"
-                    asChild
-                  >
-                    <a href="/#download">Get the app</a>
-                  </Button>
-                </div>
+              <section>
+                <h2 className="mb-2 font-body text-sm font-bold uppercase tracking-wide text-[#7F8C8D]">
+                  Description
+                </h2>
+                <p className="font-body leading-relaxed text-[#2C3E50] whitespace-pre-wrap">
+                  {item.description || "No description provided."}
+                </p>
+              </section>
+
+              {(item.location_label || item.created_at) && (
+                <>
+                  <Separator className="bg-[#E0E0E0]" />
+                  <div className="flex flex-col gap-2 font-body text-sm text-[#7F8C8D]">
+                    {item.location_label && (
+                      <p className="flex items-center gap-2 text-[#2C3E50]">
+                        <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden />
+                        {item.location_label}
+                      </p>
+                    )}
+                    {item.created_at && (
+                      <p>
+                        Listed{" "}
+                        <time dateTime={item.created_at} className="font-medium text-[#2C3E50]">
+                          {format(new Date(item.created_at), "MMM d, yyyy")}
+                        </time>
+                      </p>
+                    )}
+                  </div>
+                </>
+              )}
+
+              <Separator className="bg-[#E0E0E0]" />
+              <p className="font-body text-sm text-[#7F8C8D]">
+                Deposits:{" "}
+                <span className="font-semibold text-[#2C3E50]">{item.depositor_count ?? 0}</span>
+              </p>
+
+              {coords && (
+                <>
+                  <Separator className="bg-[#E0E0E0]" />
+                  <ItemLocationMap lat={coords.lat} lng={coords.lng} title={item.title} />
+                </>
+              )}
+
+              {item.seller && (
+                <>
+                  <Separator className="bg-[#E0E0E0]" />
+                  <Card className="border-[#ECF0F1] shadow-sm">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="font-body text-base text-[#2C3E50]">Seller</CardTitle>
+                      <CardDescription className="font-body text-[#7F8C8D]">
+                        Verified TruTown member
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-2 font-body text-sm">
+                      <p className="text-lg font-semibold text-[#2C3E50]">{item.seller.name}</p>
+                      <div className="flex flex-wrap items-center gap-3 text-[#7F8C8D]">
+                        <span className="inline-flex items-center gap-1">
+                          <Star className="h-4 w-4 fill-gold-500 text-gold-500" aria-hidden />
+                          <span className="font-semibold text-[#2C3E50]">{item.seller.rating ?? "—"}</span>
+                          <span>({item.seller.review_count ?? 0} reviews)</span>
+                        </span>
+                        <span>{item.seller.total_sales ?? 0} sales</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </>
+              )}
+
+              <div className="rounded-2xl border border-primary/20 bg-primary/10 px-5 py-4">
+                <p className="font-body text-sm leading-relaxed text-[#2C3E50]">
+                  Open the TruTown app to message the seller, reserve with a deposit, and complete your
+                  pickup safely.
+                </p>
+                <Button className="mt-4 rounded-full font-body font-semibold" asChild>
+                  <a href="/#download">Get the app</a>
+                </Button>
               </div>
             </div>
-          )}
-        </div>
+          </>
+        )}
       </main>
       <Footer />
     </div>
