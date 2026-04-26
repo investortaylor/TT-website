@@ -15,8 +15,8 @@ function HeroIllustration() {
 
       <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgb(0,0,0,0.18)] ring-1 ring-stone-900/5 aspect-[4/5] bg-stone-100">
         <img
-          src="https://images.unsplash.com/photo-1636202493066-c111030ea75e"
-          alt="A buyer receiving an item from a seller during a peer-to-peer marketplace handoff"
+          src="https://images.unsplash.com/photo-1570169043013-de63774bbf97?w=1200&auto=format&fit=crop"
+          alt="A road bike listed for sale on the TruTown marketplace"
           loading="eager"
           className="w-full h-full object-cover"
         />
@@ -88,7 +88,7 @@ export default function Hero() {
               className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
             >
               The buyer&rsquo;s already there.{" "}
-              <span className="text-primary">Already paid.</span> On time.
+              <span className="text-primary">Initiated payment.</span> On time.
             </h1>
 
             <p
