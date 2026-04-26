@@ -43,13 +43,13 @@ Build a landing/marketing page for TruTown Marketplace mobile app. Highlights ap
 - Removed all physical-cash references — platform uses digital deposits/payments only
 - Added `ExhaleMoment.jsx` pull-quote strip below hero
 - Reframed `HowItWorks.jsx`, `Features.jsx`, `Testimonials.jsx` to be experiential
-- Built scrolling Hero carousel (4 outdoor handoff items) in `Hero.jsx`:
-  - Items: Headphones, Vintage Camera, Laptop, Chair
-  - All Unsplash photos: outdoors with hands visible (handoff scenes)
-  - Auto-rotates every 4s with horizontal slide transition (Framer Motion AnimatePresence)
+- Built scrolling Hero carousel (4 urban handoff items) in `Hero.jsx`:
+  - Items: Headphones, Vintage Camera (hand + skyscrapers), Laptop (hand + city street + taxi), Chair (urban intersection)
+  - All images: urban backgrounds (city streets, sidewalks, architecture) with hands visible
+  - Auto-rotates every 5s with horizontal slide transition (Framer Motion AnimatePresence)
   - Clickable dots for manual navigation
   - Each slide updates: image, handoff time, floating quote, seller name
-- Updated H1 to: "I show up. The buyer is already there. **Payment Initiated.** **Wow.**" (green primary + gold accent)
+- Updated H1 to: "I show up. Buyer's there. **Payment's Initiated.** **Wow.**" (green primary + gold accent)
 
 ## Prioritized Backlog
 ### P0 (Critical)

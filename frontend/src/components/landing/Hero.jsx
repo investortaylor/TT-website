@@ -21,8 +21,8 @@ const carouselItems = [
   {
     key: "camera",
     image:
-      "https://images.unsplash.com/photo-1767358742274-0c0ee1531d0c?w=1200&auto=format&fit=crop",
-    alt: "A hand holding a vintage camera in a grassy outdoor landscape",
+      "https://images.pexels.com/photos/9531175/pexels-photo-9531175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    alt: "A hand holding a vintage camera with an urban cityscape in the background",
     handoffTime: "8 min",
     quote: "Vintage camera, deposit already in. Easiest sale I've made.",
     seller: "Priya R., Seller",
@@ -30,8 +30,8 @@ const carouselItems = [
   {
     key: "laptop",
     image:
-      "https://images.unsplash.com/photo-1754091152248-01b2e298635a?w=1200&auto=format&fit=crop",
-    alt: "A man holding a laptop outdoors near a tree, ready for handoff",
+      "https://images.pexels.com/photos/5356278/pexels-photo-5356278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    alt: "A person holding a laptop while crossing a city street",
     handoffTime: "14 min",
     quote: "Buyer was already at the bench. Laptop swap, payment initiated.",
     seller: "Marcus T., Seller",
@@ -39,15 +39,15 @@ const carouselItems = [
   {
     key: "chair",
     image:
-      "https://images.unsplash.com/photo-1574693109530-cd1b79f63b69?w=1200&auto=format&fit=crop",
-    alt: "A man carrying a chair across a field outdoors",
+      "https://images.pexels.com/photos/10312628/pexels-photo-10312628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    alt: "A street vendor with chairs at an urban city intersection",
     handoffTime: "17 min",
     quote: "Hauled the chair out. He met me at the gate. Done.",
     seller: "Lamont B., Seller",
   },
 ];
 
-const ROTATION_MS = 4000;
+const ROTATION_MS = 5000;
 
 function HeroIllustration() {
   const [index, setIndex] = useState(0);
