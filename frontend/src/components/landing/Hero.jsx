@@ -15,8 +15,8 @@ function HeroIllustration() {
 
       <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgb(0,0,0,0.18)] ring-1 ring-stone-900/5 aspect-[4/5] bg-stone-100">
         <img
-          src="https://images.unsplash.com/photo-1570169043013-de63774bbf97?w=1200&auto=format&fit=crop"
-          alt="A road bike listed for sale on the TruTown marketplace"
+          src="https://images.unsplash.com/photo-1687417628248-21d60aaea960?w=1200&auto=format&fit=crop"
+          alt="A person holding a pair of premium headphones, mid-handoff during a TruTown marketplace exchange"
           loading="eager"
           className="w-full h-full object-cover"
         />
@@ -46,7 +46,7 @@ function HeroIllustration() {
       {/* Floating quote pill */}
       <div className="absolute -bottom-6 -left-2 sm:-left-6 rounded-2xl bg-white px-4 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 max-w-[14rem]">
         <p className="font-body text-xs text-stone-700 leading-snug">
-          &ldquo;Box handed off. Payment cleared.<br/>Home in 20.&rdquo;
+          &ldquo;Headphones handed off. Payment cleared.<br/>Home in 20.&rdquo;
         </p>
         <p className="font-body text-[10px] text-stone-400 mt-1">
           &mdash; James W., Seller
@@ -96,7 +96,7 @@ export default function Hero() {
               className="font-body text-base md:text-lg text-stone-600 leading-relaxed max-w-xl mb-8"
             >
               No more &ldquo;is this still available?&rdquo; No more drives across town
-              for nothing. The buyer&rsquo;s already paid to show up &mdash; so they do.
+              for nothing. The buyer&rsquo;s already put down a deposit &mdash; so they actually show up.
             </p>
 
             {/* App Store Buttons */}
