@@ -9,82 +9,50 @@ const trustBadges = [
 
 function HeroIllustration() {
   return (
-    <svg viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto max-w-md mx-auto">
-      {/* Background circle */}
-      <circle cx="250" cy="220" r="180" fill="#ecfdf5" />
-      <circle cx="250" cy="220" r="140" fill="#d1fae5" opacity="0.5" />
+    <div className="relative w-full max-w-md mx-auto">
+      {/* Soft glow behind photo */}
+      <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-emerald-100/60 via-stone-100/40 to-gold-100/50 blur-2xl" />
 
-      {/* Phone mockup */}
-      <rect x="195" y="80" width="110" height="200" rx="16" fill="#1c1917" />
-      <rect x="201" y="90" width="98" height="180" rx="10" fill="#fafaf9" />
-      {/* Phone screen content */}
-      <rect x="211" y="105" width="78" height="12" rx="3" fill="#15803d" />
-      <rect x="211" y="125" width="60" height="6" rx="2" fill="#d6d3d1" />
-      <rect x="211" y="137" width="50" height="6" rx="2" fill="#d6d3d1" />
-      {/* Item cards on phone */}
-      <rect x="211" y="153" width="35" height="35" rx="4" fill="#ecfdf5" />
-      <rect x="252" y="153" width="35" height="35" rx="4" fill="#fef9c3" />
-      <rect x="211" y="195" width="35" height="35" rx="4" fill="#fef9c3" />
-      <rect x="252" y="195" width="35" height="35" rx="4" fill="#ecfdf5" />
-      {/* Checkmarks on cards */}
-      <circle cx="236" cy="170" r="6" fill="#15803d" />
-      <path d="M233 170l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="277" cy="212" r="6" fill="#15803d" />
-      <path d="M274 212l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgb(0,0,0,0.18)] ring-1 ring-stone-900/5 aspect-[4/5] bg-stone-100">
+        <img
+          src="https://images.unsplash.com/photo-1636202493066-c111030ea75e"
+          alt="A buyer receiving an item from a seller during a peer-to-peer marketplace handoff"
+          loading="eager"
+          className="w-full h-full object-cover"
+        />
 
-      {/* Person on the left - Seller */}
-      <circle cx="120" cy="180" r="22" fill="#ca8a04" opacity="0.2" />
-      <circle cx="120" cy="170" r="14" fill="#d6a756" />
-      <path d="M100 220c0-11 9-20 20-20s20 9 20 20" fill="#ca8a04" />
-      {/* Box in seller's hands */}
-      <rect x="105" y="205" width="30" height="22" rx="3" fill="#a16207" />
-      <rect x="105" y="205" width="30" height="5" rx="1" fill="#854d0e" />
+        {/* Subtle bottom gradient for caption legibility */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-900/60 via-stone-900/10 to-transparent" />
 
-      {/* Person on the right - Buyer */}
-      <circle cx="380" cy="180" r="22" fill="#15803d" opacity="0.2" />
-      <circle cx="380" cy="170" r="14" fill="#6ea87a" />
-      <path d="M360 220c0-11 9-20 20-20s20 9 20 20" fill="#15803d" />
-      {/* Phone in buyer's hand */}
-      <rect x="372" y="207" width="16" height="24" rx="3" fill="#1c1917" />
-      <rect x="374" y="210" width="12" height="18" rx="2" fill="#d1fae5" />
+        {/* Floating badge: deposit confirmed */}
+        <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-3 py-1.5 shadow-md">
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="font-body text-[11px] font-bold text-stone-900 tracking-wide uppercase">
+            Deposit confirmed
+          </span>
+        </div>
 
-      {/* Arrows showing exchange */}
-      <path d="M155 200l30-10" stroke="#15803d" strokeWidth="2" strokeDasharray="4 3" />
-      <path d="M185 190l-4 6 6-1" fill="#15803d" />
-      <path d="M345 200l-30-10" stroke="#ca8a04" strokeWidth="2" strokeDasharray="4 3" />
-      <path d="M315 190l4 6-6-1" fill="#ca8a04" />
+        {/* Floating badge: handoff time */}
+        <div className="absolute bottom-4 right-4 rounded-2xl bg-white/95 backdrop-blur px-4 py-2.5 shadow-lg">
+          <p className="font-mono text-[10px] font-bold text-stone-500 tracking-wider uppercase">
+            Handoff
+          </p>
+          <p className="font-fun text-lg font-semibold text-stone-900 leading-none mt-0.5">
+            11 min
+          </p>
+        </div>
+      </div>
 
-      {/* Shield badge */}
-      <g transform="translate(225, 290)">
-        <path d="M25 0L50 12v18c0 16-12 30-25 36C12 60 0 46 0 30V12L25 0z" fill="#15803d" />
-        <path d="M25 6L44 16v15c0 13-9 24-19 29-10-5-19-16-19-29V16L25 6z" fill="#d1fae5" />
-        <path d="M18 30l5 5 10-10" stroke="#15803d" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      </g>
-
-      {/* Deposit coins */}
-      <circle cx="160" cy="290" r="12" fill="#facc15" />
-      <circle cx="160" cy="290" r="8" fill="#eab308" />
-      <text x="157" y="294" fill="#713f12" fontSize="10" fontWeight="bold">$</text>
-      <circle cx="175" cy="305" r="10" fill="#facc15" opacity="0.7" />
-      <circle cx="175" cy="305" r="6" fill="#eab308" opacity="0.7" />
-
-      <circle cx="340" cy="290" r="12" fill="#facc15" />
-      <circle cx="340" cy="290" r="8" fill="#eab308" />
-      <text x="337" y="294" fill="#713f12" fontSize="10" fontWeight="bold">$</text>
-      <circle cx="325" cy="305" r="10" fill="#facc15" opacity="0.7" />
-      <circle cx="325" cy="305" r="6" fill="#eab308" opacity="0.7" />
-
-      {/* City skyline at bottom */}
-      <rect x="60" y="370" width="380" height="80" fill="#f5f5f4" />
-      <rect x="80" y="345" width="30" height="105" rx="2" fill="#e7e5e4" />
-      <rect x="120" y="325" width="25" height="125" rx="2" fill="#d6d3d1" />
-      <rect x="155" y="355" width="35" height="95" rx="2" fill="#e7e5e4" />
-      <rect x="200" y="335" width="28" height="115" rx="2" fill="#d6d3d1" />
-      <rect x="240" y="350" width="40" height="100" rx="2" fill="#e7e5e4" />
-      <rect x="290" y="330" width="25" height="120" rx="2" fill="#d6d3d1" />
-      <rect x="325" y="355" width="30" height="95" rx="2" fill="#e7e5e4" />
-      <rect x="365" y="340" width="35" height="110" rx="2" fill="#d6d3d1" />
-    </svg>
+      {/* Floating quote pill */}
+      <div className="absolute -bottom-6 -left-2 sm:-left-6 rounded-2xl bg-white px-4 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 max-w-[14rem]">
+        <p className="font-body text-xs text-stone-700 leading-snug">
+          &ldquo;Box handed off. Payment cleared.<br/>Home in 20.&rdquo;
+        </p>
+        <p className="font-body text-[10px] text-stone-400 mt-1">
+          &mdash; James W., Seller
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -119,17 +87,16 @@ export default function Hero() {
               data-testid="hero-tagline"
               className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
             >
-              Where serious buyers meet{" "}
-              <span className="text-primary">trusted</span> sellers.
+              The buyer&rsquo;s already there.{" "}
+              <span className="text-primary">Already paid.</span> On time.
             </h1>
 
             <p
               data-testid="hero-description"
               className="font-body text-base md:text-lg text-stone-600 leading-relaxed max-w-xl mb-8"
             >
-              Stop wasting time on no-shows and flaky buyers. TruTown's deposit-based
-              system means everyone has skin in the game — so you only meet people
-              who are actually serious.
+              No more &ldquo;is this still available?&rdquo; No more drives across town
+              for nothing. The buyer&rsquo;s already paid to show up &mdash; so they do.
             </p>
 
             {/* App Store Buttons */}
@@ -188,3 +155,4 @@ export default function Hero() {
     </section>
   );
 }
+

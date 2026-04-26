@@ -132,13 +132,13 @@ export default function Features() {
           </span>
           <h2
             data-testid="features-title"
-            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3 max-w-xl"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3 max-w-2xl"
           >
-            Trust isn't optional. It's built in.
+            The reason your buyer actually shows.
           </h2>
           <p className="font-body text-base md:text-lg text-stone-500 mt-4 max-w-2xl">
-            Every feature exists for one reason: to make local buying and
-            selling actually work the way it should.
+            Every feature here exists to deliver the same simple thing: a buyer
+            who shows up, on time, ready to close.
           </p>
         </motion.div>
 

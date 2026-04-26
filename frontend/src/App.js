@@ -2,6 +2,7 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
+import ExhaleMoment from "@/components/landing/ExhaleMoment";
 import SocialProof from "@/components/landing/SocialProof";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Features from "@/components/landing/Features";
@@ -16,6 +17,7 @@ const LandingPage = () => {
       <Navbar />
       <main>
         <Hero />
+        <ExhaleMoment />
         <SocialProof />
         <HowItWorks />
         <Features />

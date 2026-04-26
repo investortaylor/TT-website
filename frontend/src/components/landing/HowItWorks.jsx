@@ -6,6 +6,7 @@ const steps = [
     num: "01",
     icon: ListPlus,
     title: "List Your Item",
+    feeling: "List it. Then go live your life.",
     description:
       "Snap a photo, set your price, and describe your item. Your listing goes live to local buyers in minutes.",
     color: "bg-emerald-50 text-primary",
@@ -15,6 +16,7 @@ const steps = [
     num: "02",
     icon: DollarSign,
     title: "Buyer Places Deposit",
+    feeling: "The ping that means business.",
     description:
       "Interested buyers put down 5-25% as a refundable deposit, placed in an escrow account. This filters out tire-kickers and proves they're serious.",
     color: "bg-gold-50 text-secondary",
@@ -24,6 +26,7 @@ const steps = [
     num: "03",
     icon: Handshake,
     title: "Meet & Inspect",
+    feeling: "They're already there when you pull up.",
     description:
       "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 45 minutes for electronics, 3 hours for vehicles, up to 10 days for real estate.",
     color: "bg-emerald-50 text-primary",
@@ -33,6 +36,7 @@ const steps = [
     num: "04",
     icon: ThumbsUp,
     title: "Complete the Deal",
+    feeling: "Payment hits your account. You're done.",
     description:
       "Both parties confirm the exchange. With 2 button presses, the deposit + remaining balance is moved to seller's account. Transaction records are emailed.",
     color: "bg-gold-50 text-secondary",
@@ -109,11 +113,10 @@ export default function HowItWorks() {
             data-testid="how-it-works-title"
             className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
           >
-            Four steps to a deal you can trust
+            From listing to paid in one Saturday.
           </h2>
           <p className="font-body text-base md:text-lg text-stone-500 mt-4 max-w-2xl mx-auto">
-            No more ghosting. No more wasted trips. Just real accountability
-            from start to finish.
+            Here&rsquo;s what it actually feels like, start to finish.
           </p>
         </motion.div>
 
@@ -153,6 +156,13 @@ export default function HowItWorks() {
                   <h3 className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 mb-3">
                     {step.title}
                   </h3>
+                  <p
+                    data-testid={`step-${step.num}-feeling`}
+                    className="font-fun text-lg md:text-xl font-semibold text-stone-900 italic leading-snug mb-3"
+                    style={{ color: step.accent }}
+                  >
+                    {step.feeling}
+                  </p>
                   <p className="font-body text-base text-stone-600 leading-relaxed max-w-md lg:max-w-none">
                     {step.description}
                   </p>
