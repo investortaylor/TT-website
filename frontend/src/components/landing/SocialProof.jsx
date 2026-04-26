@@ -4,7 +4,6 @@ const stats = [
   { value: "Zero", label: "No-shows tolerated" },
   { value: "100%", label: "Deposits refundable" },
   { value: "ID", label: "Verified sellers" },
-  { value: "24/7", label: "Dispute resolution" },
 ];
 
 function ComparisonIllustration() {

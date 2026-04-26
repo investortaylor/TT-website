@@ -194,7 +194,7 @@ export default function Hero() {
             >
               I show up. Buyer&rsquo;s there.{" "}
               <span className="text-primary">Payment&rsquo;s Initiated.</span>{" "}
-              <span className="text-gold-500">Wow.</span>
+              <span className="text-gold-300">Wow.</span>
             </h1>
 
             <p

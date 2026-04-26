@@ -4,7 +4,6 @@ import {
   UserCheck,
   MapPin,
   Siren,
-  FileSearch,
   Clock,
   Ban,
   CreditCard,
@@ -65,24 +64,6 @@ const features = [
     color: "bg-stone-50 border-stone-200",
     iconColor: "text-stone-700",
   },
-  {
-    icon: FileSearch,
-    title: "Dispute Resolution",
-    description:
-      "Every message, photo, and detail is preserved as a transaction snapshot. If something goes wrong, there's a clear evidence trail.",
-    size: "sm",
-    color: "bg-emerald-50 border-emerald-100",
-    iconColor: "text-primary",
-  },
- //{
-   // icon: ShieldCheck,
-    //title: "Buyer Protection",
-    //description:
-    //  "Free claim process for 'item not as described' disputes. Escrowed deposits only release when both parties confirm a successful exchange.",
-   // size: "sm",
-   // color: "bg-gold-50 border-gold-100",
-   // iconColor: "text-secondary",
- // },
 ];
 
 function FeatureArt({ feature, index }) {
