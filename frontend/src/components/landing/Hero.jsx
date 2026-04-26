@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Shield, BadgeCheck, Smartphone } from "lucide-react";
 
 const trustBadges = [
@@ -7,22 +8,85 @@ const trustBadges = [
   { icon: Smartphone, label: "Safe Meetup Tools" },
 ];
 
+const carouselItems = [
+  {
+    key: "headphones",
+    image:
+      "https://images.unsplash.com/photo-1687417628248-21d60aaea960?w=1200&auto=format&fit=crop",
+    alt: "A hand mid-handoff with a pair of premium headphones outdoors",
+    handoffTime: "11 min",
+    quote: "Headphones handed off. Payment cleared. Home in 20.",
+    seller: "James W., Seller",
+  },
+  {
+    key: "camera",
+    image:
+      "https://images.unsplash.com/photo-1767358742274-0c0ee1531d0c?w=1200&auto=format&fit=crop",
+    alt: "A hand holding a vintage camera in a grassy outdoor landscape",
+    handoffTime: "8 min",
+    quote: "Vintage camera, deposit already in. Easiest sale I've made.",
+    seller: "Priya R., Seller",
+  },
+  {
+    key: "laptop",
+    image:
+      "https://images.unsplash.com/photo-1754091152248-01b2e298635a?w=1200&auto=format&fit=crop",
+    alt: "A man holding a laptop outdoors near a tree, ready for handoff",
+    handoffTime: "14 min",
+    quote: "Buyer was already at the bench. Laptop swap, payment initiated.",
+    seller: "Marcus T., Seller",
+  },
+  {
+    key: "chair",
+    image:
+      "https://images.unsplash.com/photo-1574693109530-cd1b79f63b69?w=1200&auto=format&fit=crop",
+    alt: "A man carrying a chair across a field outdoors",
+    handoffTime: "17 min",
+    quote: "Hauled the chair out. He met me at the gate. Done.",
+    seller: "Lamont B., Seller",
+  },
+];
+
+const ROTATION_MS = 4000;
+
 function HeroIllustration() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setIndex((i) => (i + 1) % carouselItems.length);
+    }, ROTATION_MS);
+    return () => clearInterval(t);
+  }, []);
+
+  const item = carouselItems[index];
+
   return (
-    <div className="relative w-full max-w-md mx-auto">
+    <div
+      className="relative w-full max-w-md mx-auto"
+      data-testid="hero-carousel"
+    >
       {/* Soft glow behind photo */}
       <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-emerald-100/60 via-stone-100/40 to-gold-100/50 blur-2xl" />
 
       <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_60px_rgb(0,0,0,0.18)] ring-1 ring-stone-900/5 aspect-[4/5] bg-stone-100">
-        <img
-          src="https://images.unsplash.com/photo-1687417628248-21d60aaea960?w=1200&auto=format&fit=crop"
-          alt="A person holding a pair of premium headphones, mid-handoff during a TruTown marketplace exchange"
-          loading="eager"
-          className="w-full h-full object-cover"
-        />
+        <AnimatePresence mode="sync" initial={false}>
+          <motion.img
+            key={item.key}
+            src={item.image}
+            alt={item.alt}
+            loading="eager"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ x: "100%", opacity: 0.6 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "-100%", opacity: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            data-testid={`hero-carousel-image-${item.key}`}
+          />
+        </AnimatePresence>
 
         {/* Subtle bottom gradient for caption legibility */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-900/60 via-stone-900/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-stone-900/60 via-stone-900/10 to-transparent pointer-events-none" />
 
         {/* Floating badge: deposit confirmed */}
         <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-white/95 backdrop-blur px-3 py-1.5 shadow-md">
@@ -33,25 +97,66 @@ function HeroIllustration() {
         </div>
 
         {/* Floating badge: handoff time */}
-        <div className="absolute bottom-4 right-4 rounded-2xl bg-white/95 backdrop-blur px-4 py-2.5 shadow-lg">
-          <p className="font-mono text-[10px] font-bold text-stone-500 tracking-wider uppercase">
-            Handoff
-          </p>
-          <p className="font-fun text-lg font-semibold text-stone-900 leading-none mt-0.5">
-            11 min
-          </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`time-${item.key}`}
+            className="absolute bottom-4 right-4 rounded-2xl bg-white/95 backdrop-blur px-4 py-2.5 shadow-lg"
+            initial={{ y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -12, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <p className="font-mono text-[10px] font-bold text-stone-500 tracking-wider uppercase">
+              Handoff
+            </p>
+            <p
+              className="font-fun text-lg font-semibold text-stone-900 leading-none mt-0.5"
+              data-testid="hero-carousel-handoff-time"
+            >
+              {item.handoffTime}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Carousel dots */}
+        <div
+          className="absolute top-4 right-4 flex items-center gap-1.5"
+          data-testid="hero-carousel-dots"
+        >
+          {carouselItems.map((it, i) => (
+            <button
+              key={it.key}
+              type="button"
+              aria-label={`Show ${it.key}`}
+              onClick={() => setIndex(i)}
+              data-testid={`hero-carousel-dot-${it.key}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === index ? "w-6 bg-white" : "w-1.5 bg-white/60 hover:bg-white/80"
+              }`}
+            />
+          ))}
         </div>
       </div>
 
       {/* Floating quote pill */}
-      <div className="absolute -bottom-6 -left-2 sm:-left-6 rounded-2xl bg-white px-4 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 max-w-[14rem]">
-        <p className="font-body text-xs text-stone-700 leading-snug">
-          &ldquo;Headphones handed off. Payment cleared.<br/>Home in 20.&rdquo;
-        </p>
-        <p className="font-body text-[10px] text-stone-400 mt-1">
-          &mdash; James W., Seller
-        </p>
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={`quote-${item.key}`}
+          className="absolute -bottom-6 -left-2 sm:-left-6 rounded-2xl bg-white px-4 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 max-w-[14rem]"
+          initial={{ y: 12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -12, opacity: 0 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          data-testid="hero-carousel-quote"
+        >
+          <p className="font-body text-xs text-stone-700 leading-snug">
+            &ldquo;{item.quote}&rdquo;
+          </p>
+          <p className="font-body text-[10px] text-stone-400 mt-1">
+            &mdash; {item.seller}
+          </p>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
@@ -87,8 +192,9 @@ export default function Hero() {
               data-testid="hero-tagline"
               className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
             >
-              The buyer&rsquo;s already there.{" "}
-              <span className="text-primary">Initiated payment.</span> On time.
+              I show up. The buyer is already there.{" "}
+              <span className="text-primary">Payment Initiated.</span>{" "}
+              <span className="text-gold-500">Wow.</span>
             </h1>
 
             <p
@@ -155,4 +261,3 @@ export default function Hero() {
     </section>
   );
 }
-
