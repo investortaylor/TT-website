@@ -39,8 +39,8 @@ const carouselItems = [
   {
     key: "chair",
     image:
-      "https://images.pexels.com/photos/10312628/pexels-photo-10312628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "A street vendor with chairs at an urban city intersection",
+      "https://images.unsplash.com/photo-1729019757896-452a3ffc12c4?w=1200&auto=format&fit=crop",
+    alt: "A single plush red armchair on an urban sidewalk in front of a graffiti wall",
     handoffTime: "17 min",
     quote: "Hauled the chair out. He met me at the gate. Done.",
     seller: "Lamont B., Seller",
