@@ -192,8 +192,8 @@ export default function Hero() {
               data-testid="hero-tagline"
               className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
             >
-              I show up. The buyer is already there.{" "}
-              <span className="text-primary">Payment Initiated.</span>{" "}
+              I show up. Buyer&rsquo;s there.{" "}
+              <span className="text-primary">Payment&rsquo;s Initiated.</span>{" "}
               <span className="text-gold-500">Wow.</span>
             </h1>
 
