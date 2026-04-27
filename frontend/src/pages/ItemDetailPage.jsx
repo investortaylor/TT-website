@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { format } from "date-fns";
 import { AlertCircle, ChevronLeft, Loader2, MapPin, Package, Star } from "lucide-react";
@@ -51,6 +51,7 @@ export default function ItemDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const galleryRef = useRef(null);
 
   const requestUrl = useMemo(() => {
     if (!id) return null;
@@ -117,6 +118,22 @@ export default function ItemDetailPage() {
   const mainPhoto = photos[photoIndex] || photos[0];
   const coords = item ? getExactCoords(item) : null;
 
+  const handleGalleryScroll = (event) => {
+    const { scrollLeft, clientWidth } = event.currentTarget;
+    if (!clientWidth) return;
+    const nextIndex = Math.round(scrollLeft / clientWidth);
+    if (nextIndex !== photoIndex) setPhotoIndex(nextIndex);
+  };
+
+  const scrollToPhoto = (index) => {
+    setPhotoIndex(index);
+    if (!galleryRef.current) return;
+    galleryRef.current.scrollTo({
+      left: index * galleryRef.current.clientWidth,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="min-h-screen bg-white" data-testid="item-detail-page">
       <Navbar />
@@ -171,20 +188,39 @@ export default function ItemDetailPage() {
             <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
               {/* Full width, natural height — no crop (portrait / document photos stay fully visible) */}
               {/* <div className="flex w-full justify-center bg-[#F5F5F5] py-2 sm:py-3"> */}
-              <div className="flex w-full justify-center bg-[#F5F5F5] py-4">
-                {mainPhoto ? (
+              {photos.length > 1 ? (
+                <div
+                  ref={galleryRef}
+                  onScroll={handleGalleryScroll}
+                  className="flex w-full snap-x snap-mandatory overflow-x-auto bg-[#F5F5F5] py-4"
+                >
+                  {photos.map((src, i) => (
+                    <div key={i} className="w-full shrink-0 snap-center px-2 sm:px-3">
+                      <img
+                        src={src}
+                        alt={`${item.title || "Listing photo"} ${i + 1}`}
+                        className="mx-auto max-h-[70vh] w-auto max-w-full object-contain rounded-lg"
+                        decoding="async"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex w-full justify-center bg-[#F5F5F5] py-4">
+                  {mainPhoto ? (
                     <img
-                    src={mainPhoto}
-                    alt={item.title || "Listing photo"}
-                    className="max-h-[70vh] w-auto max-w-full object-contain rounded-lg"
-                    decoding="async"
-                  />
-                ) : (
-                  <div className="flex min-h-[240px] w-full items-center justify-center text-[#BDC3C7]">
-                    <Package className="h-16 w-16 opacity-50" aria-hidden />
-                  </div>
-                )}
-              </div>
+                      src={mainPhoto}
+                      alt={item.title || "Listing photo"}
+                      className="max-h-[70vh] w-auto max-w-full object-contain rounded-lg"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div className="flex min-h-[240px] w-full items-center justify-center text-[#BDC3C7]">
+                      <Package className="h-16 w-16 opacity-50" aria-hidden />
+                    </div>
+                  )}
+                </div>
+              )}
               {photos.length > 1 && (
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                   <div className="flex gap-2 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -192,7 +228,7 @@ export default function ItemDetailPage() {
                       <button
                         key={i}
                         type="button"
-                        onClick={() => setPhotoIndex(i)}
+                        onClick={() => scrollToPhoto(i)}
                         className={cn(
                           "h-16 w-16 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all",
                           i === photoIndex
@@ -289,7 +325,14 @@ export default function ItemDetailPage() {
               {coords && (
                 <>
                   <Separator className="bg-[#E0E0E0]" />
-                  <ItemLocationMap lat={coords.lat} lng={coords.lng} title={item.title} />
+                  <ItemLocationMap
+                    lat={coords.lat}
+                    lng={coords.lng}
+                    title={item.title}
+                    locationType="bubble"
+                    bubbleRadiusMiles={1.24}
+                    showPin={false}
+                  />
                 </>
               )}
 
