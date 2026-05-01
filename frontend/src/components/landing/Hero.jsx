@@ -194,7 +194,7 @@ export default function Hero() {
             >
               I show up. Buyer&rsquo;s there.{" "}
               <span className="text-primary">Payment&rsquo;s already initiated.</span>{" "}
-              <span style={{ color: "tan" }}>Wow.</span>
+              <span style={{ color: "gold" }}>Wow.</span>
             </h1>
 
             <p
