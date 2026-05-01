@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Lamont T.",
     role: "Seller",
-    text: "I sold a PS5 on Facebook Marketplace three times before TruTown. Every single buyer either ghosted me or tried to lowball at the door. First sale on TruTown? The buyer showed up on time, cash ready. The deposit changes everything.",
+    text: "I sold a PS5 on Facebook Marketplace three times before TruTown. Every single buyer either ghosted me or tried to lowball at the door. First sale on TruTown? The buyer showed up on time, payment initiated, ready to go. The deposit changes everything.",
     rating: 5,
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
   {
     name: "David R.",
     role: "Seller",
-    text: "The 'Is this still available?' messages that go nowhere — that's what killed me on Craigslist. On TruTown, when someone messages you, they've already thought about putting money down. Every conversation is with a real, committed buyer.",
+    text: "The 'Is this still available?' messages that go nowhere — that's what killed me on Craigslist. On TruTown, when someone messages you, they've already thought about putting down a deposit. Every conversation is with a real, committed buyer.",
     rating: 5,
   },
   {

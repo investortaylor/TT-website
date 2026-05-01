@@ -111,12 +111,12 @@ export default function SocialProof() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           data-testid="stats-strip"
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          className="flex flex-wrap justify-center gap-6 mb-20"
         >
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-6 rounded-2xl bg-stone-50 border border-stone-100"
+              className="text-center p-6 rounded-2xl bg-stone-50 border border-stone-100 w-48"
             >
               <p className="font-fun text-3xl md:text-4xl font-semibold text-primary">
                 {stat.value}
