@@ -193,8 +193,8 @@ export default function Hero() {
               className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
             >
               I show up. Buyer&rsquo;s there.{" "}
-              <span className="text-primary">Payment&rsquo;s Initiated.</span>{" "}
-              <span className="text-gold-300">Wow.</span>
+              <span className="text-primary">Payment&rsquo;s already initiated.</span>{" "}
+              <span style={{ color: "tan" }}>Wow.</span>
             </h1>
 
             <p
