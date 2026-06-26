@@ -34,7 +34,7 @@ const carouselItems = [
     alt: "A person holding a laptop while crossing a city street",
     handoffTime: "14 min",
     quote: "Buyer was already at the bench. Laptop swap, payment initiated.",
-    seller: "Marcus T., Seller",
+    seller: "Micalah T., Seller",
   },
   {
     key: "chair",
