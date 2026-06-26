@@ -3,7 +3,7 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Lamont T.",
+    name: "Kyle T.",
     role: "Seller",
     text: "I sold a PS5 on Facebook Marketplace three times before TruTown. Every single buyer either ghosted me or tried to lowball at the door. First sale on TruTown? The buyer showed up on time, payment initiated, ready to go. The deposit changes everything.",
     rating: 5,
