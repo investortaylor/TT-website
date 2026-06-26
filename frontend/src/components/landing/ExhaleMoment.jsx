@@ -26,7 +26,7 @@ export default function ExhaleMoment() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="font-body text-sm md:text-base text-stone-500 mt-8 tracking-wide uppercase"
         >
-          &mdash; Lamont T., Detroit
+          &mdash; Shawn T., Baltimore
         </motion.p>
       </div>
     </section>
