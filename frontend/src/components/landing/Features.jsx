@@ -50,7 +50,7 @@ const features = [
     icon: Siren,
     title: "Request Police Presence",
     description:
-      "Feel uncomfortable? Request police presence at the meetup right from the app. A feature no other marketplace offers.",
+      "Feel uncomfortable? Call the police right from the app - A feature no other marketplace offers. We'll automatically follow-up with the police on your behalf right after.",
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
@@ -59,7 +59,7 @@ const features = [
     icon: Clock,
     title: "Inspection Time",
     description:
-      "Up to 45 minutes for electronics. 3 hours for vehicles. Up to 10 days for real estate. Inspect before you commit.",
+      "Up to 30 minutes for electronics. 3 hours for vehicles. Up to 21 days for real estate. Inspect before you commit.",
     size: "lg",
     color: "bg-stone-50 border-stone-200",
     iconColor: "text-stone-700",
