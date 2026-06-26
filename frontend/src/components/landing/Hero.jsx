@@ -43,11 +43,11 @@ const carouselItems = [
     alt: "A single plush red armchair on an urban sidewalk in front of a graffiti wall",
     handoffTime: "17 min",
     quote: "Hauled the chair out. He met me at the gate. Done.",
-    seller: "Lamont B., Seller",
+    seller: "Seth B., Seller",
   },
 ];
 
-const ROTATION_MS = 5000;
+const ROTATION_MS = 6000;
 
 function HeroIllustration() {
   const [index, setIndex] = useState(0);
