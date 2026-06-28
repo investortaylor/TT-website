@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ContactModal from "./ContactModal";
 
 const productLinks = [
@@ -7,15 +8,9 @@ const productLinks = [
   { label: "FAQ", href: "/#faq" },
 ];
 
-const companyLinks = [
-  { label: "About TruTown", href: "#" },
-  { label: "Careers", href: "#" },
-];
-
 const legalLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-  { label: "Cookie Policy", href: "#" },
+  { label: "Privacy Policy", to: "/privacy" },
+  { label: "Terms of Service", to: "/terms" },
 ];
 
 export default function Footer() {
@@ -76,15 +71,6 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href={companyLinks[0].href}
-                  data-testid="footer-link-about-trutown"
-                  className="font-body text-sm text-stone-400 hover:text-white transition-colors duration-200"
-                >
-                  {companyLinks[0].label}
-                </a>
-              </li>
-              <li>
                 <button
                   type="button"
                   onClick={openContact}
@@ -93,15 +79,6 @@ export default function Footer() {
                 >
                   Contact Us
                 </button>
-              </li>
-              <li>
-                <a
-                  href={companyLinks[1].href}
-                  data-testid="footer-link-careers"
-                  className="font-body text-sm text-stone-400 hover:text-white transition-colors duration-200"
-                >
-                  {companyLinks[1].label}
-                </a>
               </li>
             </ul>
           </div>
@@ -114,13 +91,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                     className="font-body text-sm text-stone-400 hover:text-white transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
