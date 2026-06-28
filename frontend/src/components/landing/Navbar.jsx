@@ -31,14 +31,24 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 md:h-28">
-          {/* Logo */}
-          <Link to="/" data-testid="navbar-logo" className="flex items-center">
+          {/* Logo + Slogan */}
+          <Link
+            to="/"
+            data-testid="navbar-logo"
+            className="flex items-center gap-3 md:gap-4 min-w-0"
+          >
             <img
               src="/logo.png"
               alt="TruTown Marketplace"
-              className="h-[75px] md:h-[90px] w-auto my-2"
+              className="h-[60px] sm:h-[75px] md:h-[90px] w-auto my-2 flex-shrink-0"
               style={{ mixBlendMode: "multiply" }}
             />
+            <span
+              data-testid="navbar-slogan"
+              className="font-body font-semibold text-black leading-tight text-[11px] sm:text-xs md:text-sm border-l border-stone-300 pl-3 md:pl-4 max-w-[150px] sm:max-w-[220px] md:max-w-none"
+            >
+              Where motivated buyers meet trusted sellers.
+            </span>
           </Link>
 
           {/* Desktop Links */}
