@@ -101,3 +101,52 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Activate the Contact Us link in the footer of the TruTown Marketplace landing page. Open a modal with a contact form (Name, Email, Phone, Subject dropdown, Message). On submit, send the message to info@trutown.market via Resend, persist the submission in MongoDB, and show a toast notification + close the modal."
+
+backend:
+  - task: "POST /api/contact endpoint (Resend integration)"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Added POST /api/contact endpoint. Validates payload (name, email, phone optional, subject, message), persists into Mongo collection 'contact_submissions' (UUID id, ISO timestamp, _id excluded on reads), then sends an HTML email via Resend using asyncio.to_thread. RESEND_API_KEY and SENDER_EMAIL='info@trutown.market' configured in backend/.env. Sets reply_to to submitter email. Returns ContactSubmission with email_id/email_status. Existing /api/status endpoints untouched."
+        -working: true
+        -agent: "testing"
+        -comment: "✅ ALL TESTS PASSED (8/8). Happy path: POST with all fields returns 200 with correct ContactSubmission structure (id, name, email, phone, subject, message, email_status='sent', email_id non-null, timestamp). Happy path without phone: Returns 200 with email_status='sent'. Validation: Missing email returns 422 ✓, Missing message returns 422 ✓, Malformed email returns 422 ✓. Persistence: Document verified in MongoDB collection 'contact_submissions' with email_status='sent' and valid email_id. _id field correctly excluded from API responses. Regression: GET /api/ returns Hello World ✓, POST/GET /api/status working ✓. Resend integration fully functional - emails sent successfully with email_id returned."
+
+frontend:
+  - task: "Contact modal + Footer wiring + Toaster"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/landing/ContactModal.jsx, Footer.jsx, App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Created ContactModal with framer-motion animations, full validation, success state, and submits to ${REACT_APP_BACKEND_URL}/api/contact via axios. Footer 'Contact Us' converted from anchor to button that opens the modal. Sonner Toaster mounted in App.js (top-right, richColors). Will be verified manually by user / via screenshot."
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus: []
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    -agent: "main"
+    -message: "Please test POST /api/contact end-to-end. Send a valid submission (name, email, phone, subject, message) — expect HTTP 200 with a ContactSubmission body containing 'email_status': 'sent' and a non-null 'email_id'. Verify the doc is persisted in Mongo collection 'contact_submissions' with email_status='sent'. Also send an invalid payload (missing email or message) — expect 422. The Resend API key and sender email (info@trutown.market) are configured in backend/.env. Do NOT touch the existing /api/status endpoints. No frontend testing requested yet."
+    -agent: "testing"
+    -message: "✅ Backend testing complete - ALL 8 TESTS PASSED. POST /api/contact endpoint is fully functional with proper validation, persistence, and Resend email integration. All regression tests passed. Ready for user verification of frontend integration."

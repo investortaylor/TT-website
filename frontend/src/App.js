@@ -1,5 +1,6 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "@/components/ui/sonner";
 import ItemDetailPage from "@/pages/ItemDetailPage";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailPage />} />
         </Routes>
       </BrowserRouter>
+      <Toaster position="top-right" richColors closeButton />
     </div>
   );
 }
