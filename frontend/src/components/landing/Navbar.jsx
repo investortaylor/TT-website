@@ -47,7 +47,7 @@ export default function Navbar() {
               data-testid="navbar-slogan"
               className="font-body font-semibold text-black leading-tight text-[11px] sm:text-xs md:text-sm border-l border-stone-300 pl-3 md:pl-4 max-w-[150px] sm:max-w-[220px] md:max-w-none"
             >
-              Where motivated buyers meet trusted sellers.
+              Where serious buyers meet trusted sellers.
             </span>
           </Link>
 
