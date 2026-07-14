@@ -2,7 +2,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 export default function TermsOfServicePage() {
   return (
-    <LegalLayout title="Terms of Service" lastUpdated="June 28, 2026">
+    <LegalLayout title="Terms of Service" lastUpdated="July 14, 2026">
       <p>
         Welcome to TruTown Marketplace. These Terms of Service (&ldquo;Terms&rdquo;)
         govern your access to and use of TruTown&rsquo;s mobile apps, websites,
