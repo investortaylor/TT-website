@@ -81,9 +81,10 @@ export default function TermsOfServicePage() {
           payment processor and held until the in-person meet-up completes.
         </li>
         <li>
-          If the buyer shows up and completes the purchase, the deposit is
-          released back to the buyer or applied toward the purchase price, as
-          configured for that listing.
+          A sale is only marked complete after all three of the following occur: (1) both the buyer and the seller confirm proximity at the agreed meeting location, (2) the buyer initiates the purchase in the App, and (3) the seller confirms the purchase in the App. When the sale is completed, the buyer's deposit is applied toward the item's purchase price, and the buyer pays the remaining balance to the seller at the meeting.
+        </li>
+        <li>
+          All sales are final. TruTown Marketplace does not offer buyer protection or post-sale refunds through the Service. Any dispute, adjustment, or return following a completed sale must be resolved directly between the buyer and the seller, off-platform.
         </li>
         <li>
           If the buyer fails to show or cancels outside the cancellation
