@@ -28,7 +28,7 @@ const steps = [
     title: "Meet & Inspect",
     feeling: "They're already there when you pull up.",
     description:
-      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 45 minutes for electronics, 3 hours for vehicles, up to 10 days for real estate.",
+      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 30 minutes for electronics, 3 hours for vehicles, up to 21 days for real estate.",
     color: "bg-emerald-50 text-primary",
     accent: "#15803d",
   },
@@ -38,7 +38,7 @@ const steps = [
     title: "Complete the Deal",
     feeling: "Payment hits your account. You're done.",
     description:
-      "Both parties confirm the exchange. With 2 button presses, the deposit + remaining balance is moved to seller's account. Transaction records are emailed.",
+      "Both parties confirm the exchange. With 2 button presses, the deposit + remaining balance is moved to seller's wallet. Transaction records are emailed.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },
