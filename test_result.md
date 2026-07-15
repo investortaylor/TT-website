@@ -133,14 +133,33 @@ frontend:
         -agent: "main"
         -comment: "Created ContactModal with framer-motion animations, full validation, success state, and submits to ${REACT_APP_BACKEND_URL}/api/contact via axios. Footer 'Contact Us' converted from anchor to button that opens the modal. Sonner Toaster mounted in App.js (top-right, richColors). Will be verified manually by user / via screenshot."
 
+  - task: "Navbar hash-link scrolling (How It Works / Features / Testimonials / FAQ / Get the App)"
+    implemented: true
+    working: true
+    file: "frontend/src/components/ScrollToTop.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: false
+        -agent: "user"
+        -comment: "User reported: buttons in the navbar stopped working — they no longer scroll to the lower sections in the page."
+        -working: "NA"
+        -agent: "main"
+        -comment: "Root cause: Navbar uses react-router <Link to='/#section'> which does not natively scroll to hash targets, and the existing ScrollToTop component forced window.scrollTo(0,0) on every pathname change, cancelling any hash behavior. Fix: updated /app/frontend/src/components/ScrollToTop.jsx to (a) depend on both pathname and hash from useLocation, (b) when a hash is present, look up the element by id and smooth-scroll to it with a navbar offset (112px desktop / 96px mobile), retrying up to 10x/500ms so the section has time to mount after route changes, and (c) fall back to scroll-to-top only when there is no hash. Section ids on the landing page: how-it-works, features, testimonials, faq, download (Get the App)."
+        -working: true
+        -agent: "testing"
+        -comment: "✅ ALL NAVBAR SCROLL TESTS PASSED. Desktop (1440x900): All 5 navbar links scroll correctly - How It Works (111.8px), Features (111.8px), Testimonials (111.5px), FAQ (111.8px), Get the App (112px). All positions within acceptable range (-20 to 200px) accounting for 112px navbar offset. Double-click test passed - no crashes. Mobile (390x844): All 5 mobile menu links scroll correctly - How It Works (96.2px), Features (96.2px), Testimonials (96px), FAQ (95.8px), Get the App (96.4px). All positions within acceptable range with 96px navbar offset. Mobile menu closes after each click. Logo click scrolls to top correctly. No ScrollToTop-related console errors. MINOR FIX APPLIED: Added missing id='download' to CTA section (/app/frontend/src/components/landing/CTA.jsx) to enable 'Get the App' link scrolling. Cross-page navigation test (privacy to /#features) not applicable - privacy page uses different layout without main navbar, has 'Back to home' link instead."
+
 metadata:
   created_by: "main_agent"
   version: "1.0"
-  test_sequence: 1
+  test_sequence: 2
   run_ui: false
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Navbar hash-link scrolling (How It Works / Features / Testimonials / FAQ / Get the App)"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
@@ -150,3 +169,7 @@ agent_communication:
     -message: "Please test POST /api/contact end-to-end. Send a valid submission (name, email, phone, subject, message) — expect HTTP 200 with a ContactSubmission body containing 'email_status': 'sent' and a non-null 'email_id'. Verify the doc is persisted in Mongo collection 'contact_submissions' with email_status='sent'. Also send an invalid payload (missing email or message) — expect 422. The Resend API key and sender email (info@trutown.market) are configured in backend/.env. Do NOT touch the existing /api/status endpoints. No frontend testing requested yet."
     -agent: "testing"
     -message: "✅ Backend testing complete - ALL 8 TESTS PASSED. POST /api/contact endpoint is fully functional with proper validation, persistence, and Resend email integration. All regression tests passed. Ready for user verification of frontend integration."
+    -agent: "main"
+    -message: "Frontend bug fix ready for retest: Navbar hash-links (How It Works, Features, Testimonials, FAQ, Get the App) were not scrolling to their sections. Fix applied only in /app/frontend/src/components/ScrollToTop.jsx — when location.hash is present it now scrolls to the target element by id with a navbar offset, otherwise it scrolls to top. Please verify from the landing page (/) that clicking each nav link (desktop and mobile) smooth-scrolls to the correct section (ids: how-it-works, features, testimonials, faq, download). Also verify navigating from /privacy or /terms to /#features scrolls correctly, and that clicking the same link again does not break the page. No backend testing needed."
+    -agent: "testing"
+    -message: "✅ Navbar scroll bug fix VERIFIED and WORKING. All desktop and mobile navbar links scroll correctly to their sections with proper navbar offset. Applied minor fix: added missing id='download' to CTA section. Cross-page navigation test not applicable (privacy page has different layout). No console errors. Bug fix is complete and ready for user verification."

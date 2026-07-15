@@ -48,6 +48,7 @@ function DownloadIllustration() {
 export default function CTA() {
   return (
     <section
+      id="download"
       data-testid="cta-section"
       className="py-20 md:py-32 relative overflow-hidden"
     >
