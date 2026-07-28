@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ItemDetailPage from "@/pages/ItemDetailPage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
 import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import DeleteAccountPage from "@/pages/DeleteAccountPage";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import ExhaleMoment from "@/components/landing/ExhaleMoment";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/delete-account" element={<DeleteAccountPage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors closeButton />
