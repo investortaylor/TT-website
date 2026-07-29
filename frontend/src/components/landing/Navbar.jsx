@@ -1,24 +1,57 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Features", href: "/#features" },
-  { label: "Testimonials", href: "/#testimonials" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "How It Works", href: "/#how-it-works", id: "how-it-works" },
+  { label: "Features", href: "/#features", id: "features" },
+  { label: "Testimonials", href: "/#testimonials", id: "testimonials" },
+  { label: "FAQ", href: "/#faq", id: "faq" },
 ];
+
+function smoothScrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const navOffset = window.innerWidth >= 768 ? 112 : 96;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+  window.scrollTo({ top, behavior: "smooth" });
+  return true;
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleAnchorClick = (e, id) => {
+    e.preventDefault();
+    
+    // On the landing page, do a direct smooth-scroll (bypass react-router
+    // which can be flaky when only the hash changes on the same route).
+    if (location.pathname === "/") {
+      // Close mobile menu first to avoid animation interference
+      setMobileOpen(false);
+      
+      // Small delay to let menu close animation start, then scroll
+      setTimeout(() => {
+        smoothScrollToId(id);
+      }, 50);
+      return;
+    }
+    
+    // On a non-landing route (e.g. /privacy), let router navigate to '/'
+    // and ScrollToTop will handle the hash.
+    setMobileOpen(false);
+    navigate(`/#${id}`);
+  };
 
   return (
     <nav
@@ -54,22 +87,24 @@ export default function Navbar() {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.label}
-                to={link.href}
+                href={link.href}
+                onClick={(e) => handleAnchorClick(e, link.id)}
                 data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className="font-body text-sm font-semibold text-stone-600 hover:text-primary transition-colors duration-200 tracking-wide uppercase"
+                className="font-body text-sm font-semibold text-stone-600 hover:text-primary transition-colors duration-200 tracking-wide uppercase cursor-pointer"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
-            <Link
-              to="/#download"
+            <a
+              href="/#download"
+              onClick={(e) => handleAnchorClick(e, "download")}
               data-testid="nav-download-btn"
-              className="rounded-full bg-primary text-white px-6 py-2.5 font-body font-semibold text-sm hover:bg-primary-hover transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="rounded-full bg-primary text-white px-6 py-2.5 font-body font-semibold text-sm hover:bg-primary-hover transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer"
             >
               Get the App
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,22 +130,23 @@ export default function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.label}
-                  to={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block font-body font-semibold text-stone-700 hover:text-primary transition-colors py-2"
+                  href={link.href}
+                  onClick={(e) => handleAnchorClick(e, link.id)}
+                  data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="block font-body font-semibold text-stone-700 hover:text-primary transition-colors py-2 cursor-pointer"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
-              <Link
-                to="/#download"
-                onClick={() => setMobileOpen(false)}
-                className="block rounded-full bg-primary text-white px-6 py-3 font-body font-semibold text-center hover:bg-primary-hover transition-all"
+              <a
+                href="/#download"
+                onClick={(e) => handleAnchorClick(e, "download")}
+                className="block rounded-full bg-primary text-white px-6 py-3 font-body font-semibold text-center hover:bg-primary-hover transition-all cursor-pointer"
               >
                 Get the App
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

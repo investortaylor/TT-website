@@ -209,7 +209,6 @@ export default function Hero() {
             <div
               data-testid="hero-download-buttons"
               className="flex flex-wrap gap-4 mb-10"
-              id="download"
             >
               <a
                 href="#"

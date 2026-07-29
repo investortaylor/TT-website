@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "Zero", label: "No-shows tolerated" },
-  { value: "100%", label: "Deposits refundable" },
-  { value: "ID", label: "Verified sellers" },
+  { value: "5-25%", label: "Refundable buyer deposit" },
+  { value: "130 ft", label: "Auto-confirm arrival radius" },
+  { value: "Stripe", label: "Bank-grade escrow" },
+  { value: "Didit ID", label: "Verified sellers" },
+  { value: "8.9%", label: "Only on successful sales" },
 ];
 
 function ComparisonIllustration() {
@@ -111,17 +113,18 @@ export default function SocialProof() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           data-testid="stats-strip"
-          className="flex flex-wrap justify-center gap-6 mb-20"
+          className="flex flex-wrap justify-center gap-4 md:gap-5 mb-20"
         >
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-6 rounded-2xl bg-stone-50 border border-stone-100 w-48"
+              data-testid={`stat-${stat.label.replace(/\s+/g, "-").toLowerCase()}`}
+              className="text-center p-5 md:p-6 rounded-2xl bg-stone-50 border border-stone-100 w-40 md:w-44"
             >
-              <p className="font-fun text-3xl md:text-4xl font-semibold text-primary">
+              <p className="font-fun text-2xl md:text-3xl font-semibold text-primary leading-tight">
                 {stat.value}
               </p>
-              <p className="font-body text-sm text-stone-500 mt-1">
+              <p className="font-body text-xs md:text-sm text-stone-500 mt-1 leading-snug">
                 {stat.label}
               </p>
             </div>

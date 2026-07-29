@@ -18,7 +18,7 @@ const steps = [
     title: "Buyer Places Deposit",
     feeling: "The ping that means business.",
     description:
-      "Interested buyers put down 5-25% as a refundable deposit, placed in an escrow account. This filters out tire-kickers and proves they're serious.",
+      "Interested buyers put down 5-25% as a refundable deposit, held in bank-grade Stripe escrow. Buyers can pick any card on file, or add a new one right in the deal — no leaving the app.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },
@@ -38,7 +38,7 @@ const steps = [
     title: "Complete the Deal",
     feeling: "Payment hits your account. You're done.",
     description:
-      "Both parties confirm the exchange. With 2 button presses, the deposit + remaining balance is moved to seller's wallet. Transaction records are emailed.",
+      "Both parties tap Accept. In two taps, the deposit + balance moves from Stripe escrow into the seller's in-app wallet. Purchase and sale receipts are emailed to both parties the instant the charge clears — never before.",
     color: "bg-gold-50 text-secondary",
     accent: "#ca8a04",
   },

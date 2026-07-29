@@ -12,6 +12,8 @@ import ExhaleMoment from "@/components/landing/ExhaleMoment";
 import SocialProof from "@/components/landing/SocialProof";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Features from "@/components/landing/Features";
+import Compensation from "@/components/landing/Compensation";
+import PhoneShowcase from "@/components/landing/PhoneShowcase";
 import Testimonials from "@/components/landing/Testimonials";
 import FAQ from "@/components/landing/FAQ";
 import CTA from "@/components/landing/CTA";
@@ -26,7 +28,9 @@ const LandingPage = () => {
         <ExhaleMoment />
         <SocialProof />
         <HowItWorks />
+        <Compensation />
         <Features />
+        <PhoneShowcase />
         <Testimonials />
         <FAQ />
         <CTA />

@@ -102,7 +102,7 @@ export default function CTA() {
                 </div>
 
                 <p className="font-body text-xs text-stone-400">
-                  Free to download. Available on iOS and Android.
+                  Free to download. Free to list. 8.9% only when a sale completes.
                 </p>
               </motion.div>
             </div>

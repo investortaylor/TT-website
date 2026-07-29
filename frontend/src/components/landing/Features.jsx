@@ -7,6 +7,11 @@ import {
   Clock,
   Ban,
   CreditCard,
+  RefreshCcw,
+  Navigation,
+  Award,
+  Activity,
+  Wallet,
 } from "lucide-react";
 
 const features = [
@@ -14,25 +19,25 @@ const features = [
     icon: Ban,
     title: "No More Flakes",
     description:
-      "Deposits filter out tire-kickers instantly. If someone ghosts you, they forfeit their deposit and you get compensated for your time.",
+      "Deposits filter out tire-kickers instantly. If someone ghosts you, they forfeit a slice of their deposit and you get compensated for your time.",
     size: "lg",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
   },
   {
     icon: CreditCard,
-    title: "Secure Deposits",
+    title: "Stripe Escrow Deposits",
     description:
-      "Buyers put down 5-25% as a fully refundable deposit. It's accountability built right into the transaction.",
+      "Buyers put down 5-25% into bank-grade Stripe escrow. Money only moves to the seller after both parties tap Accept in person — and only after Stripe confirms the charge cleared.",
     size: "sm",
     color: "bg-gold-50 border-gold-100",
     iconColor: "text-secondary",
   },
   {
     icon: UserCheck,
-    title: "Verified Sellers",
+    title: "Didit ID Verified Sellers",
     description:
-      "Government ID verification means that you know that we know who you're dealing with. If something negative should happen, we've got you covered.",
+      "Every seller passes a Didit government-ID check before their first listing goes live. A green check appears next to verified users in every chat, listing, and meeting screen.",
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
@@ -41,47 +46,74 @@ const features = [
     icon: MapPin,
     title: "Safe Meeting Spots",
     description:
-      "Community-vetted locations like police stations, coffee shops, and banks. GPS verifies both parties arrive.",
+      "Community-vetted locations like police-station lots, credit unions, and well-lit coffee shops. Users upvote the best spots so the good ones bubble up.",
     size: "sm",
     color: "bg-gold-50 border-gold-100",
     iconColor: "text-secondary",
   },
   {
-    icon: Siren,
-    title: "Request Police Presence",
+    icon: Navigation,
+    title: "Live Meeting Map",
     description:
-      "Feel uncomfortable? Call the police right from the app - A feature no other marketplace offers. We'll automatically follow-up with the police on your behalf right after.",
+      "Both parties see each other on a shared map with buyer, seller, and safe-spot pins — plus a live distance chip. When you're both within 130 ft, arrival auto-confirms.",
     size: "sm",
     color: "bg-emerald-50 border-emerald-100",
     iconColor: "text-primary",
   },
   {
-    icon: Clock,
-    title: "Inspection Time",
+    icon: Siren,
+    title: "Two-Tap Police Presence",
     description:
-      "Up to 30 minutes for electronics. 3 hours for vehicles. Up to 21 days for real estate. Inspect before you commit.",
+      "From inside any active meeting, verified users can call the closest police line in two taps. The safe-spot address is shared and TruTown admins follow up with the department on your behalf.",
+    size: "sm",
+    color: "bg-gold-50 border-gold-100",
+    iconColor: "text-secondary",
+  },
+  {
+    icon: RefreshCcw,
+    title: "Failed-Card Retry",
+    description:
+      "If a card declines at the moment of sale, no fake success. Both sides see the exact Stripe reason. The buyer picks a different card without leaving the deal — the seller taps Retry Payment and it's done.",
     size: "lg",
     color: "bg-stone-50 border-stone-200",
     iconColor: "text-stone-700",
   },
-  //{
-  //  icon: FileSearch,
-  //  title: "Dispute Resolution",
- //   description:
-//      "Every message, photo, and detail is preserved as a transaction snapshot. If something goes wrong, there's a clear evidence trail.",
- //   size: "sm",
- //   color: "bg-emerald-50 border-emerald-100",
-  //  iconColor: "text-primary",
-//  },
- //{
-   // icon: ShieldCheck,
-    //title: "Buyer Protection",
-    //description:
-    //  "Free claim process for 'item not as described' disputes. Escrowed deposits only release when both parties confirm a successful exchange.",
-   // size: "sm",
-   // color: "bg-gold-50 border-gold-100",
-   // iconColor: "text-secondary",
- // },
+  {
+    icon: Clock,
+    title: "Real Inspection Windows",
+    description:
+      "30-45 minutes for electronics. Up to 3 hours for vehicles. Up to 21 days for real estate. Inspect the item properly before any money moves.",
+    size: "sm",
+    color: "bg-emerald-50 border-emerald-100",
+    iconColor: "text-primary",
+  },
+  {
+    icon: Award,
+    title: "Trusted Seller Tier",
+    description:
+      "Start earning 15% on forfeited deposits. Earn Trusted Seller status and that jumps to 25%. Your reputation compounds into real money.",
+    size: "sm",
+    color: "bg-gold-50 border-gold-100",
+    iconColor: "text-secondary",
+  },
+  {
+    icon: Activity,
+    title: "Live Transaction States",
+    description:
+      "Every deal moves through visible states — pending → selected → viewing → purchase pending → completed. Both parties see the same status at the same time, and forfeiture warnings ping the party at fault before any money moves.",
+    size: "sm",
+    color: "bg-emerald-50 border-emerald-100",
+    iconColor: "text-primary",
+  },
+  {
+    icon: Wallet,
+    title: "Wallet + Cash Out",
+    description:
+      "Net balance reflects the 8.9% platform fee — no listing fees, ever. Cash Out to your bank on demand (instant when eligible, usually within 48 hours). Year-to-date and monthly earnings hit your inbox automatically.",
+    size: "lg",
+    color: "bg-gold-50 border-gold-100",
+    iconColor: "text-secondary",
+  },
 ];
 
 function FeatureArt({ feature, index }) {
