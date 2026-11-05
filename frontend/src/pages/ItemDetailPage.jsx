@@ -135,13 +135,13 @@ export default function ItemDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white" data-testid="item-detail-page">
+    <div className="min-h-screen bg-parchment" data-testid="item-detail-page">
       <Navbar />
       <main className="pt-24 md:pt-28 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             variant="ghost"
-            className="mb-4 -ml-2 font-body text-[#7F8C8D] hover:text-primary"
+            className="mb-4 -ml-2 font-body text-[#8A7A5E] hover:text-primary"
             asChild
           >
             <Link to="/">
@@ -152,7 +152,7 @@ export default function ItemDetailPage() {
 
           {loading && (
             <div
-              className="flex flex-col items-center justify-center gap-4 rounded-xl border border-[#ECF0F1] bg-[#F5F5F5] py-24 text-[#7F8C8D]"
+              className="flex flex-col items-center justify-center gap-4 rounded-xl border border-[#E6E1D3] bg-[#F3F1EA] py-24 text-[#8A7A5E]"
               data-testid="item-detail-loading"
             >
               <Loader2 className="h-10 w-10 animate-spin text-primary" aria-hidden />
@@ -161,14 +161,14 @@ export default function ItemDetailPage() {
           )}
 
           {!loading && error && (
-            <Card className="border-[#E74C3C]/30 bg-[#E74C3C]/5">
+            <Card className="border-[#B3261E]/30 bg-[#B3261E]/5">
               <CardHeader className="flex flex-row items-center gap-3 space-y-0">
-                <AlertCircle className="h-8 w-8 shrink-0 text-[#E74C3C]" aria-hidden />
+                <AlertCircle className="h-8 w-8 shrink-0 text-[#B3261E]" aria-hidden />
                 <div>
-                  <CardTitle className="font-body text-lg text-[#2C3E50]">
+                  <CardTitle className="font-body text-lg text-[#14100A]">
                     Unable to load listing
                   </CardTitle>
-                  <CardDescription className="font-body text-[#7F8C8D]">
+                  <CardDescription className="font-body text-[#8A7A5E]">
                     {error}
                   </CardDescription>
                 </div>
@@ -187,12 +187,12 @@ export default function ItemDetailPage() {
             {/* Full-width gallery (matches in-app edge-to-edge hero image) */}
             <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
               {/* Full width, natural height — no crop (portrait / document photos stay fully visible) */}
-              {/* <div className="flex w-full justify-center bg-[#F5F5F5] py-2 sm:py-3"> */}
+              {/* <div className="flex w-full justify-center bg-[#F3F1EA] py-2 sm:py-3"> */}
               {photos.length > 1 ? (
                 <div
                   ref={galleryRef}
                   onScroll={handleGalleryScroll}
-                  className="flex w-full snap-x snap-mandatory overflow-x-auto bg-[#F5F5F5] py-4"
+                  className="flex w-full snap-x snap-mandatory overflow-x-auto bg-[#F3F1EA] py-4"
                 >
                   {photos.map((src, i) => (
                     <div key={i} className="w-full shrink-0 snap-center px-2 sm:px-3">
@@ -206,7 +206,7 @@ export default function ItemDetailPage() {
                   ))}
                 </div>
               ) : (
-                <div className="flex w-full justify-center bg-[#F5F5F5] py-4">
+                <div className="flex w-full justify-center bg-[#F3F1EA] py-4">
                   {mainPhoto ? (
                     <img
                       src={mainPhoto}
@@ -215,7 +215,7 @@ export default function ItemDetailPage() {
                       decoding="async"
                     />
                   ) : (
-                    <div className="flex min-h-[240px] w-full items-center justify-center text-[#BDC3C7]">
+                    <div className="flex min-h-[240px] w-full items-center justify-center text-[#CFC7B3]">
                       <Package className="h-16 w-16 opacity-50" aria-hidden />
                     </div>
                   )}
@@ -233,7 +233,7 @@ export default function ItemDetailPage() {
                           "h-16 w-16 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all",
                           i === photoIndex
                             ? "border-primary ring-2 ring-primary/25"
-                            : "border-[#ECF0F1] opacity-90 hover:opacity-100",
+                            : "border-[#E6E1D3] opacity-90 hover:opacity-100",
                         )}
                       >
                         <img src={src} alt="" className="h-full w-full object-contain" />
@@ -244,7 +244,7 @@ export default function ItemDetailPage() {
               )}
             </div>
 
-            <div className="mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-8 text-[#2C3E50] sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-8 text-[#14100A] sm:px-6 lg:px-8">
               <div>
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                   {item.category && (
@@ -256,7 +256,7 @@ export default function ItemDetailPage() {
                     </Badge>
                   )}
                   {item.condition && (
-                    <Badge variant="outline" className="border-[#ECF0F1] font-body text-xs text-[#2C3E50]">
+                    <Badge variant="outline" className="border-[#E6E1D3] font-body text-xs text-[#14100A]">
                       {item.condition}
                     </Badge>
                   )}
@@ -269,37 +269,37 @@ export default function ItemDetailPage() {
                     </Badge>
                   )}
                 </div>
-                <h1 className="font-fun text-3xl font-semibold leading-tight tracking-tight text-[#2C3E50] sm:text-4xl">
+                <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-[#14100A] sm:text-4xl">
                   {item.title}
                 </h1>
                 <p className="mt-4 font-body text-3xl font-bold text-primary">
                   {formatUsd(item.price)}
                 </p>
                 {item.quantity != null && (
-                  <p className="mt-1 font-body text-sm text-[#7F8C8D]">
+                  <p className="mt-1 font-body text-sm text-[#8A7A5E]">
                     Quantity:{" "}
-                    <span className="font-semibold text-[#2C3E50]">{item.quantity}</span>
+                    <span className="font-semibold text-[#14100A]">{item.quantity}</span>
                   </p>
                 )}
               </div>
 
-              <Separator className="bg-[#E0E0E0]" />
+              <Separator className="bg-[#E6E1D3]" />
 
               <section>
-                <h2 className="mb-2 font-body text-sm font-bold uppercase tracking-wide text-[#7F8C8D]">
+                <h2 className="mb-2 font-body text-sm font-bold uppercase tracking-wide text-[#8A7A5E]">
                   Description
                 </h2>
-                <p className="font-body leading-relaxed text-[#2C3E50] whitespace-pre-wrap">
+                <p className="font-body leading-relaxed text-[#14100A] whitespace-pre-wrap">
                   {item.description || "No description provided."}
                 </p>
               </section>
 
               {(item.location_label || item.created_at) && (
                 <>
-                  <Separator className="bg-[#E0E0E0]" />
-                  <div className="flex flex-col gap-2 font-body text-sm text-[#7F8C8D]">
+                  <Separator className="bg-[#E6E1D3]" />
+                  <div className="flex flex-col gap-2 font-body text-sm text-[#8A7A5E]">
                     {item.location_label && (
-                      <p className="flex items-center gap-2 text-[#2C3E50]">
+                      <p className="flex items-center gap-2 text-[#14100A]">
                         <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden />
                         {item.location_label}
                       </p>
@@ -307,7 +307,7 @@ export default function ItemDetailPage() {
                     {item.created_at && (
                       <p>
                         Listed{" "}
-                        <time dateTime={item.created_at} className="font-medium text-[#2C3E50]">
+                        <time dateTime={item.created_at} className="font-medium text-[#14100A]">
                           {format(new Date(item.created_at), "MMM d, yyyy")}
                         </time>
                       </p>
@@ -316,15 +316,15 @@ export default function ItemDetailPage() {
                 </>
               )}
 
-              <Separator className="bg-[#E0E0E0]" />
-              <p className="font-body text-sm text-[#7F8C8D]">
+              <Separator className="bg-[#E6E1D3]" />
+              <p className="font-body text-sm text-[#8A7A5E]">
                 Deposits:{" "}
-                <span className="font-semibold text-[#2C3E50]">{item.depositor_count ?? 0}</span>
+                <span className="font-semibold text-[#14100A]">{item.depositor_count ?? 0}</span>
               </p>
 
               {coords && (
                 <>
-                  <Separator className="bg-[#E0E0E0]" />
+                  <Separator className="bg-[#E6E1D3]" />
                   <ItemLocationMap
                     lat={coords.lat}
                     lng={coords.lng}
@@ -338,20 +338,20 @@ export default function ItemDetailPage() {
 
               {item.seller && (
                 <>
-                  <Separator className="bg-[#E0E0E0]" />
-                  <Card className="border-[#ECF0F1] shadow-sm">
+                  <Separator className="bg-[#E6E1D3]" />
+                  <Card className="border-[#E6E1D3] shadow-sm">
                     <CardHeader className="pb-2">
-                      <CardTitle className="font-body text-base text-[#2C3E50]">Seller</CardTitle>
-                      <CardDescription className="font-body text-[#7F8C8D]">
+                      <CardTitle className="font-body text-base text-[#14100A]">Seller</CardTitle>
+                      <CardDescription className="font-body text-[#8A7A5E]">
                         Verified TruTown member
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2 font-body text-sm">
-                      <p className="text-lg font-semibold text-[#2C3E50]">{item.seller.name}</p>
-                      <div className="flex flex-wrap items-center gap-3 text-[#7F8C8D]">
+                      <p className="text-lg font-semibold text-[#14100A]">{item.seller.name}</p>
+                      <div className="flex flex-wrap items-center gap-3 text-[#8A7A5E]">
                         <span className="inline-flex items-center gap-1">
                           <Star className="h-4 w-4 fill-gold-500 text-gold-500" aria-hidden />
-                          <span className="font-semibold text-[#2C3E50]">{item.seller.rating ?? "—"}</span>
+                          <span className="font-semibold text-[#14100A]">{item.seller.rating ?? "—"}</span>
                           <span>({item.seller.review_count ?? 0} reviews)</span>
                         </span>
                         <span>{item.seller.total_sales ?? 0} sales</span>
@@ -362,7 +362,7 @@ export default function ItemDetailPage() {
               )}
 
               <div className="rounded-2xl border border-primary/20 bg-primary/10 px-5 py-4">
-                <p className="font-body text-sm leading-relaxed text-[#2C3E50]">
+                <p className="font-body text-sm leading-relaxed text-[#14100A]">
                   Open the TruTown app to message the seller, reserve with a deposit, and complete your
                   pickup safely.
                 </p>

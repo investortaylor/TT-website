@@ -1,105 +1,69 @@
 import { motion } from "framer-motion";
-import { Ghost, Wallet, Clock, CheckCircle2, ChevronRight } from "lucide-react";
+import { Ghost, Clock, Award, ChevronRight } from "lucide-react";
+import SectionKicker from "@/components/brand/SectionKicker";
+import CrownSkyline from "@/components/brand/CrownSkyline";
 
-/**
- * Recreation of the in-app Wallet card, focused on the "Compensation Awaiting"
- * amount that comes from ghosted buyers. Amount deliberately set to $11.34.
- */
 function WalletCard() {
   return (
     <div className="relative w-full max-w-md mx-auto">
-      {/* Soft glow */}
-      <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-emerald-100/60 via-gold-100/40 to-emerald-50/60 blur-2xl" />
+      <div className="absolute -inset-8 rounded-[2.5rem] bg-gradient-to-br from-leaf/25 via-transparent to-gilt/25 blur-3xl" />
 
-      <div className="relative bg-white rounded-[1.75rem] border border-stone-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden">
-        {/* Last cash-out pill */}
-        <div className="p-4 md:p-5">
-          <div className="inline-flex items-center gap-2 rounded-full bg-gold-50 border border-gold-100 px-3 py-1.5">
-            <span className="font-body text-[11px] md:text-xs text-stone-500">
-              Last cash-out:
-            </span>
-            <span className="font-fun text-sm md:text-base font-semibold text-secondary">
-              $32.71
-            </span>
+      <div className="relative rounded-[1.75rem] bg-parchment text-ink overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-gilt/30">
+        <div className="p-5">
+          <div className="inline-flex items-center gap-2 rounded-full bg-gold-50 border border-gold-200 px-3 py-1.5">
+            <span className="font-body text-[11px] text-stone-500">Last cash-out:</span>
+            <span className="font-display text-base font-bold text-ochre">$32.71</span>
             <span className="text-stone-400 text-xs">on Jul 12</span>
             <ChevronRight size={12} className="text-stone-400" />
-            <span className="font-body text-[11px] md:text-xs text-stone-500 truncate">
-              arriving…
-            </span>
-            <ChevronRight size={12} className="text-stone-300" />
+            <span className="font-body text-[11px] text-stone-500">arriving…</span>
           </div>
         </div>
 
-        {/* 3-column stats */}
-        <div className="grid grid-cols-3 divide-x divide-stone-100 border-t border-stone-100">
+        <div className="grid grid-cols-3 divide-x divide-stone-200 border-t border-stone-200">
           <div className="p-4 md:p-5 text-center">
-            <p className="font-body text-[11px] md:text-xs text-stone-500">
-              Available Balance
-            </p>
-            <p className="font-fun text-2xl md:text-3xl font-semibold text-primary leading-none mt-2">
-              $0.00
-            </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-400 mt-1">
-              from sales
-            </p>
+            <p className="font-body text-[11px] text-stone-500">Available Balance</p>
+            <p className="font-display text-2xl md:text-3xl font-bold text-leaf leading-none mt-2">$0.00</p>
+            <p className="font-body text-[10px] text-stone-400 mt-1">from sales</p>
           </div>
           <div className="p-4 md:p-5 text-center">
-            <p className="font-body text-[11px] md:text-xs text-stone-500">
-              Balance Due
-            </p>
-            <p className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 leading-none mt-2">
-              $0.00
-            </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-400 mt-1">
-              Fees owed
-            </p>
+            <p className="font-body text-[11px] text-stone-500">Balance Due</p>
+            <p className="font-display text-2xl md:text-3xl font-bold text-ink leading-none mt-2">$0.00</p>
+            <p className="font-body text-[10px] text-stone-400 mt-1">Fees owed</p>
           </div>
-          <div className="relative p-4 md:p-5 text-center bg-emerald-50/40">
-            {/* Highlight ring */}
+          <div className="relative p-4 md:p-5 text-center bg-emerald-50">
             <motion.div
-              className="pointer-events-none absolute inset-0 rounded-none border-2 border-primary/60"
+              className="pointer-events-none absolute inset-0 border-2 border-leaf"
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.9, 0] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
             />
-            <p className="font-body text-[11px] md:text-xs text-stone-600 font-semibold leading-tight">
+            <p className="font-body text-[11px] text-stone-700 font-semibold leading-tight">
               Compensation
               <br />
               Awaiting
             </p>
             <p
               data-testid="wallet-compensation-amount"
-              className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
+              className="font-display text-3xl md:text-4xl font-bold text-leaf leading-none mt-2"
             >
               $11.34
             </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
-              From no-shows
-            </p>
+            <p className="font-body text-[10px] text-stone-500 mt-1">From no-shows</p>
           </div>
         </div>
 
-        {/* Net balance strip */}
-        <div className="mx-4 md:mx-5 my-4 md:my-5 rounded-2xl bg-stone-50 border border-stone-100 px-5 py-4 flex items-center justify-between">
-          <span className="font-body text-sm font-semibold text-stone-800">
-            Net Balance
-          </span>
-          <span className="font-fun text-2xl md:text-3xl font-semibold text-primary">
-            $0.00
-          </span>
+        <div className="mx-5 my-5 rounded-2xl bg-stone-100 border border-stone-200 px-5 py-4 flex items-center justify-between">
+          <span className="font-body text-sm font-semibold">Net Balance</span>
+          <span className="font-display text-2xl md:text-3xl font-bold text-leaf">$0.00</span>
         </div>
 
-        {/* Cash out ASAP toggle */}
-        <div className="mx-4 md:mx-5 mb-4 md:mb-5 flex items-center justify-between">
-          <span className="font-body text-sm font-semibold text-stone-800">
-            Cash Out ASAP
-          </span>
-          <div className="relative w-14 h-8 rounded-full bg-primary flex items-center">
+        <div className="mx-5 mb-5 flex items-center justify-between">
+          <span className="font-body text-sm font-semibold">Cash Out ASAP</span>
+          <div className="relative w-14 h-8 rounded-full bg-leaf flex items-center">
             <div className="absolute right-1 w-6 h-6 rounded-full bg-white shadow" />
           </div>
         </div>
 
-        {/* Footnote */}
         <div className="px-5 pb-5">
           <p className="font-body text-[11px] leading-relaxed text-stone-500">
             Cash Out requires a minimum balance of $10.00.
@@ -109,24 +73,17 @@ function WalletCard() {
         </div>
       </div>
 
-      {/* Floating "Ghosted buyer forfeit" badge */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 10, rotate: 0 }}
+        whileInView={{ opacity: 1, y: 0, rotate: 3 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        className="absolute -top-4 -right-2 md:-right-6 rounded-2xl bg-white px-3 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 flex items-center gap-2"
+        className="absolute -top-5 -right-2 md:-right-8 rounded-2xl bg-gilt text-ink px-4 py-3 shadow-2xl flex items-center gap-2.5"
       >
-        <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
-          <Ghost size={16} className="text-primary" strokeWidth={1.8} />
-        </div>
+        <Ghost size={20} strokeWidth={2} />
         <div>
-          <p className="font-mono text-[9px] font-bold tracking-wider uppercase text-stone-500">
-            No-show forfeit
-          </p>
-          <p className="font-fun text-sm font-semibold text-stone-900 leading-none mt-0.5">
-            +$11.34 to you
-          </p>
+          <p className="font-body text-[9px] font-extrabold tracking-[0.2em] uppercase">No-show forfeit</p>
+          <p className="font-display text-base font-bold leading-none mt-0.5">+$11.34 to you</p>
         </div>
       </motion.div>
     </div>
@@ -136,21 +93,21 @@ function WalletCard() {
 const points = [
   {
     icon: Ghost,
-    title: "Buyer flakes? You still get paid.",
+    title: "They flake. You’re paid.",
     body:
-      "When a buyer confirms a meet-up and then doesn't show, they forfeit a slice of their deposit — and it lands in your Compensation Awaiting bucket. No more driving across town for nothing.",
+      "When a buyer confirms a meet-up and doesn’t show, they forfeit a slice of their deposit — it lands in your Compensation Awaiting bucket automatically.",
   },
   {
     icon: Clock,
     title: "Late cancels cost them, not you.",
     body:
-      "If a buyer bails after accepting the meeting invite, they're charged a prorated fee based on how late they cancel. Reschedule? Same idea — 15% of the deposit protects your time.",
+      "Bail after accepting the meeting invite and a prorated fee applies, based on how late they cancel. Reschedules cost 15% of the deposit to protect your time.",
   },
   {
-    icon: CheckCircle2,
-    title: "Earn Trusted Seller status.",
+    icon: Award,
+    title: "Wear the Trusted Seller crown.",
     body:
-      "New sellers keep 15% of a forfeited deposit. Earn Trusted Seller status and that jumps to 25%. Your reputation compounds — literally.",
+      "New sellers keep 15% of a forfeited deposit. Earn Trusted Seller status and it jumps to 25%. Your reputation compounds — literally.",
   },
 ];
 
@@ -159,72 +116,59 @@ export default function Compensation() {
     <section
       data-testid="compensation-section"
       id="compensation"
-      className="py-20 md:py-32 relative overflow-hidden"
+      className="grain relative bg-bark-night text-stone-100 py-24 md:py-36 overflow-hidden"
     >
-      {/* Background wash */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-emerald-50/30 to-white" />
-      <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-emerald-100/40 blur-3xl" />
-      <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-gold-100/50 blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* Left: Copy */}
+      <CrownSkyline
+        variant="solid"
+        fill="#3A2A14"
+        className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[180%] md:w-[110%] opacity-45 pointer-events-none"
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-100 px-4 py-1.5 mb-6">
-              <Wallet size={14} className="text-primary" strokeWidth={2} />
-              <span className="font-body text-xs font-semibold text-primary tracking-wide uppercase">
-                Your time has value
-              </span>
-            </div>
-
+            <SectionKicker onDark>Your time is royal</SectionKicker>
             <h2
               data-testid="compensation-title"
-              className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight leading-[1.02]"
+              className="font-display font-bold tracking-[-0.02em] leading-[0.95] text-5xl sm:text-6xl lg:text-7xl mt-5"
             >
-              Ghosted?{" "}
-              <span className="text-primary">You still get paid.</span>
+              Ghosted?
+              <br />
+              <span className="italic text-crown-gradient">You still get paid.</span>
             </h2>
-
-            <p className="font-body text-base md:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl">
-              Every other marketplace treats your time like it&rsquo;s free.
-              TruTown doesn&rsquo;t. If a buyer confirms a meet-up and no-shows,
-              a chunk of their deposit hits your wallet automatically — right
-              next to your available balance.
+            <p className="font-body text-lg text-stone-300 leading-relaxed mt-7 max-w-xl">
+              Every other marketplace treats your Saturday like it&rsquo;s free. TruTown
+              doesn&rsquo;t. If a buyer confirms and no-shows, part of their pledge lands in your
+              wallet — right next to your balance.
             </p>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-12 space-y-7">
               {points.map((p, i) => (
                 <motion.div
                   key={p.title}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
+                  transition={{ duration: 0.45, delay: 0.1 + i * 0.1 }}
                   data-testid={`compensation-point-${i}`}
-                  className="flex gap-4"
+                  className="flex gap-5"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white border border-emerald-100 shadow-sm flex items-center justify-center text-primary">
-                    <p.icon size={18} strokeWidth={1.8} />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full border border-gilt/40 flex items-center justify-center text-gilt">
+                    <p.icon size={20} strokeWidth={1.8} />
                   </div>
                   <div>
-                    <h3 className="font-fun text-lg font-semibold text-stone-900 leading-tight">
-                      {p.title}
-                    </h3>
-                    <p className="font-body text-sm text-stone-600 leading-relaxed mt-1">
-                      {p.body}
-                    </p>
+                    <h3 className="font-display text-2xl font-bold text-white leading-tight">{p.title}</h3>
+                    <p className="font-body text-[15px] text-stone-400 leading-relaxed mt-1.5">{p.body}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right: Wallet card mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

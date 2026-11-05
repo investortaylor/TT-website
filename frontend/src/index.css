@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fredoka:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +6,11 @@
 
 body {
   margin: 0;
-  font-family: "Manrope", sans-serif;
+  font-family: "Archivo", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafaf9;
-  color: #1c1917;
+  background-color: #FAF9F4;
+  color: #14100A;
 }
 
 code {
@@ -19,25 +19,25 @@ code {
 
 @layer base {
   :root {
-    --background: 40 6% 97%;
-    --foreground: 24 10% 10%;
+    --background: 50 33% 97%;
+    --foreground: 37 33% 6%;
     --card: 0 0% 100%;
     --card-foreground: 24 10% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 24 10% 10%;
-    --primary: 145 63% 49%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 37 91% 51%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 40 6% 94%;
-    --muted-foreground: 25 6% 42%;
-    --accent: 48 97% 65%;
+    --primary: 144 100% 39%;
+    --primary-foreground: 37 30% 4%;
+    --secondary: 50 69% 41%;
+    --secondary-foreground: 37 30% 4%;
+    --muted: 45 27% 94%;
+    --muted-foreground: 35 25% 34%;
+    --accent: 57 56% 51%;
     --accent-foreground: 24 10% 10%;
-    --destructive: 6 78% 57%;
+    --destructive: 6 70% 48%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 6% 90%;
-    --input: 40 6% 90%;
-    --ring: 145 63% 49%;
+    --border: 44 26% 86%;
+    --input: 44 26% 86%;
+    --ring: 144 100% 39%;
     --chart-1: 145 63% 49%;
     --chart-2: 37 91% 51%;
     --chart-3: 24 10% 10%;
@@ -89,12 +89,41 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f5f4;
+  background: #14100A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #a8a29e;
+  background: #6B4E24;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #78716c;
+  background: #B09820;
+}
+
+/* ---------- Crown City utilities ---------- */
+::selection { background: #C9C23A; color: #0B0906; }
+
+.text-crown-gradient {
+  background: linear-gradient(100deg, #2FE03A 0%, #00C850 30%, #ADBA36 65%, #C9C23A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-crown-gradient {
+  background: linear-gradient(100deg, #2FE03A 0%, #00C850 30%, #ADBA36 65%, #C9C23A 100%);
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.text-outline-gilt {
+  -webkit-text-stroke: 1.5px #C9C23A;
+  color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
 }

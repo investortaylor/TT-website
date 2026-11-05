@@ -5,6 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SectionKicker from "@/components/brand/SectionKicker";
+import CrownSkyline from "@/components/brand/CrownSkyline";
 
 const faqs = [
   {
@@ -58,52 +60,60 @@ export default function FAQ() {
     <section
       data-testid="faq-section"
       id="faq"
-      className="py-20 md:py-32 bg-white"
+      className="relative bg-stone-100 py-24 md:py-36"
     >
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="lg:col-span-4 lg:sticky lg:top-32 self-start"
         >
-          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
-            FAQ
-          </span>
+          <SectionKicker>FAQ</SectionKicker>
           <h2
             data-testid="faq-title"
-            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
+            className="font-display font-bold text-ink tracking-[-0.02em] leading-[0.95] text-5xl sm:text-6xl mt-5"
           >
-            Questions? We've got answers.
+            Before you
+            <br />
+            <span className="italic text-bark">shake on it.</span>
           </h2>
+          <p className="font-body text-lg text-stone-600 leading-relaxed mt-6">
+            The honest answers to everything people ask before their first exchange.
+          </p>
+          <CrownSkyline draw strokeWidth={1.5} gradientId="faq-crown" className="hidden lg:block w-56 mt-12 opacity-80" />
         </motion.div>
 
-        {/* Accordion */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
+          className="lg:col-span-8"
         >
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="border-t border-stone-300">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
                 data-testid={`faq-item-${i}`}
-                className="bg-stone-50 rounded-xl border border-stone-100 px-6 overflow-hidden"
+                className="border-b border-stone-300"
               >
                 <AccordionTrigger
                   data-testid={`faq-trigger-${i}`}
-                  className="font-body font-semibold text-left text-stone-900 text-sm md:text-base hover:no-underline py-5"
+                  className="group font-display text-left text-ink text-xl md:text-2xl font-semibold hover:no-underline py-6 gap-6 [&[data-state=open]]:text-leaf"
                 >
-                  {faq.q}
+                  <span className="flex items-baseline gap-5">
+                    <span className="font-body text-xs font-bold text-ochre tracking-widest">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {faq.q}
+                  </span>
                 </AccordionTrigger>
                 <AccordionContent
                   data-testid={`faq-content-${i}`}
-                  className="font-body text-sm text-stone-600 leading-relaxed pb-5"
+                  className="font-body text-base text-stone-600 leading-relaxed pb-7 pl-10 pr-4"
                 >
                   {faq.a}
                 </AccordionContent>
