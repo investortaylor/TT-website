@@ -37,7 +37,7 @@ export default function LegalLayout({ title, lastUpdated, children }) {
       </header>
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <article className="font-body text-stone-700 leading-relaxed space-y-6 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:font-bold [&_h2]:text-ink [&_h2]:mt-12 [&_h2]:mb-3 [&_h2]:pt-8 [&_h2]:border-t [&_h2]:border-stone-200 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-ink [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:text-base [&_p]:md:text-[17px] [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:text-base [&_li]:md:text-[17px] [&_li::marker]:text-leaf [&_a]:text-[#008536] [&_a]:font-semibold [&_a:hover]:underline [&_strong]:text-ink">
+        <article className="[&>h2:first-child]:mt-0 [&>h2:first-child]:pt-0 [&>h2:first-child]:border-0 font-body text-stone-700 leading-relaxed space-y-6 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:font-bold [&_h2]:text-ink [&_h2]:mt-12 [&_h2]:mb-3 [&_h2]:pt-8 [&_h2]:border-t [&_h2]:border-stone-200 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-ink [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:text-base [&_p]:md:text-[17px] [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_li]:text-base [&_li]:md:text-[17px] [&_li::marker]:text-leaf [&_a]:text-[#008536] [&_a]:font-semibold [&_a:hover]:underline [&_strong]:text-ink">
           {children}
         </article>
 

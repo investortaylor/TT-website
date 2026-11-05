@@ -87,7 +87,7 @@ export default function Testimonials() {
           data-testid="featured-testimonial"
           className="relative rounded-[2rem] bg-ink text-stone-100 px-8 py-14 md:px-16 md:py-20 overflow-hidden mb-6"
         >
-          <span className="absolute -top-16 left-6 font-display text-[16rem] leading-none text-crown-gradient opacity-40 select-none">
+          <span aria-hidden="true" className="absolute top-2 right-8 md:right-14 font-display text-[10rem] md:text-[14rem] leading-[0.8] text-crown-gradient opacity-30 select-none">
             &ldquo;
           </span>
           <blockquote className="relative font-display text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] max-w-4xl">

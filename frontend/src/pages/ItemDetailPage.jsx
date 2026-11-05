@@ -135,9 +135,9 @@ export default function ItemDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-parchment" data-testid="item-detail-page">
+    <div className="min-h-screen flex flex-col bg-parchment" data-testid="item-detail-page">
       <Navbar />
-      <main className="pt-24 md:pt-28 pb-16 md:pb-24">
+      <main className="flex-1 pt-24 md:pt-28 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             variant="ghost"

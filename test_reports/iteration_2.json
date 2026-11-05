@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend E2E test of the TruTown redesign (desktop 1920x1080 + mobile 390x844). All 11 landing sections render, no console/page errors, all 3 line-art PNGs load (200) and reveal (clip-path ends at inset(0 0% 0 0)). Desktop nav: all 5 links land at ~88px; mobile menu: all 5 links land at ~76px and the menu closes. FAQ: all 11 items (0-10) open and close. Contact modal: validation shows 3 errors on an empty submit; one valid submit returned POST /api/contact 200, showed the success state and the 'Message sent!' toast, then the modal closed by itself. Footer legal links go to /privacy, /terms and /delete-account, each with a dark title band, navbar and footer; legal-back-home returns to /. Going from /privacy to Safeguards lands on /#features (top=112px). /item/nonexistent-123 shows a clean 'Unable to load listing' error card under a solid dark navbar. Two real bugs found: (1) horizontal scroll overflow on both mobile and desktop, caused by the rotated and scaled ExhaleMoment ticker; (2) text typed into the contact form inputs is almost invisible.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "ExhaleMoment (marquee ticker)", "issue": "Horizontal page overflow. Mobile 390px: scrollWidth=397. Desktop 1920px: scrollWidth=1950. Cause: <section data-testid='exhale-moment-section'> uses '-rotate-[1.2deg] scale-[1.03]', which makes it 403px wide on a 390px screen, and no ancestor has overflow-x hidden or clip. html and body both have overflow-x: visible.", "selector": "[data-testid='exhale-moment-section']", "priority": "HIGH"},
+      {"component": "ContactModal inputs", "issue": "Typed text in every field (name, email, subject select, message) is rgb(207,199,179) on a white background, so it is nearly invisible and lighter than the placeholder. The modal is rendered inside the dark Footer and picks up the footer's light text colour. Fix: add an explicit dark text class (e.g. text-ink or text-stone-900) to the input, select and textarea classNames.", "selector": "[data-testid^='contact-input-']", "priority": "HIGH"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Testimonials featured quote card", "issues": ["The decorative giant quote mark (absolute -top-16 left-6, text-[16rem]) is mostly cut off by overflow-hidden and shows only as two small green slivers at the card's top-left edge. It looks like a rendering glitch. Move it down or drop it."]},
+      {"screen": "Hero (desktop)", "issues": ["The handshake line art runs behind the body paragraph and the store buttons. It is still readable, but the strokes cross the text."]},
+      {"screen": "Item detail error state", "issues": ["The page is shorter than the viewport, so a cream blank area shows below the footer. Add min-h-screen with flex so the footer sits at the bottom."]},
+      {"screen": "/delete-account", "issues": ["Large empty gap (~100px) between the title band and the first divider or heading. There is probably an empty intro block."]},
+      {"screen": "/terms", "issues": ["After clicking the footer link, scrollY was 14 instead of 0 (small offset; ScrollToTop runs before the layout settles)."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix horizontal overflow from the ExhaleMoment rotate/scale. Either wrap the section in a div with overflow-x-hidden (or overflow-x: clip), or add overflow-x: clip on html/body. Then re-verify scrollWidth <= 390 on mobile and <= 1920 on desktop.",
+    "Give the ContactModal input, select and textarea an explicit dark text colour (text-ink or text-stone-900). Currently typed text inherits the footer's light colour.",
+    "Optional: fix the clipped quote mark on the Testimonials card, the blank area below the footer on the item page, and the empty gap on /delete-account."
+  ],
+  "critical_code_review_comments": [
+    "ContactModal falls back to an empty BACKEND_URL ('') when REACT_APP_BACKEND_URL is missing. That hides a missing config instead of failing fast.",
+    "ContactModal is mounted inside Footer, so it inherits the footer's text colours (this causes the input contrast bug). Consider rendering it in a portal or at App level."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (contact POST 200)", "frontend": "90% - all functional flows pass; horizontal overflow and input contrast bugs found"},
+  "seed_data_creation": "Sent one contact message (id ca5e110c-de3a-47a9-9ddb-11fdc2d1c101, name 'TEST_Agent Redesign', email test.agent@example.com). This sent a real email to info@trutown.market.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "No auth. Nav offsets verified at 88px desktop and 76px mobile. Re-check: document.documentElement.scrollWidth at 390 and 1920, and getComputedStyle(contact-input-name).color. Do not send more than one contact email per run.",
+  "rca of the issue": "Overflow: CSS transforms (rotate + scale 1.03) on a full-width block element grow its painted box past the viewport. Overflow-hidden on the section itself only clips its children, not the section, and no ancestor clips on the x-axis. Contrast: the inputs have no text-colour class, so they inherit the light colour set on the Footer wrapper where ContactModal is rendered."
+}

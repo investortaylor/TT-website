@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   font-family: "Archivo", sans-serif;

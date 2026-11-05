@@ -72,3 +72,12 @@ Build a landing/marketing page for TruTown Marketplace mobile app. Highlights ap
 - Provide real Admin Portal URL
 - Add social media profiles
 - Consider adding email capture for waitlist/early access
+
+## Sep 2026 — "Crown City" full redesign (all pages)
+- Palette restricted to logo colours: green #00C850 / #2FE03A, lime #ADBA36, gilt #C9C23A, ochre #B09820, brown #6B4E24 (+ deep tints) and black #0B0906. Tailwind `primary/secondary/emerald/gold/stone` remapped so every page inherits it.
+- Typography: Vollkorn (serif, matches logo wordmark) for display; Archivo for body.
+- Brand components in `src/components/brand/`: CrownSkyline (crown-of-high-rises SVG traced from logo, line/solid, draw animation), LineArt (abstract one-line art via CSS mask painted in logo gradient, reveal on scroll), BrandLogo (transparent emblem + serif wordmark), StoreButtons, SectionKicker.
+- Line-art assets: /public/art/handshake.png, negotiation.png, handoff.png; logo: /public/logo-emblem.png, logo-transparent.png.
+- New copy: Hero "The city shakes on it." (dark, handshake background), "changed hands" ticker, Manifesto "Two people. One agreement. No games.", "The exchange, in four acts", "Ghosted? You still get paid.", "Protection fit for royalty.", "Built for the moment hands meet.", "Word on the street.", FAQ "Before you shake on it.", CTA "Your city. Your deal."
+- Legal pages now share Navbar + Footer with dark title band; item detail page recoloured.
+- All data-testids & section ids preserved. Store links still placeholders (#).
