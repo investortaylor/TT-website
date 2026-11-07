@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "What happens if a buyer ghosts the meet-up?",
-    a: "The seller keeps a slice of the buyer's deposit automatically — 15% to start, and 25% once you reach Trusted Seller status. The compensation appears in your Wallet under 'Compensation Awaiting' and is included in your next Cash Out. No screenshots, no back-and-forth, no chasing anyone.",
+    a: "The seller keeps a slice of the buyer's deposit automatically — 15% to start, and 25% once you reach Trusted Seller status. Your share goes straight into your Available Balance, ready to cash out right away. No screenshots, no back-and-forth, no chasing anyone.",
   },
   {
     q: "What happens if the seller flakes?",
