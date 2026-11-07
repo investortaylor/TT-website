@@ -84,3 +84,12 @@ Build a landing/marketing page for TruTown Marketplace mobile app. Highlights ap
 
 ## TEMPORARY comparison route
 - Original imported site (commit fbb4c21) is built into backend/classic_preview and served at /api/classic/ by a temporary route in server.py. Remove both once the user is done comparing.
+
+
+## Sep 2026 — Reverted to ORIGINAL site layout + brand tweaks (current state)
+- Landing/legal/item files restored from commit fbb4c21 (original GitHub import); the dark "Crown City" redesign is superseded (still in git history).
+- Kept from redesign: BrandLogo (navbar, footer, legal header), black navbar (original labels), Vollkorn + Archivo fonts, logo palette in tailwind (primary #00C850, secondary #6B4E24, emerald/gold/stone remapped), LineArt negotiation image replaces Old Way / TruTown Way illustration.
+- Stats: 5-25% Refundable buyer deposit required · Proximity Verified between parties · Stripe Bank-grade escrow · Mandatory ID Verified sellers · Optional ID Verified buyers · 8.9% Fee on successful sales.
+- Compensation: added "Seller flakes? Buyer still gets paid." bullet (copy needs user confirmation of actual buyer compensation rule).
+- Inspection copy updated in How It Works + Features. FAQ still mentions "up to 21 days for real estate" (not changed — ask user).
+- /api/classic/ temporary original copy KEPT per user.

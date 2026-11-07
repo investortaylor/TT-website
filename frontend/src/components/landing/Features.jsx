@@ -122,9 +122,9 @@ function FeatureArt({ feature, index }) {
     // No More Flakes - Ghost crossed out
     return (
       <svg viewBox="0 0 80 80" fill="none" className="w-12 h-12 mt-4 opacity-20">
-        <circle cx="40" cy="32" r="18" fill="#008536" />
-        <path d="M30 50c0 0 5 12 10 15s10-3 10-15" fill="#008536" opacity="0.6" />
-        <line x1="15" y1="15" x2="65" y2="65" stroke="#b91c1c" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="40" cy="32" r="18" fill="#00C850" />
+        <path d="M30 50c0 0 5 12 10 15s10-3 10-15" fill="#00C850" opacity="0.6" />
+        <line x1="15" y1="15" x2="65" y2="65" stroke="#6B4E24" strokeWidth="4" strokeLinecap="round" />
       </svg>
     );
   }
@@ -132,10 +132,10 @@ function FeatureArt({ feature, index }) {
     // Inspection Time - Clock
     return (
       <svg viewBox="0 0 80 80" fill="none" className="w-12 h-12 mt-4 opacity-20">
-        <circle cx="40" cy="40" r="28" stroke="#14100A" strokeWidth="2" />
-        <circle cx="40" cy="40" r="2" fill="#14100A" />
-        <line x1="40" y1="40" x2="40" y2="22" stroke="#14100A" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="40" y1="40" x2="52" y2="45" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="40" cy="40" r="28" stroke="#6B4E24" strokeWidth="2" />
+        <circle cx="40" cy="40" r="2" fill="#6B4E24" />
+        <line x1="40" y1="40" x2="40" y2="22" stroke="#6B4E24" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="40" y1="40" x2="52" y2="45" stroke="#00C850" strokeWidth="2" strokeLinecap="round" />
       </svg>
     );
   }

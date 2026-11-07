@@ -29,7 +29,7 @@ export default function SocialProof() {
               data-testid={`stat-${stat.label.replace(/\s+/g, "-").toLowerCase()}`}
               className="flex flex-col justify-center text-center px-3 py-5 md:py-6 rounded-2xl bg-stone-50 border border-stone-200"
             >
-              <p className="font-fun text-[22px] md:text-2xl font-bold text-primary leading-tight">
+              <p className="font-fun text-[22px] md:text-2xl lg:text-[21px] xl:text-[22px] lg:whitespace-nowrap font-bold text-primary leading-tight">
                 {stat.value}
               </p>
               <p className="font-body text-xs md:text-sm text-stone-600 mt-1 leading-snug">
