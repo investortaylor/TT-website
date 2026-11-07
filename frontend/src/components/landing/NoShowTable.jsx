@@ -45,6 +45,23 @@ const rows = [
   },
 ];
 
+// Each row slides in from the left, one after another, as it scrolls into view.
+const rowReveal = {
+  hidden: { opacity: 0, x: -48 },
+  show: (i = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, delay: i * 0.25, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+const rowMotion = (i) => ({
+  variants: rowReveal,
+  initial: "hidden",
+  whileInView: "show",
+  viewport: { once: true, amount: 0.6 },
+  custom: i,
+});
+
 export default function NoShowTable() {
   return (
     <section data-testid="no-show-table-section" id="no-shows" className="py-16 md:py-24 bg-stone-50">
@@ -80,7 +97,7 @@ export default function NoShowTable() {
         >
           <table data-testid="no-show-table" className="w-full table-fixed border-collapse">
             <thead>
-              <tr>
+              <motion.tr {...rowMotion(0)}>
                 <th className="w-[26%] p-6" aria-label="Who" />
                 {columns.map((c) => (
                   <th
@@ -97,11 +114,16 @@ export default function NoShowTable() {
                     </span>
                   </th>
                 ))}
-              </tr>
+              </motion.tr>
             </thead>
             <tbody>
-              {rows.map((r) => (
-                <tr key={r.key} data-testid={`no-show-row-${r.key}`} className="border-t border-stone-200">
+              {rows.map((r, i) => (
+                <motion.tr
+                  key={r.key}
+                  {...rowMotion(i + 1)}
+                  data-testid={`no-show-row-${r.key}`}
+                  className="border-t border-stone-200"
+                >
                   <th scope="row" className="p-6 text-left align-top">
                     <span className="flex items-start gap-3">
                       <r.icon size={20} strokeWidth={1.6} className="text-primary mt-1 flex-shrink-0" />
@@ -117,7 +139,7 @@ export default function NoShowTable() {
                       {r[c.key]}
                     </td>
                   ))}
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>
@@ -134,14 +156,14 @@ export default function NoShowTable() {
                 <h3 className="font-fun text-2xl font-semibold text-stone-900">{c.title}</h3>
               </div>
               <div className="space-y-4">
-                {rows.map((r) => (
-                  <div key={r.key} className="rounded-xl bg-white/80 p-4">
+                {rows.map((r, i) => (
+                  <motion.div key={r.key} {...rowMotion(i)} className="rounded-xl bg-white/80 p-4">
                     <p className="flex items-center gap-2 font-fun text-lg font-semibold text-stone-900">
                       <r.icon size={16} strokeWidth={1.8} className="text-primary" />
                       {r.label}
                     </p>
                     <p className="font-body text-sm text-stone-600 leading-relaxed mt-1.5">{r[c.key]}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

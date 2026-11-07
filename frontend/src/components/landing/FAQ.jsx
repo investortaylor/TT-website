@@ -20,6 +20,35 @@ const faqs = [
     a: "Accountability goes both ways. If a seller cancels or doesn't show up to an agreed meeting, they pay a fee to the buyer and can lose their Trusted Seller status. TruTown ensures everyone has skin in the game — not just the buyer.",
   },
   {
+    q: "Who gets what if someone doesn't show?",
+    a: (
+      <>
+        The person who didn&rsquo;t show pays 25% of the buyer&rsquo;s deposit, whether
+        they&rsquo;re the buyer or the seller. If the buyer no-shows, the seller gets 15% (25% for
+        Trusted Sellers) straight into their Available Balance. If the seller no-shows, the buyer
+        gets their full deposit back, and the 25% fee is held for them in Compensation Awaiting
+        until it&rsquo;s paid out.{" "}
+        <a
+          href="/#no-shows"
+          onClick={(e) => {
+            e.preventDefault();
+            const el = document.getElementById("no-shows");
+            if (!el) return;
+            const offset = window.innerWidth >= 768 ? 88 : 76;
+            window.scrollTo({
+              top: el.getBoundingClientRect().top + window.pageYOffset - offset,
+              behavior: "smooth",
+            });
+          }}
+          data-testid="faq-no-show-table-link"
+          className="font-semibold text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
+        >
+          See the full breakdown in the table →
+        </a>
+      </>
+    ),
+  },
+  {
     q: "What if the buyer's card declines at the moment of sale?",
     a: "The app doesn't fake success. Both parties instantly see a red 'UNSUCCESSFUL transaction' popup with the exact Stripe reason. The item stays available and the buyer stays in the deal — they can pick a different card on file (or add a new one) without leaving the app. The seller taps Retry Payment and it's done. Receipts are only emailed once Stripe confirms the charge cleared.",
   },
