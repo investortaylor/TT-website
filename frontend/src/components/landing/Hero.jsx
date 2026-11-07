@@ -190,11 +190,11 @@ export default function Hero() {
 
             <h1
               data-testid="hero-tagline"
-              className="font-fun text-5xl sm:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight leading-[0.95] mb-6"
+              className="font-fun text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-stone-900 tracking-tight leading-[1.05] mb-6"
             >
               &lsquo;I show up. The Buyer&rsquo;s there &mdash;{" "}
               <span className="text-primary">payment already initiated.</span>{" "}
-              <span style={{ color: "#F5C000" }}>Wow.&rsquo;</span>
+              <span style={{ color: "#B09820" }}>Wow.&rsquo;</span>
             </h1>
 
             <p

@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "How long do I have to inspect an item?",
-    a: "Inspection windows vary by category: 30-45 minutes for electronics, up to 3 hours for vehicles, and up to 21 days for real estate. During this window the buyer can thoroughly examine the item before any money moves from escrow to the seller.",
+    a: "Inspection windows vary by category: 30-45 minutes for electronics, up to 3 hours for vehicles, and up to 30 minutes for most other items. During this window the buyer can thoroughly examine the item before any money moves from escrow to the seller.",
   },
   {
     q: "What if the item isn't as described?",

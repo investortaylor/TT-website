@@ -138,13 +138,13 @@ const points = [
     icon: Ghost,
     title: "Buyer flakes? Seller still gets paid.",
     body:
-      "When a buyer confirms a meet-up and then doesn't show, they forfeit a slice of their deposit — and it lands in your Compensation Awaiting bucket. No more driving across town for nothing.",
+      "When a buyer confirms a meet-up and then doesn't show, they forfeit a slice of their deposit — and your share goes straight into your Available Balance, ready to cash out. No more driving across town for nothing.",
   },
   {
     icon: Ghost,
-    title: "Seller flakes? Buyer still gets paid.",
+    title: "Seller flakes? Buyer gets made whole.",
     body:
-      "When a seller confirms a meet-up and then doesn't show, the buyer isn't left empty-handed. Their deposit comes back in full, and compensation for the wasted trip lands in their wallet. Showing up matters on both sides of the deal.",
+      "When a seller confirms a meet-up and then doesn't show, the buyer isn't left empty-handed. Their deposit comes back in full, and the seller is charged a no-show fee. That fee is held for the buyer in their Compensation Awaiting bucket and paid into their wallet as soon as the seller settles up. Showing up matters on both sides of the deal.",
   },
   {
     icon: Clock,
