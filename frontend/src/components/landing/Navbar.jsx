@@ -5,9 +5,9 @@ import { Menu, X } from "lucide-react";
 import BrandLogo from "@/components/brand/BrandLogo";
 
 const navLinks = [
-  { label: "The Exchange", id: "how-it-works", testid: "how-it-works" },
-  { label: "Safeguards", id: "features", testid: "features" },
-  { label: "Stories", id: "testimonials", testid: "testimonials" },
+  { label: "How It Works", id: "how-it-works", testid: "how-it-works" },
+  { label: "Features", id: "features", testid: "features" },
+  { label: "Testimonials", id: "testimonials", testid: "testimonials" },
   { label: "FAQ", id: "faq", testid: "faq" },
 ];
 
@@ -26,7 +26,7 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const onLanding = location.pathname === "/";
-  const solid = scrolled || !onLanding || mobileOpen;
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -48,10 +48,8 @@ export default function Navbar() {
   return (
     <nav
       data-testid="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        solid
-          ? "bg-ink/95 backdrop-blur-xl border-b border-gilt/15"
-          : "bg-transparent border-b border-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 bg-ink/95 backdrop-blur-xl border-b border-gilt/15 transition-shadow duration-500 ${
+        scrolled ? "shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

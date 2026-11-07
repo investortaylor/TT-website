@@ -135,9 +135,9 @@ export default function ItemDetailPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-parchment" data-testid="item-detail-page">
+    <div className="min-h-screen bg-white" data-testid="item-detail-page">
       <Navbar />
-      <main className="flex-1 pt-24 md:pt-28 pb-16 md:pb-24">
+      <main className="pt-24 md:pt-28 pb-16 md:pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             variant="ghost"
@@ -269,7 +269,7 @@ export default function ItemDetailPage() {
                     </Badge>
                   )}
                 </div>
-                <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-[#14100A] sm:text-4xl">
+                <h1 className="font-fun text-3xl font-semibold leading-tight tracking-tight text-[#14100A] sm:text-4xl">
                   {item.title}
                 </h1>
                 <p className="mt-4 font-body text-3xl font-bold text-primary">

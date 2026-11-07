@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
-import SectionKicker from "@/components/brand/SectionKicker";
-import { CrownGlyph } from "@/components/brand/CrownSkyline";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -46,7 +44,7 @@ function StarRating({ rating }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: rating }).map((_, i) => (
-        <Star key={i} size={14} className="fill-gilt text-gilt" />
+        <Star key={i} size={14} className="fill-gold-400 text-gold-400" />
       ))}
     </div>
   );
@@ -57,72 +55,58 @@ export default function Testimonials() {
     <section
       data-testid="testimonials-section"
       id="testimonials"
-      className="relative bg-parchment py-24 md:py-36 overflow-hidden"
+      className="py-20 md:py-32 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background accent */}
+      <div className="absolute top-0 left-0 right-0 h-1/2 bg-stone-50" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-20"
+          className="text-center mb-16"
         >
-          <SectionKicker>Stories</SectionKicker>
+          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
+            Testimonials
+          </span>
           <h2
             data-testid="testimonials-title"
-            className="font-display font-bold text-ink tracking-[-0.02em] leading-[0.95] text-5xl sm:text-6xl lg:text-7xl mt-5"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
           >
-            Word on
-            <br />
-            <span className="italic text-leaf">the street.</span>
+            Real people. Real transactions.
           </h2>
+          <p className="font-body text-base md:text-lg text-stone-500 mt-4 max-w-xl mx-auto">
+            Hear from buyers and sellers who are done with the games.
+          </p>
         </motion.div>
 
-        {/* Featured quote */}
-        <motion.figure
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          data-testid="featured-testimonial"
-          className="relative rounded-[2rem] bg-ink text-stone-100 px-8 py-14 md:px-16 md:py-20 overflow-hidden mb-6"
-        >
-          <span aria-hidden="true" className="absolute top-2 right-8 md:right-14 font-display text-[10rem] md:text-[14rem] leading-[0.8] text-crown-gradient opacity-30 select-none">
-            &ldquo;
-          </span>
-          <blockquote className="relative font-display text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.1] max-w-4xl">
-            First time I sold something without checking my phone twelve times
-            wondering if they&rsquo;d show.
-          </blockquote>
-          <figcaption className="relative mt-8 flex items-center gap-3 font-body text-sm tracking-[0.2em] uppercase text-gilt">
-            <CrownGlyph className="w-6 h-4" />
-            Shawn T., Baltimore
-          </figcaption>
-        </motion.figure>
-
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 [&>*]:mb-6">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: (i % 3) * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               data-testid={`testimonial-card-${i}`}
-              className="break-inside-avoid rounded-3xl bg-white border border-stone-200 p-7 md:p-8 transition-all duration-500 hover:border-gilt hover:shadow-[0_24px_60px_-24px_rgba(107,78,36,0.35)]"
+              className="bg-white rounded-2xl p-6 border border-stone-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300"
             >
-              <StarRating rating={t.rating} />
-              <p className="font-body text-[15px] text-stone-700 leading-relaxed mt-5">
-                &ldquo;{t.text}&rdquo;
+              <Quote size={24} className="text-emerald-200 mb-3" strokeWidth={1.5} />
+              <p className="font-body text-sm text-stone-700 leading-relaxed mb-5">
+                "{t.text}"
               </p>
-              <div className="flex items-center gap-3 mt-6 pt-5 border-t border-stone-200">
-                <div className="w-10 h-10 rounded-full bg-crown-gradient flex items-center justify-center font-display font-bold text-ink">
-                  {t.name.charAt(0)}
-                </div>
+              <div className="flex items-center justify-between pt-4 border-t border-stone-100">
                 <div>
-                  <p className="font-display text-lg font-bold text-ink leading-none">{t.name}</p>
-                  <p className="font-body text-xs text-ochre font-semibold tracking-wider uppercase mt-1">{t.role}</p>
+                  <p className="font-body font-semibold text-sm text-stone-900">
+                    {t.name}
+                  </p>
+                  <p className="font-body text-xs text-stone-500">{t.role}</p>
                 </div>
+                <StarRating rating={t.rating} />
               </div>
             </motion.div>
           ))}

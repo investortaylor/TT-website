@@ -1,126 +1,182 @@
 import { motion } from "framer-motion";
-import LineArt from "@/components/brand/LineArt";
-import SectionKicker from "@/components/brand/SectionKicker";
+import { ListPlus, DollarSign, Handshake, ThumbsUp } from "lucide-react";
 
 const steps = [
   {
     num: "01",
-    act: "I",
-    title: "The Listing",
-    feeling: "Post it, then go live your life.",
+    icon: ListPlus,
+    title: "List Your Item",
+    feeling: "List it. Then go live your life.",
     description:
-      "Snap a photo, set your price, describe the item. Listing is free, and it goes live to local buyers in minutes.",
+      "Snap a photo, set your price, and describe your item. Your listing goes live to local buyers in minutes.",
+    color: "bg-emerald-50 text-primary",
+    accent: "#00C850",
   },
   {
     num: "02",
-    act: "II",
-    title: "The Pledge",
+    icon: DollarSign,
+    title: "Buyer Places Deposit",
     feeling: "The ping that means business.",
     description:
-      "An interested buyer puts down a refundable 5–25% deposit, held in bank-grade Stripe escrow — using any card on file, or a new one, without leaving the deal.",
+      "Interested buyers put down 5-25% as a refundable deposit, held in bank-grade Stripe escrow. Buyers can pick any card on file, or add a new one right in the deal — no leaving the app.",
+    color: "bg-gold-50 text-secondary",
+    accent: "#6B4E24",
   },
   {
     num: "03",
-    act: "III",
-    title: "The Meeting",
-    feeling: "They’re already there when you pull up.",
+    icon: Handshake,
+    title: "Meet & Inspect",
+    feeling: "They're already there when you pull up.",
     description:
-      "Meet at a community-vetted safe spot. Arrival auto-confirms within 130 ft. Inspect properly: up to 30 minutes for electronics, 3 hours for vehicles, 21 days for real estate.",
+      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 30 minutes for electronics, 3 hours for vehicles, etc.",
+    color: "bg-emerald-50 text-primary",
+    accent: "#00C850",
   },
   {
     num: "04",
-    act: "IV",
-    title: "The Handshake",
-    feeling: "Two taps. The item changes hands.",
+    icon: ThumbsUp,
+    title: "Complete the Deal",
+    feeling: "Payment hits your account. You're done.",
     description:
-      "Both of you tap Accept. Deposit + balance move from escrow into the seller’s wallet, and receipts are emailed the instant the charge clears — never before.",
+      "Both parties tap Accept. In two taps, the deposit + balance moves from Stripe escrow into the seller's in-app wallet. Purchase and sale receipts are emailed to both parties the instant the charge clears — never before.",
+    color: "bg-gold-50 text-secondary",
+    accent: "#6B4E24",
   },
 ];
+
+function StepIllustration({ step, index }) {
+  const illustrations = [
+    // Step 1: Phone with camera
+    <svg key="s1" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
+      <rect x="30" y="15" width="60" height="90" rx="10" fill="#14100A" />
+      <rect x="35" y="22" width="50" height="76" rx="6" fill="#FAF9F4" />
+      <circle cx="60" cy="55" r="14" stroke="#00C850" strokeWidth="2" fill="none" />
+      <circle cx="60" cy="55" r="5" fill="#00C850" />
+      <rect x="44" y="78" width="32" height="8" rx="4" fill="#D3F6DE" />
+    </svg>,
+    // Step 2: Coins with deposit
+    <svg key="s2" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
+      <ellipse cx="60" cy="70" rx="35" ry="10" fill="#fef9c3" />
+      <ellipse cx="60" cy="60" rx="35" ry="10" fill="#facc15" />
+      <ellipse cx="60" cy="60" rx="28" ry="7" fill="#eab308" />
+      <ellipse cx="60" cy="50" rx="35" ry="10" fill="#facc15" />
+      <ellipse cx="60" cy="50" rx="28" ry="7" fill="#eab308" />
+      <ellipse cx="60" cy="40" rx="35" ry="10" fill="#facc15" />
+      <ellipse cx="60" cy="40" rx="28" ry="7" fill="#ca8a04" />
+      <text x="52" y="45" fill="#713f12" fontSize="14" fontWeight="bold">$</text>
+    </svg>,
+    // Step 3: Two people meeting
+    <svg key="s3" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
+      <circle cx="35" cy="40" r="12" fill="#d6a756" />
+      <path d="M20 72c0-8.3 6.7-15 15-15s15 6.7 15 72" fill="#ca8a04" />
+      <circle cx="85" cy="40" r="12" fill="#6ea87a" />
+      <path d="M70 72c0-8.3 6.7-15 15-15s15 6.7 15 72" fill="#00C850" />
+      {/* Handshake */}
+      <path d="M45 68h30" stroke="#14100A" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="60" cy="68" r="4" fill="#facc15" />
+      <rect x="25" y="90" width="70" height="4" rx="2" fill="#E6E1D3" />
+    </svg>,
+    // Step 4: Checkmark success
+    <svg key="s4" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
+      <circle cx="60" cy="55" r="35" fill="#EEFBF2" />
+      <circle cx="60" cy="55" r="25" fill="#D3F6DE" />
+      <path d="M47 55l8 8 18-18" stroke="#00C850" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M30 90l10-5m50 5l-10-5" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="25" cy="40" r="3" fill="#facc15" />
+      <circle cx="95" cy="40" r="3" fill="#facc15" />
+      <circle cx="60" cy="95" r="3" fill="#00C850" />
+    </svg>,
+  ];
+  return illustrations[index];
+}
 
 export default function HowItWorks() {
   return (
     <section
       data-testid="how-it-works-section"
       id="how-it-works"
-      className="relative bg-stone-100 py-24 md:py-36 overflow-hidden"
+      className="py-20 md:py-32 relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid lg:grid-cols-12 gap-8 items-end mb-16 md:mb-24"
+          className="text-center mb-16 md:mb-20"
         >
-          <div className="lg:col-span-8">
-            <SectionKicker>How it works</SectionKicker>
-            <h2
-              data-testid="how-it-works-title"
-              className="font-display font-bold text-ink tracking-[-0.02em] leading-[0.95] text-5xl sm:text-6xl lg:text-7xl mt-5"
-            >
-              The exchange,
-              <br />
-              <span className="italic text-leaf">in four acts.</span>
-            </h2>
-          </div>
-          <p className="lg:col-span-4 font-body text-lg text-stone-600 leading-relaxed">
-            From listing to paid in a single Saturday afternoon. Here is exactly how an item
-            changes hands on TruTown.
+          <span className="font-fun text-base md:text-lg font-semibold text-secondary tracking-wider uppercase">
+            How It Works
+          </span>
+          <h2
+            data-testid="how-it-works-title"
+            className="font-fun text-5xl md:text-6xl font-semibold text-stone-900 tracking-tight mt-3"
+          >
+            From listing to paid in one Saturday.
+          </h2>
+          <p className="font-body text-base md:text-lg text-stone-500 mt-4 max-w-2xl mx-auto">
+            Here&rsquo;s what it actually feels like, start to finish.
           </p>
         </motion.div>
 
+        {/* Steps */}
         <div className="relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-[46px] left-0 right-0 h-px bg-stone-300" />
-          <motion.div
-            className="hidden lg:block absolute top-[46px] left-0 h-[2px] bg-crown-gradient origin-left"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.6, ease: [0.65, 0, 0.35, 1] }}
-            style={{ width: "100%" }}
-          />
+          {/* Vertical line connector (desktop) */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-stone-200 -translate-x-1/2" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          <div className="space-y-12 lg:space-y-0">
             {steps.map((step, i) => (
               <motion.div
                 key={step.num}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: 0.15 + i * 0.12 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 data-testid={`step-${step.num}`}
-                className="relative"
+                className={`relative lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center ${
+                  i % 2 === 0 ? "" : "lg:direction-rtl"
+                } ${i > 0 ? "lg:mt-20" : ""}`}
               >
-                <div className="relative z-10 inline-flex h-[92px] w-[92px] items-center justify-center rounded-full bg-ink ring-8 ring-stone-100">
-                  <span className="font-display text-4xl font-bold italic text-crown-gradient">
-                    {step.act}
-                  </span>
-                </div>
-                <p className="font-body text-xs font-bold tracking-[0.24em] uppercase text-ochre mt-7">
-                  Act {step.act}
-                </p>
-                <h3 className="font-display text-3xl font-bold text-ink mt-2">{step.title}</h3>
-                <p
-                  data-testid={`step-${step.num}-feeling`}
-                  className="font-display italic text-xl text-bark mt-3 leading-snug"
+                {/* Step number on timeline (desktop) */}
+                <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full items-center justify-center z-10"
+                  style={{ backgroundColor: step.accent }}
                 >
-                  {step.feeling}
-                </p>
-                <p className="font-body text-[15px] text-stone-600 leading-relaxed mt-3">
-                  {step.description}
-                </p>
+                  <span className="font-mono text-sm font-bold text-white">{step.num}</span>
+                </div>
+
+                {/* Content */}
+                <div className={`${i % 2 === 0 ? "lg:pr-20 lg:text-right" : "lg:pl-20 lg:col-start-2"}`}>
+                  <div className={`inline-flex items-center gap-3 ${step.color} rounded-full px-4 py-2 mb-4`}>
+                    <step.icon size={18} strokeWidth={1.5} />
+                    <span className="font-mono text-xs font-bold tracking-wider uppercase lg:hidden">
+                      Step {step.num}
+                    </span>
+                  </div>
+                  <h3 className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p
+                    data-testid={`step-${step.num}-feeling`}
+                    className="font-fun text-lg md:text-xl font-semibold text-stone-900 italic leading-snug mb-3"
+                    style={{ color: step.accent }}
+                  >
+                    {step.feeling}
+                  </p>
+                  <p className="font-body text-base text-stone-600 leading-relaxed max-w-md lg:max-w-none">
+                    {step.description}
+                  </p>
+                </div>
+
+                {/* Illustration */}
+                <div className={`mt-6 lg:mt-0 flex ${i % 2 === 0 ? "lg:justify-start lg:col-start-2" : "lg:justify-end lg:col-start-1 lg:row-start-1"}`}>
+                  <div className="bg-white rounded-2xl p-8 border border-stone-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] inline-flex items-center justify-center">
+                    <StepIllustration step={step} index={i} />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* Item changing hands */}
-        <div className="mt-24 md:mt-32 flex flex-col items-center">
-          <LineArt name="handoff" tone="earth" className="w-full max-w-4xl" />
-          <p className="font-display italic text-2xl md:text-3xl text-ink text-center mt-8 max-w-2xl">
-            &ldquo;Hand to hand. That&rsquo;s the whole point.&rdquo;
-          </p>
         </div>
       </div>
     </section>

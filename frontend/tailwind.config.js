@@ -16,8 +16,8 @@ module.exports = {
           hover: "#00A843",
         },
         secondary: {
-          DEFAULT: "#B09820",
-          foreground: "#0B0906",
+          DEFAULT: "#6B4E24",
+          foreground: "#FFFFFF",
         },
         ink: "#0B0906",
         bark: { DEFAULT: "#6B4E24", deep: "#3A2A14", night: "#1A130A" },
