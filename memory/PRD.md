@@ -81,3 +81,6 @@ Build a landing/marketing page for TruTown Marketplace mobile app. Highlights ap
 - New copy: Hero "The city shakes on it." (dark, handshake background), "changed hands" ticker, Manifesto "Two people. One agreement. No games.", "The exchange, in four acts", "Ghosted? You still get paid.", "Protection fit for royalty.", "Built for the moment hands meet.", "Word on the street.", FAQ "Before you shake on it.", CTA "Your city. Your deal."
 - Legal pages now share Navbar + Footer with dark title band; item detail page recoloured.
 - All data-testids & section ids preserved. Store links still placeholders (#).
+
+## TEMPORARY comparison route
+- Original imported site (commit fbb4c21) is built into backend/classic_preview and served at /api/classic/ by a temporary route in server.py. Remove both once the user is done comparing.

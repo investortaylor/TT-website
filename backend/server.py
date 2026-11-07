@@ -197,6 +197,24 @@ async def submit_contact_form(payload: ContactSubmissionCreate):
 # Include the router in the main app
 app.include_router(api_router)
 
+
+# --- TEMPORARY: original (pre-redesign) site for side-by-side comparison ---
+# Served at /api/classic/ only while backend/classic_preview exists. Remove when done comparing.
+CLASSIC_DIR = ROOT_DIR / "classic_preview"
+
+
+@app.get("/api/classic")
+@app.get("/api/classic/{path:path}")
+async def classic_preview(path: str = ""):
+    from fastapi.responses import FileResponse
+    if not CLASSIC_DIR.is_dir():
+        raise HTTPException(status_code=404, detail="Classic preview not available")
+    target = (CLASSIC_DIR / path).resolve()
+    if path and target.is_file() and CLASSIC_DIR.resolve() in target.parents:
+        return FileResponse(target)
+    return FileResponse(CLASSIC_DIR / "index.html")
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
