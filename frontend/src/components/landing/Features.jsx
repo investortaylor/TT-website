@@ -46,7 +46,7 @@ const features = [
     icon: MapPin,
     title: "Safe Meeting Spots",
     description:
-      "Community-vetted locations like police-station lots, credit unions, and well-lit coffee shops. Users upvote the best spots so the good ones bubble up.",
+      "Available community-vetted locations like police-station lots, credit unions, and well-lit coffee shops. Users upvote the best spots so the good ones bubble up.",
     size: "sm",
     color: "bg-gold-50 border-gold-200",
     iconColor: "text-primary",
