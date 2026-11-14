@@ -1,10 +1,35 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, animate, useInView } from "framer-motion";
 import { Ghost, Wallet, Clock, CheckCircle2, ChevronRight } from "lucide-react";
 
 /**
  * Recreation of the in-app Wallet card. A ghosted buyer's forfeit ($11.34) lands
  * straight in the seller's Available Balance, matching the FAQ and no-show table.
  */
+/** Counts a dollar amount up from $0.00 the first time it scrolls into view. */
+function CountUp({ value, duration = 1.6, delay = 0.2 }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.8 });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return undefined;
+    const controls = animate(0, value, {
+      duration,
+      delay,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setDisplay(v),
+    });
+    return () => controls.stop();
+  }, [inView, value, duration, delay]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      ${display.toFixed(2)}
+    </span>
+  );
+}
+
 function WalletCard() {
   return (
     <div className="relative w-full max-w-md mx-auto">
@@ -49,7 +74,7 @@ function WalletCard() {
               data-testid="wallet-available-amount"
               className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
             >
-              $11.34
+              <CountUp value={11.34} />
             </p>
             <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
               From a no-show
@@ -90,7 +115,7 @@ function WalletCard() {
             Net Balance
           </span>
           <span data-testid="wallet-net-balance" className="font-fun text-2xl md:text-3xl font-semibold text-primary">
-            $11.34
+            <CountUp value={11.34} />
           </span>
         </div>
 
