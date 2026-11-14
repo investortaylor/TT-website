@@ -7,7 +7,7 @@ import { Ghost, Wallet, Clock, CheckCircle2, ChevronRight } from "lucide-react";
  * straight in the seller's Available Balance, matching the FAQ and no-show table.
  */
 /** Counts a dollar amount up from $0.00 the first time it scrolls into view. */
-function CountUp({ value, duration = 1.6, delay = 0.2 }) {
+function CountUp({ value, duration = 1.6, delay = 0.2, onComplete }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.8 });
   const [display, setDisplay] = useState(0);
@@ -19,8 +19,10 @@ function CountUp({ value, duration = 1.6, delay = 0.2 }) {
       delay,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setDisplay(v),
+      onComplete: () => onComplete && onComplete(),
     });
     return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView, value, duration, delay]);
 
   return (
@@ -31,6 +33,7 @@ function CountUp({ value, duration = 1.6, delay = 0.2 }) {
 }
 
 function WalletCard() {
+  const [counted, setCounted] = useState(false);
   return (
     <div className="relative w-full max-w-md mx-auto">
       {/* Soft glow */}
@@ -74,7 +77,7 @@ function WalletCard() {
               data-testid="wallet-available-amount"
               className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
             >
-              <CountUp value={11.34} />
+              <CountUp value={11.34} onComplete={() => setCounted(true)} />
             </p>
             <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
               From a no-show
@@ -141,14 +144,17 @@ function WalletCard() {
 
       {/* Floating "Ghosted buyer forfeit" badge */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+        data-testid="wallet-forfeit-badge"
+        initial={{ opacity: 0, y: -14, scale: 0.6 }}
+        animate={counted ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -14, scale: 0.6 }}
+        transition={{ type: "spring", stiffness: 420, damping: 16, mass: 0.7 }}
         className="absolute -top-4 -right-2 md:-right-6 rounded-2xl bg-white px-3 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 flex items-center gap-2"
       >
-        <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
-          <Ghost size={16} className="text-primary" strokeWidth={1.8} />
+        <div className="relative w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
+          {counted && (
+            <span className="absolute inset-0 rounded-full bg-primary/30 animate-ping [animation-iteration-count:2]" />
+          )}
+          <Ghost size={16} className="relative text-primary" strokeWidth={1.8} />
         </div>
         <div>
           <p className="font-mono text-[9px] font-bold tracking-wider uppercase text-stone-500">
