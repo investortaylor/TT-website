@@ -91,7 +91,7 @@ const features = [
     icon: Award,
     title: "Trusted Seller Tier",
     description:
-      "Start earning 15% on forfeited deposits. Earn Trusted Seller status and that jumps to 25%. Your reputation compounds into real money.",
+      "Start by keeping 60% of every fee a buyer forfeits. Reach 20 completed sales and an 8.0+ rating, and you keep 100%.",
     size: "sm",
     color: "bg-gold-50 border-gold-200",
     iconColor: "text-primary",

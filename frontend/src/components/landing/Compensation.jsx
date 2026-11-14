@@ -150,13 +150,13 @@ const points = [
     icon: Clock,
     title: "Late cancels cost them, not you.",
     body:
-      "If a buyer bails after accepting the meeting invite, they're charged a prorated fee based on how late they cancel. Reschedule? Same idea — 15% of the deposit protects your time.",
+      "If a buyer bails after accepting the meeting invite, they're charged a prorated fee based on how late they cancel. Asking to reschedule costs 15% of the deposit, and all of it goes to the other person for the hassle. Ignore an invite for 12+ hours? That's a 10% forfeit.",
   },
   {
     icon: CheckCircle2,
     title: "Earn Trusted Seller status.",
     body:
-      "New sellers keep 15% of a forfeited deposit. Earn Trusted Seller status and that jumps to 25%. Your reputation compounds — literally.",
+      "When a buyer forfeits part of their deposit, you keep 60% of it. Complete 20 sales with an 8.0+ rating to become a Trusted Seller and keep 100%. Your reputation compounds, literally.",
   },
 ];
 

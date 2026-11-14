@@ -93,3 +93,8 @@ Build a landing/marketing page for TruTown Marketplace mobile app. Highlights ap
 - Compensation: added "Seller flakes? Buyer still gets paid." bullet (copy needs user confirmation of actual buyer compensation rule).
 - Inspection copy updated in How It Works + Features. FAQ still mentions "up to 21 days for real estate" (not changed — ask user).
 - /api/classic/ temporary original copy KEPT per user.
+
+## Nov 2026 — Fee/compensation copy accuracy pass
+- Compensation cards: Late cancels (reschedule 15% all to other person; ignored invite 12+ hrs = 10% forfeit); Trusted Seller (60% → 100% of forfeited fee; 20 sales + 8.0+ rating).
+- Features "Trusted Seller Tier" updated to 60%/100%.
+- FAQ: ghosting, seller flakes, no-show breakdown (neither shows 10% each; 48h unclosed rule), platform fee (8.9%, 1.8% real estate coming soon) updated; NEW FAQ "What if we meet but nobody taps Purchase, Cancel, or Report?" placed after no-show question.
