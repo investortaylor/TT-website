@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Ghost, Wallet, Clock, CheckCircle2, ChevronRight } from "lucide-react";
 
 /**
- * Recreation of the in-app Wallet card, focused on the "Compensation Awaiting"
- * amount that comes from ghosted buyers. Amount deliberately set to $11.34.
+ * Recreation of the in-app Wallet card. A ghosted buyer's forfeit ($11.34) lands
+ * straight in the seller's Available Balance, matching the FAQ and no-show table.
  */
 function WalletCard() {
   return (
@@ -32,15 +32,27 @@ function WalletCard() {
 
         {/* 3-column stats */}
         <div className="grid grid-cols-3 divide-x divide-stone-100 border-t border-stone-100">
-          <div className="p-4 md:p-5 text-center">
-            <p className="font-body text-[11px] md:text-xs text-stone-500">
-              Available Balance
+          <div className="relative p-4 md:p-5 text-center bg-emerald-50/40">
+            {/* Highlight ring */}
+            <motion.div
+              className="pointer-events-none absolute inset-0 rounded-none border-2 border-primary/60"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.9, 0] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <p className="font-body text-[11px] md:text-xs text-stone-600 font-semibold leading-tight">
+              Available
+              <br />
+              Balance
             </p>
-            <p className="font-fun text-2xl md:text-3xl font-semibold text-primary leading-none mt-2">
-              $0.00
+            <p
+              data-testid="wallet-available-amount"
+              className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
+            >
+              $11.34
             </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-400 mt-1">
-              from sales
+            <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
+              From a no-show
             </p>
           </div>
           <div className="p-4 md:p-5 text-center">
@@ -54,27 +66,20 @@ function WalletCard() {
               Fees owed
             </p>
           </div>
-          <div className="relative p-4 md:p-5 text-center bg-emerald-50/40">
-            {/* Highlight ring */}
-            <motion.div
-              className="pointer-events-none absolute inset-0 rounded-none border-2 border-primary/60"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.9, 0] }}
-              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <p className="font-body text-[11px] md:text-xs text-stone-600 font-semibold leading-tight">
+          <div className="p-4 md:p-5 text-center">
+            <p className="font-body text-[11px] md:text-xs text-stone-500 leading-tight">
               Compensation
               <br />
               Awaiting
             </p>
             <p
               data-testid="wallet-compensation-amount"
-              className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
+              className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 leading-none mt-2"
             >
-              $11.34
+              $0.00
             </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
-              From no-shows
+            <p className="font-body text-[10px] md:text-[11px] text-stone-400 mt-1">
+              From seller no-shows
             </p>
           </div>
         </div>
@@ -84,8 +89,8 @@ function WalletCard() {
           <span className="font-body text-sm font-semibold text-stone-800">
             Net Balance
           </span>
-          <span className="font-fun text-2xl md:text-3xl font-semibold text-primary">
-            $0.00
+          <span data-testid="wallet-net-balance" className="font-fun text-2xl md:text-3xl font-semibold text-primary">
+            $11.34
           </span>
         </div>
 
@@ -199,8 +204,8 @@ export default function Compensation() {
             <p className="font-body text-base md:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl">
               Every other marketplace treats your time like it&rsquo;s free.
               TruTown doesn&rsquo;t. If a buyer confirms a meet-up and no-shows,
-              a chunk of their deposit hits your wallet automatically — right
-              next to your available balance.
+              a chunk of their deposit lands straight in your Available Balance,
+              automatically.
             </p>
 
             <div className="mt-10 space-y-6">

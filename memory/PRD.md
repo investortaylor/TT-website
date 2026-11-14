@@ -98,3 +98,5 @@ Build a landing/marketing page for TruTown Marketplace mobile app. Highlights ap
 - Compensation cards: Late cancels (reschedule 15% all to other person; ignored invite 12+ hrs = 10% forfeit); Trusted Seller (60% → 100% of forfeited fee; 20 sales + 8.0+ rating).
 - Features "Trusted Seller Tier" updated to 60%/100%.
 - FAQ: ghosting, seller flakes, no-show breakdown (neither shows 10% each; 48h unclosed rule), platform fee (8.9%, 1.8% real estate coming soon) updated; NEW FAQ "What if we meet but nobody taps Purchase, Cancel, or Report?" placed after no-show question.
+- No-show table restructured: 4 scenario columns (Buyer no-shows, Seller no-shows, Neither shows, Met but nobody closed the deal) × 2 rows (The buyer / The seller). Mobile/tablet (<lg) shows one card per scenario. Assumption: in "neither shows", seller's 10% goes to Balance Due.
+- Wallet example: $11.34 now in Available Balance (highlighted), Compensation Awaiting $0.00, Net Balance $11.34.
