@@ -122,9 +122,12 @@ export default function NoShowTable() {
                   key={r.key}
                   {...rowMotion(i + 1)}
                   data-testid={`no-show-row-${r.key}`}
-                  className="border-t border-stone-200"
+                  className="group border-t border-stone-200 cursor-default"
                 >
-                  <th scope="row" className="p-6 text-left align-top">
+                  <th
+                    scope="row"
+                    className="p-6 text-left align-top transition-all duration-300 group-hover:bg-emerald-50 group-hover:shadow-[inset_4px_0_0_0_rgba(0,200,80,0.7)]"
+                  >
                     <span className="flex items-start gap-3">
                       <r.icon size={20} strokeWidth={1.6} className="text-primary mt-1 flex-shrink-0" />
                       <span className="font-fun text-xl font-semibold text-stone-900 leading-snug">{r.label}</span>
@@ -134,7 +137,7 @@ export default function NoShowTable() {
                     <td
                       key={c.key}
                       data-testid={`no-show-cell-${r.key}-${c.key}`}
-                      className={`p-6 align-top border-l ${c.border} font-body text-[15px] text-stone-600 leading-relaxed`}
+                      className={`p-6 align-top border-l ${c.border} font-body text-[15px] text-stone-600 leading-relaxed transition-all duration-300 group-hover:bg-emerald-50 group-hover:text-stone-800 group-hover:shadow-[inset_0_0_24px_rgba(0,200,80,0.12)]`}
                     >
                       {r[c.key]}
                     </td>
@@ -157,7 +160,12 @@ export default function NoShowTable() {
               </div>
               <div className="space-y-4">
                 {rows.map((r, i) => (
-                  <motion.div key={r.key} {...rowMotion(i)} className="rounded-xl bg-white/80 p-4">
+                  <motion.div
+                    key={r.key}
+                    {...rowMotion(i)}
+                    data-testid={`no-show-card-row-${c.key}-${r.key}`}
+                    className="rounded-xl bg-white/80 p-4 ring-1 ring-transparent transition-all duration-300 hover:bg-emerald-50 hover:ring-primary/30 hover:shadow-[0_0_24px_rgba(0,200,80,0.18)] active:bg-emerald-50 active:ring-primary/30"
+                  >
                     <p className="flex items-center gap-2 font-fun text-lg font-semibold text-stone-900">
                       <r.icon size={16} strokeWidth={1.8} className="text-primary" />
                       {r.label}
