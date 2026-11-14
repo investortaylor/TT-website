@@ -20,7 +20,7 @@ const screens = [
     kicker: "Meet Live",
     title: "See each other arrive — in real time.",
     body:
-      "A shared live map with buyer, seller, and safe-spot pins. Both parties auto-confirm 'arrived' within 130 ft. No more 'I'm here, where are you?' texts.",
+      "A shared live map with buyer, seller, and meetup pins. Both parties auto-confirm 'arrived' within 130 ft. No more 'I'm here, where are you?' texts.",
   },
   {
     key: "chat",
@@ -30,7 +30,7 @@ const screens = [
     kicker: "Chat",
     title: "Real conversations. Real buyers.",
     body:
-      "When someone messages you on TruTown, they've already put a deposit on the line. Every chat is with a serious, committed buyer.",
+      "When someone messages you on TruTown, they've already thought about putting down a deposit. They know if the listing exists, its available.",
   },
 ];
 
