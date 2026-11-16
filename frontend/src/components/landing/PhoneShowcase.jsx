@@ -4,7 +4,7 @@ import { ShieldCheck, MapPin, MessageSquare } from "lucide-react";
 const screens = [
   {
     key: "browse",
-    src: "https://customer-assets-7cd3h4nn.emergentagent.net/job_repo-changes-2/artifacts/whp5m37x_iphone_3_deep.webp",
+    src: process.env.PUBLIC_URL + "/phone-showcase/browse.webp",
     alt: "TruTown Browse Items screen — Safe. Verified. Trustworthy.",
     icon: ShieldCheck,
     kicker: "Browse",
@@ -14,7 +14,7 @@ const screens = [
   },
   {
     key: "map",
-    src: "https://customer-assets-7cd3h4nn.emergentagent.net/job_repo-changes-2/artifacts/o945oszx_iphone_7_live_map.webp",
+    src: process.env.PUBLIC_URL + "/phone-showcase/live-meeting.webp",
     alt: "TruTown Live Meeting map — buyer and seller locations en route to a safe spot",
     icon: MapPin,
     kicker: "Meet Live",
@@ -24,7 +24,7 @@ const screens = [
   },
   {
     key: "chat",
-    src: "https://customer-assets-7cd3h4nn.emergentagent.net/job_repo-changes-2/artifacts/7q4kr966_iphone_6_chat_plants.webp",
+    src: process.env.PUBLIC_URL + "/phone-showcase/chat.webp",
     alt: "TruTown in-app chat with an ID-verified buyer discussing a purchase",
     icon: MessageSquare,
     kicker: "Chat",
