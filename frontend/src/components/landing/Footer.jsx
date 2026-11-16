@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ContactModal from "./ContactModal";
+import BrandLogo from "@/components/brand/BrandLogo";
 
 const productLinks = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -22,22 +23,14 @@ export default function Footer() {
   };
 
   return (
-    <footer data-testid="footer" className="bg-stone-900 text-stone-300">
+    <footer data-testid="footer" className="bg-ink text-stone-300 border-t border-gilt/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/logo.png"
-                alt="TruTown Marketplace"
-                className="h-[60px] w-auto brightness-110"
-                style={{ mixBlendMode: "screen" }}
-              />
-              <span className="font-fun text-xl font-semibold text-white">
-                TruTown Marketplace
-              </span>
-            </div>
+            <Link to="/" className="inline-block mb-5" data-testid="footer-logo">
+              <BrandLogo size="lg" />
+            </Link>
             <p className="font-body text-sm text-stone-400 leading-relaxed max-w-sm mb-6">
               The first marketplace designed for how local transactions actually
               work — in person, with trust, and without the games.

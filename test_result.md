@@ -160,6 +160,18 @@ frontend:
         -agent: "testing"
         -comment: "✅ REGRESSION FIX VERIFIED - ALL TESTS PASSED (13/13). Root cause identified and fixed: (1) Duplicate id='download' in Hero.jsx and CTA.jsx caused 'Get the App' link to scroll to wrong element - FIXED by removing id from Hero.jsx line 212. (2) Mobile scrolling broken due to history.replaceState triggering ScrollToTop useEffect which called scrollTo(0,0) immediately after smooth scroll - FIXED by removing history.replaceState and adding 50ms delay before scroll to let menu animation start. Desktop (1440x900): All 5 links scroll perfectly - How It Works (111.8px), Features (112.2px), Testimonials (113.2px), FAQ (115.5px), Get the App (118.5px) - all within 90-140px acceptable range. Mobile (390x844): All 5 links scroll perfectly - How It Works (95.8px), Features (96.4px), Testimonials (101.4px), FAQ (101.1px), Get the App (102.1px) - all within 80-120px acceptable range. Double-click test: PASS - no crashes or errors. Mobile menu: opens/closes correctly. New sections verified: Compensation section shows 'Ghosted?' and '$11.34' correctly. Phone showcase section renders 3 phone cards (browse, map, chat) with proper image dimensions (220x477px each). Console errors: 0. Files modified: /app/frontend/src/components/landing/Navbar.jsx (removed history.replaceState, added 50ms delay), /app/frontend/src/components/landing/Hero.jsx (removed duplicate id='download'). Navbar hash-link scrolling is now fully functional and regression-free."
 
+  - task: "Full site redesign - 'Crown City' (logo colours, Vollkorn serif, abstract handshake line art, new copy)"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/landing/*, frontend/src/components/brand/*, frontend/src/components/legal/LegalLayout.jsx, tailwind.config.js, index.css"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        -working: "NA"
+        -agent: "main"
+        -comment: "Redesigned every page. Palette now only logo colours (green #00C850/#2FE03A, lime #ADBA36, gilt #C9C23A, ochre #B09820, brown #6B4E24) + black. Navbar labels changed (The Exchange / Safeguards / Stories / FAQ) but testids and section ids unchanged. Hero now dark with handshake line art background. Legal pages use shared Navbar+Footer."
+
 
 metadata:
   created_by: "main_agent"

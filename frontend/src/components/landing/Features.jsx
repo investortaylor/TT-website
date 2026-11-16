@@ -21,8 +21,8 @@ const features = [
     description:
       "Deposits filter out tire-kickers instantly. If someone ghosts you, they forfeit a slice of their deposit and you get compensated for your time.",
     size: "lg",
-    color: "bg-emerald-50 border-emerald-100",
-    iconColor: "text-primary",
+    color: "bg-emerald-50 border-emerald-200",
+    iconColor: "text-bark",
   },
   {
     icon: CreditCard,
@@ -30,8 +30,8 @@ const features = [
     description:
       "Buyers put down 5-25% into bank-grade Stripe escrow. Money only moves to the seller after both parties tap Accept in person — and only after Stripe confirms the charge cleared.",
     size: "sm",
-    color: "bg-gold-50 border-gold-100",
-    iconColor: "text-secondary",
+    color: "bg-gold-50 border-gold-200",
+    iconColor: "text-primary",
   },
   {
     icon: UserCheck,
@@ -39,17 +39,17 @@ const features = [
     description:
       "Every seller passes a Didit government-ID check before their first listing goes live. A green check appears next to verified users in every chat, listing, and meeting screen.",
     size: "sm",
-    color: "bg-emerald-50 border-emerald-100",
-    iconColor: "text-primary",
+    color: "bg-emerald-50 border-emerald-200",
+    iconColor: "text-bark",
   },
   {
     icon: MapPin,
     title: "Safe Meeting Spots",
     description:
-      "Community-vetted locations like police-station lots, credit unions, and well-lit coffee shops. Users upvote the best spots so the good ones bubble up.",
+      "Available community-vetted locations like police-station lots, credit unions, and well-lit coffee shops. Users upvote the best spots so the good ones bubble up.",
     size: "sm",
-    color: "bg-gold-50 border-gold-100",
-    iconColor: "text-secondary",
+    color: "bg-gold-50 border-gold-200",
+    iconColor: "text-primary",
   },
   {
     icon: Navigation,
@@ -57,8 +57,8 @@ const features = [
     description:
       "Both parties see each other on a shared map with buyer, seller, and safe-spot pins — plus a live distance chip. When you're both within 130 ft, arrival auto-confirms.",
     size: "sm",
-    color: "bg-emerald-50 border-emerald-100",
-    iconColor: "text-primary",
+    color: "bg-emerald-50 border-emerald-200",
+    iconColor: "text-bark",
   },
   {
     icon: Siren,
@@ -66,8 +66,8 @@ const features = [
     description:
       "From inside any active meeting, verified users can call the closest police line in two taps. The safe-spot address is shared and TruTown admins follow up with the department on your behalf.",
     size: "sm",
-    color: "bg-gold-50 border-gold-100",
-    iconColor: "text-secondary",
+    color: "bg-gold-50 border-gold-200",
+    iconColor: "text-primary",
   },
   {
     icon: RefreshCcw,
@@ -75,26 +75,26 @@ const features = [
     description:
       "If a card declines at the moment of sale, no fake success. Both sides see the exact Stripe reason. The buyer picks a different card without leaving the deal — the seller taps Retry Payment and it's done.",
     size: "lg",
-    color: "bg-stone-50 border-stone-200",
-    iconColor: "text-stone-700",
+    color: "bg-[#F6EFE4] border-[#E4D3BA]",
+    iconColor: "text-primary",
   },
   {
     icon: Clock,
     title: "Real Inspection Windows",
     description:
-      "30-45 minutes for electronics. Up to 3 hours for vehicles. Up to 21 days for real estate. Inspect the item properly before any money moves.",
+      "30-45 minutes for electronics. Up to 3 hours for vehicles. Up to 30 minutes for most other items. Inspect the item properly before any money moves.",
     size: "sm",
-    color: "bg-emerald-50 border-emerald-100",
-    iconColor: "text-primary",
+    color: "bg-emerald-50 border-emerald-200",
+    iconColor: "text-bark",
   },
   {
     icon: Award,
     title: "Trusted Seller Tier",
     description:
-      "Start earning 15% on forfeited deposits. Earn Trusted Seller status and that jumps to 25%. Your reputation compounds into real money.",
+      "Start by keeping 60% of every fee a buyer forfeits. Reach 20 completed sales and an 8.0+ rating, and you keep 100%.",
     size: "sm",
-    color: "bg-gold-50 border-gold-100",
-    iconColor: "text-secondary",
+    color: "bg-gold-50 border-gold-200",
+    iconColor: "text-primary",
   },
   {
     icon: Activity,
@@ -102,8 +102,8 @@ const features = [
     description:
       "Every deal moves through visible states — pending → selected → viewing → purchase pending → completed. Both parties see the same status at the same time, and forfeiture warnings ping the party at fault before any money moves.",
     size: "sm",
-    color: "bg-emerald-50 border-emerald-100",
-    iconColor: "text-primary",
+    color: "bg-emerald-50 border-emerald-200",
+    iconColor: "text-bark",
   },
   {
     icon: Wallet,
@@ -111,8 +111,8 @@ const features = [
     description:
       "Net balance reflects the 8.9% platform fee — no listing fees, ever. Cash Out to your bank on demand (instant when eligible, usually within 48 hours). Year-to-date and monthly earnings hit your inbox automatically.",
     size: "lg",
-    color: "bg-gold-50 border-gold-100",
-    iconColor: "text-secondary",
+    color: "bg-gold-50 border-gold-200",
+    iconColor: "text-primary",
   },
 ];
 
@@ -122,9 +122,9 @@ function FeatureArt({ feature, index }) {
     // No More Flakes - Ghost crossed out
     return (
       <svg viewBox="0 0 80 80" fill="none" className="w-12 h-12 mt-4 opacity-20">
-        <circle cx="40" cy="32" r="18" fill="#15803d" />
-        <path d="M30 50c0 0 5 12 10 15s10-3 10-15" fill="#15803d" opacity="0.6" />
-        <line x1="15" y1="15" x2="65" y2="65" stroke="#b91c1c" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="40" cy="32" r="18" fill="#00C850" />
+        <path d="M30 50c0 0 5 12 10 15s10-3 10-15" fill="#00C850" opacity="0.6" />
+        <line x1="15" y1="15" x2="65" y2="65" stroke="#6B4E24" strokeWidth="4" strokeLinecap="round" />
       </svg>
     );
   }
@@ -132,10 +132,10 @@ function FeatureArt({ feature, index }) {
     // Inspection Time - Clock
     return (
       <svg viewBox="0 0 80 80" fill="none" className="w-12 h-12 mt-4 opacity-20">
-        <circle cx="40" cy="40" r="28" stroke="#1c1917" strokeWidth="2" />
-        <circle cx="40" cy="40" r="2" fill="#1c1917" />
-        <line x1="40" y1="40" x2="40" y2="22" stroke="#1c1917" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="40" y1="40" x2="52" y2="45" stroke="#ca8a04" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="40" cy="40" r="28" stroke="#6B4E24" strokeWidth="2" />
+        <circle cx="40" cy="40" r="2" fill="#6B4E24" />
+        <line x1="40" y1="40" x2="40" y2="22" stroke="#6B4E24" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="40" y1="40" x2="52" y2="45" stroke="#00C850" strokeWidth="2" strokeLinecap="round" />
       </svg>
     );
   }

@@ -15,10 +15,10 @@ export default function ItemLocationMap({
 
   return (
     <section aria-label="Item location on map" className="space-y-2">
-      <h2 className="font-body text-sm font-bold uppercase tracking-wide text-[#7F8C8D]">
+      <h2 className="font-body text-sm font-bold uppercase tracking-wide text-[#8A7A5E]">
         Location
       </h2>
-      <div className="relative overflow-hidden rounded-xl border border-[#ECF0F1] bg-[#F5F5F5] aspect-[16/10] min-h-[220px] w-full shadow-sm">
+      <div className="relative overflow-hidden rounded-xl border border-[#E6E1D3] bg-[#F3F1EA] aspect-[16/10] min-h-[220px] w-full shadow-sm">
         <MapContainer
           center={center}
           zoom={12}
@@ -38,16 +38,16 @@ export default function ItemLocationMap({
               center={center}
               radius={radiusMeters}
               pathOptions={{
-                color: "#2ECC71",
+                color: "#00C850",
                 weight: 2,
-                fillColor: "#2ECC71",
+                fillColor: "#00C850",
                 fillOpacity: 0.2,
               }}
             />
           )}
         </MapContainer>
       </div>
-      <p className="font-body text-xs text-[#7F8C8D]">
+      <p className="font-body text-xs text-[#8A7A5E]">
         Approximate pickup area shown for privacy. Exact meetup details are coordinated in the TruTown app.
       </p>
     </section>

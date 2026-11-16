@@ -5,42 +5,42 @@ function DownloadIllustration() {
   return (
     <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm mx-auto">
       {/* Phone */}
-      <rect x="145" y="20" width="110" height="200" rx="18" fill="#1c1917" />
-      <rect x="152" y="32" width="96" height="176" rx="12" fill="#fafaf9" />
+      <rect x="145" y="20" width="110" height="200" rx="18" fill="#14100A" />
+      <rect x="152" y="32" width="96" height="176" rx="12" fill="#FAF9F4" />
       {/* Screen content - app logo */}
-      <circle cx="200" cy="90" r="25" fill="#d1fae5" />
-      <rect x="185" y="80" width="8" height="22" rx="1" fill="#5D4037" />
-      <rect x="195" y="74" width="10" height="28" rx="1" fill="#5D4037" />
-      <rect x="207" y="82" width="7" height="20" rx="1" fill="#5D4037" />
+      <circle cx="200" cy="90" r="25" fill="#D3F6DE" />
+      <rect x="185" y="80" width="8" height="22" rx="1" fill="#6B4E24" />
+      <rect x="195" y="74" width="10" height="28" rx="1" fill="#6B4E24" />
+      <rect x="207" y="82" width="7" height="20" rx="1" fill="#6B4E24" />
       {/* Text lines */}
-      <rect x="170" y="128" width="60" height="6" rx="3" fill="#15803d" />
-      <rect x="175" y="142" width="50" height="4" rx="2" fill="#d6d3d1" />
+      <rect x="170" y="128" width="60" height="6" rx="3" fill="#008536" />
+      <rect x="175" y="142" width="50" height="4" rx="2" fill="#CFC7B3" />
       {/* Button */}
-      <rect x="168" y="160" width="64" height="20" rx="10" fill="#15803d" />
-      <rect x="180" y="167" width="40" height="6" rx="3" fill="#d1fae5" />
+      <rect x="168" y="160" width="64" height="20" rx="10" fill="#008536" />
+      <rect x="180" y="167" width="40" height="6" rx="3" fill="#D3F6DE" />
       
       {/* Notification badges */}
       <g>
-        <rect x="270" y="50" width="100" height="40" rx="10" fill="white" stroke="#e7e5e4" strokeWidth="1" />
-        <circle cx="286" cy="70" r="8" fill="#d1fae5" />
-        <path d="M283 70l2 2 4-4" stroke="#15803d" strokeWidth="1.5" strokeLinecap="round" />
-        <rect x="300" y="64" width="56" height="4" rx="2" fill="#d6d3d1" />
-        <rect x="300" y="72" width="40" height="3" rx="1.5" fill="#e7e5e4" />
+        <rect x="270" y="50" width="100" height="40" rx="10" fill="white" stroke="#E6E1D3" strokeWidth="1" />
+        <circle cx="286" cy="70" r="8" fill="#D3F6DE" />
+        <path d="M283 70l2 2 4-4" stroke="#008536" strokeWidth="1.5" strokeLinecap="round" />
+        <rect x="300" y="64" width="56" height="4" rx="2" fill="#CFC7B3" />
+        <rect x="300" y="72" width="40" height="3" rx="1.5" fill="#E6E1D3" />
       </g>
       
       <g>
-        <rect x="30" y="80" width="100" height="40" rx="10" fill="white" stroke="#e7e5e4" strokeWidth="1" />
+        <rect x="30" y="80" width="100" height="40" rx="10" fill="white" stroke="#E6E1D3" strokeWidth="1" />
         <circle cx="46" cy="100" r="8" fill="#fef9c3" />
         <text x="42" y="104" fill="#ca8a04" fontSize="10" fontWeight="bold">$</text>
-        <rect x="60" y="94" width="56" height="4" rx="2" fill="#d6d3d1" />
-        <rect x="60" y="102" width="40" height="3" rx="1.5" fill="#e7e5e4" />
+        <rect x="60" y="94" width="56" height="4" rx="2" fill="#CFC7B3" />
+        <rect x="60" y="102" width="40" height="3" rx="1.5" fill="#E6E1D3" />
       </g>
 
       {/* Stars/sparkles */}
       <circle cx="100" cy="40" r="3" fill="#facc15" />
-      <circle cx="310" cy="30" r="2" fill="#15803d" />
+      <circle cx="310" cy="30" r="2" fill="#008536" />
       <circle cx="340" cy="110" r="3" fill="#facc15" />
-      <circle cx="60" cy="140" r="2" fill="#15803d" />
+      <circle cx="60" cy="140" r="2" fill="#008536" />
     </svg>
   );
 }

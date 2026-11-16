@@ -1,11 +1,39 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, animate, useInView } from "framer-motion";
 import { Ghost, Wallet, Clock, CheckCircle2, ChevronRight } from "lucide-react";
 
 /**
- * Recreation of the in-app Wallet card, focused on the "Compensation Awaiting"
- * amount that comes from ghosted buyers. Amount deliberately set to $11.34.
+ * Recreation of the in-app Wallet card. A ghosted buyer's forfeit ($11.34) lands
+ * straight in the seller's Available Balance, matching the FAQ and no-show table.
  */
+/** Counts a dollar amount up from $0.00 the first time it scrolls into view. */
+function CountUp({ value, duration = 1.6, delay = 0.2, onComplete }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.8 });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return undefined;
+    const controls = animate(0, value, {
+      duration,
+      delay,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setDisplay(v),
+      onComplete: () => onComplete && onComplete(),
+    });
+    return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView, value, duration, delay]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      ${display.toFixed(2)}
+    </span>
+  );
+}
+
 function WalletCard() {
+  const [counted, setCounted] = useState(false);
   return (
     <div className="relative w-full max-w-md mx-auto">
       {/* Soft glow */}
@@ -32,15 +60,27 @@ function WalletCard() {
 
         {/* 3-column stats */}
         <div className="grid grid-cols-3 divide-x divide-stone-100 border-t border-stone-100">
-          <div className="p-4 md:p-5 text-center">
-            <p className="font-body text-[11px] md:text-xs text-stone-500">
-              Available Balance
+          <div className="relative p-4 md:p-5 text-center bg-emerald-50/40">
+            {/* Highlight ring */}
+            <motion.div
+              className="pointer-events-none absolute inset-0 rounded-none border-2 border-primary/60"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.9, 0] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <p className="font-body text-[11px] md:text-xs text-stone-600 font-semibold leading-tight">
+              Available
+              <br />
+              Balance
             </p>
-            <p className="font-fun text-2xl md:text-3xl font-semibold text-primary leading-none mt-2">
-              $0.00
+            <p
+              data-testid="wallet-available-amount"
+              className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
+            >
+              <CountUp value={11.34} onComplete={() => setCounted(true)} />
             </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-400 mt-1">
-              from sales
+            <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
+              From a no-show
             </p>
           </div>
           <div className="p-4 md:p-5 text-center">
@@ -54,27 +94,20 @@ function WalletCard() {
               Fees owed
             </p>
           </div>
-          <div className="relative p-4 md:p-5 text-center bg-emerald-50/40">
-            {/* Highlight ring */}
-            <motion.div
-              className="pointer-events-none absolute inset-0 rounded-none border-2 border-primary/60"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.9, 0] }}
-              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <p className="font-body text-[11px] md:text-xs text-stone-600 font-semibold leading-tight">
+          <div className="p-4 md:p-5 text-center">
+            <p className="font-body text-[11px] md:text-xs text-stone-500 leading-tight">
               Compensation
               <br />
               Awaiting
             </p>
             <p
               data-testid="wallet-compensation-amount"
-              className="font-fun text-3xl md:text-4xl font-bold text-primary leading-none mt-2"
+              className="font-fun text-2xl md:text-3xl font-semibold text-stone-900 leading-none mt-2"
             >
-              $11.34
+              $0.00
             </p>
-            <p className="font-body text-[10px] md:text-[11px] text-stone-500 mt-1">
-              From no-shows
+            <p className="font-body text-[10px] md:text-[11px] text-stone-400 mt-1">
+              From seller no-shows
             </p>
           </div>
         </div>
@@ -84,8 +117,8 @@ function WalletCard() {
           <span className="font-body text-sm font-semibold text-stone-800">
             Net Balance
           </span>
-          <span className="font-fun text-2xl md:text-3xl font-semibold text-primary">
-            $0.00
+          <span data-testid="wallet-net-balance" className="font-fun text-2xl md:text-3xl font-semibold text-primary">
+            <CountUp value={11.34} />
           </span>
         </div>
 
@@ -111,14 +144,17 @@ function WalletCard() {
 
       {/* Floating "Ghosted buyer forfeit" badge */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+        data-testid="wallet-forfeit-badge"
+        initial={{ opacity: 0, y: -14, scale: 0.6 }}
+        animate={counted ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: -14, scale: 0.6 }}
+        transition={{ type: "spring", stiffness: 420, damping: 16, mass: 0.7 }}
         className="absolute -top-4 -right-2 md:-right-6 rounded-2xl bg-white px-3 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-stone-100 flex items-center gap-2"
       >
-        <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
-          <Ghost size={16} className="text-primary" strokeWidth={1.8} />
+        <div className="relative w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center">
+          {counted && (
+            <span className="absolute inset-0 rounded-full bg-primary/30 animate-ping [animation-iteration-count:2]" />
+          )}
+          <Ghost size={16} className="relative text-primary" strokeWidth={1.8} />
         </div>
         <div>
           <p className="font-mono text-[9px] font-bold tracking-wider uppercase text-stone-500">
@@ -136,21 +172,27 @@ function WalletCard() {
 const points = [
   {
     icon: Ghost,
-    title: "Buyer flakes? You still get paid.",
+    title: "Buyer flakes? Seller still gets paid.",
     body:
-      "When a buyer confirms a meet-up and then doesn't show, they forfeit a slice of their deposit — and it lands in your Compensation Awaiting bucket. No more driving across town for nothing.",
+      "When a buyer confirms a meet-up and then doesn't show, they forfeit a slice of their deposit — and your share goes straight into your Available Balance, ready to cash out. No more driving across town for nothing.",
+  },
+  {
+    icon: Ghost,
+    title: "Seller flakes? Buyer gets made whole.",
+    body:
+      "When a seller confirms a meet-up and then doesn't show, the buyer isn't left empty-handed. Their deposit comes back in full, and the seller is charged a no-show fee. That fee is held for the buyer in their Compensation Awaiting bucket and paid into their wallet as soon as the seller settles up. Showing up matters on both sides of the deal.",
   },
   {
     icon: Clock,
     title: "Late cancels cost them, not you.",
     body:
-      "If a buyer bails after accepting the meeting invite, they're charged a prorated fee based on how late they cancel. Reschedule? Same idea — 15% of the deposit protects your time.",
+      "If a buyer bails after accepting the meeting invite, they're charged a prorated fee based on how late they cancel. Asking to reschedule costs 15% of the deposit, and all of it goes to the other person for the hassle. Ignore an invite for 12+ hours? That's a 10% forfeit.",
   },
   {
     icon: CheckCircle2,
     title: "Earn Trusted Seller status.",
     body:
-      "New sellers keep 15% of a forfeited deposit. Earn Trusted Seller status and that jumps to 25%. Your reputation compounds — literally.",
+      "When a buyer forfeits part of their deposit, you keep 60% of it. Complete 20 sales with an 8.0+ rating to become a Trusted Seller and keep 100%. Your reputation compounds, literally.",
   },
 ];
 
@@ -193,8 +235,8 @@ export default function Compensation() {
             <p className="font-body text-base md:text-lg text-stone-600 leading-relaxed mt-5 max-w-xl">
               Every other marketplace treats your time like it&rsquo;s free.
               TruTown doesn&rsquo;t. If a buyer confirms a meet-up and no-shows,
-              a chunk of their deposit hits your wallet automatically — right
-              next to your available balance.
+              a chunk of their deposit lands straight in your Available Balance,
+              automatically.
             </p>
 
             <div className="mt-10 space-y-6">

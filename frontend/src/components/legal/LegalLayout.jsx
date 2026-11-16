@@ -1,23 +1,19 @@
 import { Link } from "react-router-dom";
+import BrandLogo from "@/components/brand/BrandLogo";
 
 export default function LegalLayout({ title, lastUpdated, children }) {
   return (
     <div className="min-h-screen bg-background" data-testid="legal-page">
       {/* Simple top bar */}
-      <header className="border-b border-stone-200 bg-white/80 backdrop-blur">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <header className="bg-ink border-b border-gilt/15">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-[76px] md:h-[88px] flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3" data-testid="legal-logo">
-            <img
-              src="/logo.png"
-              alt="TruTown Marketplace"
-              className="h-[60px] w-auto"
-              style={{ mixBlendMode: "multiply" }}
-            />
+            <BrandLogo size="md" />
           </Link>
           <Link
             to="/"
             data-testid="legal-back-home"
-            className="font-body text-sm font-semibold text-stone-600 hover:text-primary transition-colors"
+            className="font-body text-sm font-semibold text-stone-300 hover:text-white transition-colors"
           >
             ← Back to home
           </Link>

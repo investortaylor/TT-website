@@ -1,0 +1,30 @@
+{
+  "summary": "Frontend-only test of the restored original TruTown landing site with brand tweaks. Everything requested passed: all sections render, no console/page errors; black navbar rgba(11,9,6,0.95) at the top and when scrolled; nav labels How It Works/Features/Testimonials/FAQ/Get the App; desktop nav and mobile nav scroll so section top lands exactly at 88px (desktop) or 76px (mobile) and the mobile menu closes; no horizontal overflow at 390px (scrollWidth=390); stats strip has exactly 6 cards with exact texts under the Shawn T., Baltimore quote; no 'The Old Way'/'The TruTown Way' text; comparison-illustration line art shows fully after scrolling (clip-path inset 0%); How It Works step 3, Compensation bullets (incl. new 'Seller flakes? Buyer still gets paid.') and Real Inspection Windows text match exactly; fonts are Vollkorn (h1/h2) and Archivo (body); old green #2ECC71 found 0 times; feature icons are only rgb(0,200,80) or rgb(107,78,36); card backgrounds are green/gold/brown tints; footer-logo shows and Contact Us opens the modal with dark, readable input text (form NOT submitted); /privacy, /terms, /delete-account have black header with legal-logo, and legal-back-home goes to '/'; /item/test-123 shows a clean 'Unable to load listing' card with the black navbar; /api/classic/ returns 200 and renders the original site.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Landing stats strip (desktop 1920)", "issues": ["'Mandatory ID' wraps to 2 lines in the 6-column grid, so it doesn't line up with the other one-line values (cards are still the same height). Could shrink the value font a little at lg."]},
+      {"screen": "Features cards 0 ('No More Flakes') and 5 ('Two-Tap Police Presence')", "issues": ["Each has a second decorative SVG (w-12 h-12 opacity-20) colored rgb(20,16,10) (ink), not green/brown. The real lucide icons are correct. Only matters if strictly every SVG must be green/brown."]},
+      {"screen": "/item/:id error state (short page at 1080px tall)", "issues": ["A white gap shows below the footer because the page content is shorter than the viewport (no min-h-screen/flex layout)."]},
+      {"screen": "Contact modal", "issues": ["The Subject field is a native <select> instead of the shadcn Select, a small style mismatch."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Optional: stop 'Mandatory ID' wrapping in the desktop stats strip",
+    "Optional: color the decorative SVGs on feature cards 0 and 5 with brand colors if strict icon colors are wanted",
+    "Optional: add min-h-screen flex layout on the item page so the footer sits at the bottom"
+  ],
+  "critical_code_review_comments": [
+    "Navbar smoothScrollToId hardcodes the 88/76 offsets. It works now but will break if the nav height changes. Could use scroll-margin-top on the sections instead.",
+    "LineArt uses CSS mask with PNGs. Fine in modern browsers; old Safari needs -webkit-mask, which is already provided."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None. Contact form was not submitted.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Original layout restored with brand tweaks (iteration 2's Crown City redesign was reverted). Don't submit the contact form, it sends a real email. Store buttons are intentionally href='#'. /api/classic/ is a temporary copy of the original site and must stay."
+}

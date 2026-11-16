@@ -10,7 +10,7 @@ const steps = [
     description:
       "Snap a photo, set your price, and describe your item. Your listing goes live to local buyers in minutes.",
     color: "bg-emerald-50 text-primary",
-    accent: "#2ECC71",
+    accent: "#00C850",
   },
   {
     num: "02",
@@ -20,7 +20,7 @@ const steps = [
     description:
       "Interested buyers put down 5-25% as a refundable deposit, held in bank-grade Stripe escrow. Buyers can pick any card on file, or add a new one right in the deal — no leaving the app.",
     color: "bg-gold-50 text-secondary",
-    accent: "#ca8a04",
+    accent: "#6B4E24",
   },
   {
     num: "03",
@@ -28,9 +28,9 @@ const steps = [
     title: "Meet & Inspect",
     feeling: "They're already there when you pull up.",
     description:
-      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 30 minutes for electronics, 3 hours for vehicles, up to 21 days for real estate.",
+      "Meetup (preferably at a community-vetted safe spot). Buyers get inspection time — up to 30 minutes for electronics, 3 hours for vehicles, etc.",
     color: "bg-emerald-50 text-primary",
-    accent: "#2ECC71",
+    accent: "#00C850",
   },
   {
     num: "04",
@@ -40,7 +40,7 @@ const steps = [
     description:
       "Both parties tap Accept. In two taps, the deposit + balance moves from Stripe escrow into the seller's in-app wallet. Purchase and sale receipts are emailed to both parties the instant the charge clears — never before.",
     color: "bg-gold-50 text-secondary",
-    accent: "#ca8a04",
+    accent: "#6B4E24",
   },
 ];
 
@@ -48,11 +48,11 @@ function StepIllustration({ step, index }) {
   const illustrations = [
     // Step 1: Phone with camera
     <svg key="s1" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
-      <rect x="30" y="15" width="60" height="90" rx="10" fill="#1c1917" />
-      <rect x="35" y="22" width="50" height="76" rx="6" fill="#fafaf9" />
-      <circle cx="60" cy="55" r="14" stroke="#2ECC71" strokeWidth="2" fill="none" />
-      <circle cx="60" cy="55" r="5" fill="#2ECC71" />
-      <rect x="44" y="78" width="32" height="8" rx="4" fill="#d1fae5" />
+      <rect x="30" y="15" width="60" height="90" rx="10" fill="#14100A" />
+      <rect x="35" y="22" width="50" height="76" rx="6" fill="#FAF9F4" />
+      <circle cx="60" cy="55" r="14" stroke="#00C850" strokeWidth="2" fill="none" />
+      <circle cx="60" cy="55" r="5" fill="#00C850" />
+      <rect x="44" y="78" width="32" height="8" rx="4" fill="#D3F6DE" />
     </svg>,
     // Step 2: Coins with deposit
     <svg key="s2" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
@@ -70,21 +70,21 @@ function StepIllustration({ step, index }) {
       <circle cx="35" cy="40" r="12" fill="#d6a756" />
       <path d="M20 72c0-8.3 6.7-15 15-15s15 6.7 15 72" fill="#ca8a04" />
       <circle cx="85" cy="40" r="12" fill="#6ea87a" />
-      <path d="M70 72c0-8.3 6.7-15 15-15s15 6.7 15 72" fill="#2ECC71" />
+      <path d="M70 72c0-8.3 6.7-15 15-15s15 6.7 15 72" fill="#00C850" />
       {/* Handshake */}
-      <path d="M45 68h30" stroke="#1c1917" strokeWidth="3" strokeLinecap="round" />
+      <path d="M45 68h30" stroke="#14100A" strokeWidth="3" strokeLinecap="round" />
       <circle cx="60" cy="68" r="4" fill="#facc15" />
-      <rect x="25" y="90" width="70" height="4" rx="2" fill="#e7e5e4" />
+      <rect x="25" y="90" width="70" height="4" rx="2" fill="#E6E1D3" />
     </svg>,
     // Step 4: Checkmark success
     <svg key="s4" viewBox="0 0 120 120" fill="none" className="w-16 h-16">
-      <circle cx="60" cy="55" r="35" fill="#ecfdf5" />
-      <circle cx="60" cy="55" r="25" fill="#d1fae5" />
-      <path d="M47 55l8 8 18-18" stroke="#2ECC71" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="60" cy="55" r="35" fill="#EEFBF2" />
+      <circle cx="60" cy="55" r="25" fill="#D3F6DE" />
+      <path d="M47 55l8 8 18-18" stroke="#00C850" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M30 90l10-5m50 5l-10-5" stroke="#facc15" strokeWidth="2" strokeLinecap="round" />
       <circle cx="25" cy="40" r="3" fill="#facc15" />
       <circle cx="95" cy="40" r="3" fill="#facc15" />
-      <circle cx="60" cy="95" r="3" fill="#2ECC71" />
+      <circle cx="60" cy="95" r="3" fill="#00C850" />
     </svg>,
   ];
   return illustrations[index];

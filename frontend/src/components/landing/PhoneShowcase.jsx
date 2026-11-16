@@ -4,7 +4,7 @@ import { ShieldCheck, MapPin, MessageSquare } from "lucide-react";
 const screens = [
   {
     key: "browse",
-    src: "https://customer-assets-7cd3h4nn.emergentagent.net/job_repo-changes-2/artifacts/whp5m37x_iphone_3_deep.webp",
+    src: process.env.PUBLIC_URL + "/phone-showcase/browse.webp",
     alt: "TruTown Browse Items screen — Safe. Verified. Trustworthy.",
     icon: ShieldCheck,
     kicker: "Browse",
@@ -14,23 +14,23 @@ const screens = [
   },
   {
     key: "map",
-    src: "https://customer-assets-7cd3h4nn.emergentagent.net/job_repo-changes-2/artifacts/o945oszx_iphone_7_live_map.webp",
+    src: process.env.PUBLIC_URL + "/phone-showcase/live-meeting.webp",
     alt: "TruTown Live Meeting map — buyer and seller locations en route to a safe spot",
     icon: MapPin,
     kicker: "Meet Live",
     title: "See each other arrive — in real time.",
     body:
-      "A shared live map with buyer, seller, and safe-spot pins. Both parties auto-confirm 'arrived' within 130 ft. No more 'I'm here, where are you?' texts.",
+      "A shared live map with buyer, seller, and meetup pins. Both parties auto-confirm 'arrived' within 130 ft. No more 'I'm here, where are you?' texts.",
   },
   {
     key: "chat",
-    src: "https://customer-assets-7cd3h4nn.emergentagent.net/job_repo-changes-2/artifacts/7q4kr966_iphone_6_chat_plants.webp",
+    src: process.env.PUBLIC_URL + "/phone-showcase/chat.webp",
     alt: "TruTown in-app chat with an ID-verified buyer discussing a purchase",
     icon: MessageSquare,
     kicker: "Chat",
     title: "Real conversations. Real buyers.",
     body:
-      "When someone messages you on TruTown, they've already put a deposit on the line. Every chat is with a serious, committed buyer.",
+      "When someone messages you on TruTown, they've already thought about putting down a deposit. They know if the listing exists, its available.",
   },
 ];
 
@@ -43,7 +43,7 @@ function PhoneFrame({ src, alt }) {
         className="relative rounded-[2.6rem] p-[10px] shadow-[0_20px_50px_-12px_rgba(120,80,40,0.35),0_8px_20px_-8px_rgba(0,0,0,0.15)]"
         style={{
           background:
-            "linear-gradient(145deg, #E9CBA0 0%, #D6B285 40%, #C29968 70%, #D9B78A 100%)",
+            "linear-gradient(145deg, #8A6534 0%, #6B4E24 40%, #3A2A14 72%, #6B4E24 100%)",
         }}
       >
         {/* Highlight edge */}
@@ -56,10 +56,10 @@ function PhoneFrame({ src, alt }) {
         />
 
         {/* Side buttons (subtle) */}
-        <div className="absolute -left-[3px] top-24 h-8 w-[3px] rounded-l bg-[#A87F4E]" />
-        <div className="absolute -left-[3px] top-36 h-12 w-[3px] rounded-l bg-[#A87F4E]" />
-        <div className="absolute -left-[3px] top-52 h-12 w-[3px] rounded-l bg-[#A87F4E]" />
-        <div className="absolute -right-[3px] top-32 h-16 w-[3px] rounded-r bg-[#A87F4E]" />
+        <div className="absolute -left-[3px] top-24 h-8 w-[3px] rounded-l bg-[#3A2A14]" />
+        <div className="absolute -left-[3px] top-36 h-12 w-[3px] rounded-l bg-[#3A2A14]" />
+        <div className="absolute -left-[3px] top-52 h-12 w-[3px] rounded-l bg-[#3A2A14]" />
+        <div className="absolute -right-[3px] top-32 h-16 w-[3px] rounded-r bg-[#3A2A14]" />
 
         {/* Inner black bezel */}
         <div className="relative rounded-[2rem] overflow-hidden bg-black">

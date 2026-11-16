@@ -13,6 +13,7 @@ import SocialProof from "@/components/landing/SocialProof";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Features from "@/components/landing/Features";
 import Compensation from "@/components/landing/Compensation";
+import NoShowTable from "@/components/landing/NoShowTable";
 import PhoneShowcase from "@/components/landing/PhoneShowcase";
 import Testimonials from "@/components/landing/Testimonials";
 import FAQ from "@/components/landing/FAQ";
@@ -29,6 +30,7 @@ const LandingPage = () => {
         <SocialProof />
         <HowItWorks />
         <Compensation />
+        <NoShowTable />
         <Features />
         <PhoneShowcase />
         <Testimonials />

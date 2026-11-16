@@ -13,11 +13,46 @@ const faqs = [
   },
   {
     q: "What happens if a buyer ghosts the meet-up?",
-    a: "The seller keeps a slice of the buyer's deposit automatically — 15% to start, and 25% once you reach Trusted Seller status. The compensation appears in your Wallet under 'Compensation Awaiting' and is included in your next Cash Out. No screenshots, no back-and-forth, no chasing anyone.",
+    a: "If you showed up and they didn't, you automatically keep a slice of their deposit: 15% to start, or 25% once you're a Trusted Seller (20 sales with an 8.0+ rating). Your share goes straight into your Available Balance, ready to cash out. No screenshots, no back-and-forth, no chasing anyone.",
   },
   {
     q: "What happens if the seller flakes?",
-    a: "Accountability goes both ways. If a seller cancels or doesn't show up to an agreed meeting, they pay a fee to the buyer and can lose their Trusted Seller status. TruTown ensures everyone has skin in the game — not just the buyer.",
+    a: "Accountability goes both ways. If a seller cancels after you've accepted the meeting, or doesn't show up, you get your full deposit back. The seller also pays a fee of up to 25% of your deposit, and that fee goes to you. It's held in your Compensation Awaiting and paid out when that seller completes their next sale or settles up. You'll also be able to leave them a review. Everyone has skin in the game, not just the buyer.",
+  },
+  {
+    q: "Who gets what if someone doesn't show?",
+    a: (
+      <>
+        Whoever doesn&rsquo;t show pays 25% of the deposit. If the buyer no-shows, the seller gets
+        15% (25% for Trusted Sellers) straight into their Available Balance. If the seller
+        no-shows, the buyer gets their full deposit back, plus the 25% fee, held in Compensation
+        Awaiting and paid out when that seller completes their next sale or settles their Balance
+        Due. If neither shows, each pays 10%. And if you meet but no one taps Purchase, Cancel, or
+        Report, the buyer&rsquo;s deposit is kept after 48 hours, so always close out the deal in
+        the app.{" "}
+        <a
+          href="/#no-shows"
+          onClick={(e) => {
+            e.preventDefault();
+            const el = document.getElementById("no-shows");
+            if (!el) return;
+            const offset = window.innerWidth >= 768 ? 88 : 76;
+            window.scrollTo({
+              top: el.getBoundingClientRect().top + window.pageYOffset - offset,
+              behavior: "smooth",
+            });
+          }}
+          data-testid="faq-no-show-table-link"
+          className="font-semibold text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
+        >
+          See the full breakdown in the table →
+        </a>
+      </>
+    ),
+  },
+  {
+    q: "What if we meet but nobody taps Purchase, Cancel, or Report?",
+    a: "Always close out the deal in the app. If you both show up but the meeting ends without anyone tapping Purchase, Cancel, or Report, the buyer's deposit is kept 48 hours later. The seller gets 60% of it for their time. If something went wrong, tap Report or contact support within those 48 hours and we'll step in before any money moves.",
   },
   {
     q: "What if the buyer's card declines at the moment of sale?",
@@ -37,7 +72,7 @@ const faqs = [
   },
   {
     q: "How long do I have to inspect an item?",
-    a: "Inspection windows vary by category: 30-45 minutes for electronics, up to 3 hours for vehicles, and up to 21 days for real estate. During this window the buyer can thoroughly examine the item before any money moves from escrow to the seller.",
+    a: "Inspection windows vary by category: 30-45 minutes for electronics, up to 3 hours for vehicles, and up to 30 minutes for most other items. During this window the buyer can thoroughly examine the item before any money moves from escrow to the seller.",
   },
   {
     q: "What if the item isn't as described?",
@@ -45,7 +80,7 @@ const faqs = [
   },
   {
     q: "What's the platform fee, and are there any listing fees?",
-    a: "Listing is free — always. TruTown only takes an 8.9% platform fee on successful sales. Your Wallet's Net Balance reflects the fee automatically so there are no surprise deductions at Cash Out.",
+    a: "Listing is free, always. TruTown takes an 8.9% fee only when a sale completes (1.8% for real estate - coming soon). Your Wallet's Net Balance already accounts for the fee and any Balance Due, so what you see is what you cash out.",
   },
   {
     q: "How does Cash Out work?",
