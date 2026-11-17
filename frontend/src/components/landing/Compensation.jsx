@@ -34,6 +34,7 @@ function CountUp({ value, duration = 1.6, delay = 0.2, onComplete }) {
 
 function WalletCard() {
   const [counted, setCounted] = useState(false);
+  const [cashOutAsap, setCashOutAsap] = useState(true);
   return (
     <div className="relative w-full max-w-md mx-auto">
       {/* Soft glow */}
@@ -127,9 +128,19 @@ function WalletCard() {
           <span className="font-body text-sm font-semibold text-stone-800">
             Cash Out ASAP
           </span>
-          <div className="relative w-14 h-8 rounded-full bg-primary flex items-center">
-            <div className="absolute right-1 w-6 h-6 rounded-full bg-white shadow" />
-          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={cashOutAsap}
+            aria-label="Cash Out ASAP"
+            data-testid="cash-out-asap-toggle"
+            onClick={() => setCashOutAsap((enabled) => !enabled)}
+            className={`relative w-14 h-8 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${cashOutAsap ? "bg-primary" : "bg-stone-300"}`}
+          >
+            <span
+              className={`absolute top-1 w-6 h-6 rounded-full bg-white shadow transition-transform ${cashOutAsap ? "right-1" : "left-1"}`}
+            />
+          </button>
         </div>
 
         {/* Footnote */}
